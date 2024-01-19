@@ -1,0 +1,37 @@
+// Typography
+$font-heading: Georgia, Garamond, 'Times New Roman', serif;
+$font-copy: Tahoma, Trebuchet, Verdana, Arial, sans-serif;
+$font-code: 'Courier New', monospace;
+$font-cursive: 'Brush Script MT', cursive;
+
+// Dimensions
+$max-width-primary: 1224px;
+
+// Colors
+$color-dodger: #1e90ff;
+$color-blue: #0707db;
+$color-midnight: #020224;
+$color-warning: #ffd000;
+$color-alert: #ff320e;
+$color-error: #c71313;
+$color-success-lt: #00d400;
+$color-success-dk: #004d00;
+$color-active-lt: #ff9bff;
+$color-active-dk: #4a06b8;
+$color-disabled-lt: #969696;
+$color-disabled-dk: #1d1c1f;
+
+$color-text-lt: #f8f8f8;
+$color-text-dk: #111;
+$color-text-link: $color-dodger;
+$color-text-link-hover: $color-alert;
+
+$color-bg-lt-glass: rgba(255, 255, 255, 0.3);
+$color-bg-lt: $color-text-lt;
+$color-bg-dk-glass: rgba(0, 0, 0, 0.3);
+$color-bg-dk: $color-text-dk;
+
+$gradient-linear-main: linear-gradient(to right, $color-midnight, $color-blue 10%, $color-disabled-dk 50%, $color-blue 90%, $color-midnight 100%);
+$gradient-linear-text: linear-gradient(to right, $color-dodger, $color-blue, $color-alert, $color-warning, $color-active-dk, $color-success-dk);
+$gradient-linear-reflection: linear-gradient(to bottom, $color-bg-lt-glass, transparent 75%);
+$gradient-linear-shadow: linear-gradient(to top, $color-bg-dk-glass, transparent);

@@ -1,0 +1,14 @@
+$tablet-brk: 768px;
+$desktop-brk: 1024px;
+
+@mixin md {
+  @media (min-width: #{$tablet-brk}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$desktop-brk}) {
+    @content;
+  }
+}

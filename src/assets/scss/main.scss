@@ -1,0 +1,241 @@
+@import "base";
+
+body {
+  font-family:
+  Inter,
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  'Fira Sans',
+  'Droid Sans',
+  'Helvetica Neue',
+  sans-serif;
+  color: $color-text-dk;
+  background-image: url('../img/bgs/blk-wht-wave.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+}
+
+#app {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
+main {
+  max-width: $max-width-primary;
+  margin: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: bold;
+  text-align: center;
+  color: transparent;
+  padding: 0.5em 0;
+  background: $gradient-linear-text;
+  background-size: 10%;
+  background-clip: text;
+}
+
+p {
+  font-family: $font-copy;
+}
+
+a {
+  color: $color-text-link;
+  transition: 0.5s;
+
+  @media (hover: hover) {
+    &:hover {
+      color: $color-text-link-hover;
+    }
+  }
+}
+
+@mixin btn-hover {
+  @include btn;
+  color: $color-alert;
+  box-shadow: 1px 1px 10px $color-alert inset, -1px -1px 10px $color-alert inset;
+}
+
+.btn-hover {
+  @include btn-hover;
+
+  &::before {
+    @include btn-before;
+    background: $gradient-linear-reflection;
+  }
+
+  &::after {
+    @include btn-after;
+    background: $gradient-linear-shadow;
+  }
+}
+
+.btn-primary {
+  @include btn;
+  font-family: $font-cursive;
+  color: $color-text-lt;
+  background: $color-dodger;
+  background: $gradient-linear-main;
+  background-size: 700%;
+  background-position: left;
+  animation: bg-gradient-slide 10s ease-in-out alternate infinite;
+
+  &::before {
+    @include btn-before;
+    background: $gradient-linear-reflection;
+  }
+
+  &::after {
+    @include btn-after;
+    background: $gradient-linear-shadow;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: $color-alert;
+    }
+  }
+}
+
+@keyframes bg-gradient-slide {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}
+
+.btn-secondary {
+  @include btn;
+  font-family: $font-cursive;
+  color: $color-dodger;
+  border: 1px solid $color-dodger;
+  box-shadow: 1px 1px 5px $color-dodger inset, -1px -1px 5px $color-dodger inset;
+  backdrop-filter: blur(5px);
+
+  &::before {
+    @include btn-before;
+    background: $gradient-linear-reflection;
+  }
+
+  &::after {
+    @include btn-after;
+    background: $gradient-linear-shadow;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      @include btn-hover;
+    }
+  }
+}
+
+.btn-focus {
+  @include btn;
+  font-family: $font-cursive;
+  color: $color-dodger;
+  border: 1px solid $color-blue;
+  box-shadow: 1px 1px 5px $color-blue inset, -1px -1px 5px $color-blue inset;
+
+  &::before {
+    @include btn-before;
+    background: $gradient-linear-reflection;
+  }
+
+  &::after {
+    @include btn-after;
+    background: $gradient-linear-shadow;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      @include btn-hover;
+    }
+  }
+}
+
+.btn-active {
+  @include btn;
+  font-family: $font-cursive;
+  color: $color-active-lt;
+  border: 1px solid $color-active-dk;
+  box-shadow: 1px 1px 5px $color-active-dk inset, -1px -1px 5px $color-active-dk inset;
+
+  &::before {
+    @include btn-before;
+    background: $gradient-linear-reflection;
+  }
+
+  &::after {
+    @include btn-after;
+    background: $gradient-linear-shadow;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      @include btn-hover;
+    }
+  }
+}
+
+.btn-disabled {
+  @include btn;
+  font-family: $font-cursive;
+  cursor: not-allowed;
+  color: $color-disabled-lt;
+  background: $color-bg-dk-glass;
+  border: 1px solid $color-disabled-dk;
+  box-shadow: 1px 1px 5px $color-disabled-dk inset, -1px -1px 5px $color-disabled-dk inset;
+
+  &::before {
+    @include btn-before;
+    background: $gradient-linear-reflection;
+  }
+
+  &::after {
+    @include btn-after;
+    background: $gradient-linear-shadow;
+  }
+}
+
+.text-card-dk {
+  @include text-card;
+  color: $color-text-lt;
+  background: #000;
+}
+
+.text-card-lt {
+  @include text-card;
+  color: $color-text-dk;
+  background: #fff;
+}
+
+.img-card-dk {
+  @include img-card;
+  color: $color-text-lt;
+  background: $color-bg-dk;
+  background: radial-gradient(circle at bottom, $color-bg-dk 25%, $color-bg-dk-glass);
+  border: 1px solid $color-text-dk;
+  box-shadow: 1px 1px 5px $color-bg-dk-glass inset, -1px -1px 5px $color-bg-dk-glass inset;
+}
+
+.img-card-lt {
+  @include img-card;
+  color: $color-text-dk;
+  background: $color-bg-lt;
+  background: radial-gradient(circle at bottom, $color-bg-lt 25%, $color-bg-lt-glass);
+  border: 1px solid $color-text-lt;
+  box-shadow: 1px 1px 5px $color-bg-lt-glass inset, -1px -1px 5px $color-bg-lt-glass inset;
+}
