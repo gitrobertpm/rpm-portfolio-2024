@@ -1,0 +1,89 @@
+@import "mixins";
+
+p, li, span {
+  @include copy;
+}
+
+p {
+  margin: auto auto 1.25rem;
+}
+
+a {
+  @include link;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include heading;
+}
+
+h1 {
+  font-size: 2.5rem;
+
+  @include md {
+    font-size: 3rem;
+  }
+
+  @include lg {
+    font-size: 3.5rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+
+  @include md {
+    font-size: 2.5rem;
+  }
+
+  @include lg {
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+
+  @include md {
+    font-size: 2rem;
+  }
+
+  @include lg {
+    font-size: 2.5rem;
+  }
+}
+
+h4 {
+  font-size: 1.2rem;
+
+  @include md {
+    font-size: 1.5rem;
+  }
+
+  @include lg {
+    font-size: 2rem;
+  }
+}
+
+h5 {
+  font-size: 1rem;
+
+  @include md {
+    font-size: 1.25rem;
+  }
+
+  @include lg {
+    font-size: 1.5rem;
+  }
+}
+
+h6 {
+  font-size: 0.9rem;
+
+  @include md {
+    font-size: 1.1rem;
+  }
+
+  @include lg {
+    font-size: 1.25rem;
+  }
+}

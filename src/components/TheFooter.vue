@@ -6,10 +6,6 @@
   </footer>
 </template>
 
-<script setup>
-
-</script>
-
 <style lang="scss" scoped>
 .footer {
   text-align: center;
@@ -17,6 +13,13 @@
   bottom: 0;
   width: 100%;
   padding: 1rem 0;
+  // background: $color-bg-dk-glass;
+  // backdrop-filter: blur(5px);
+
+  // @include lg {
+  //   background: none;
+  //   backdrop-filter: none;
+  // }
 
   &__box {
     max-width: $max-width-primary;

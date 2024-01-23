@@ -1,56 +1,310 @@
+@import "variables";
 
-@mixin card {
+@mixin section {
+  width: 100%;
+  max-width: $max-width-primary;
+  margin: auto auto 50px;
+}
+
+// Typography
+@mixin heading {
+  font-family: $font-heading;
+  font-weight: bold;
+  text-align: center;
+  color: transparent;
+  padding: 0.35em 0 0.70em;
+  background: $gradient-linear-text;
+  background-size: 20%;
+  background-clip: text;
+  background-position: left;
+  animation: bg-gradient-slide 187s ease-in-out alternate infinite;
+
+  @include lg {
+    background-size: 10%;
+    padding: 0.6em 0 1.2em;
+  }
+}
+
+@mixin text-block-heading {
+  // Interpolated double ampersand increases specificity to limit upper whitespace when adding heading to text-blocks. 
+  &#{&} {
+    h2, h3, h4, h5, h6 {
+      padding-top: 0;
+    }
+  }
+}
+
+@mixin copy {
+  font-family: $font-copy;
+  max-width: 700px;
+}
+
+// Blocks
+@mixin content {
   position: relative;
-  text-align: justify;
+  width: 100%;
   max-width: 800px;
   margin: auto;
-  padding: 3rem 4rem 3.5rem;
+  padding: 2.5rem 2rem;
   transition: 0.5s;
+
+  @include md {
+    width: 90%;
+    padding: 3rem 4rem;
+    margin: auto auto 50px;
+  }
 }
 
-@mixin text-card {
-  @include card;
-  border-radius: 50px;
-}
-
-@mixin img-card {
-  @include card;
-  border-radius: 5px;
+@mixin card {
+  @include content;
   backdrop-filter: blur(5px);
+
+  @include md {
+    border-radius: 5px;
+  }
 }
 
-@mixin btn {
+@mixin card-lt {
+  @include card;
+  color: $color-text-dk;
+  background: $color-bg-lt;
+  background: $gradient-radial-card-lt;
+  // border: 1px solid $color-text-lt;
+  // box-shadow: 1px 1px 5px $color-bg-lt-glass inset, -1px -1px 5px $color-bg-lt-glass inset;
+}
+
+@mixin card-dk {
+  @include card;
+  color: $color-text-lt;
+  background: $color-bg-dk;
+  background: $gradient-radial-card-dk;
+  // border: 1px solid $color-text-dk;
+  // box-shadow: 1px 1px 5px $color-bg-dk-glass inset, -1px -1px 5px $color-bg-dk-glass inset;
+}
+
+@mixin text-block {
+  @include content;
+  text-align: justify;
+  backdrop-filter: blur(5px);
+  @include lg {
+    backdrop-filter: none;
+  }
+}
+
+@mixin text-block-lt {
+  @include text-block;
+  color: $color-text-dk;
+  background: $color-wht;
+  background: $gradient-radial-card-lt;
+
+  @include md {
+    background: $color-wht;
+    border-radius: 4rem;
+  }
+}
+
+@mixin text-block-dk {
+  @include text-block;
+  color: $color-text-lt;
+  background: $color-blk;
+  background: $gradient-radial-card-dk;
+
+  @include md {
+    background: $color-blk;
+    border-radius: 4rem;
+  }
+}
+
+// Elements
+@mixin link-hover {
+  color: $color-text-link-hover !important;
+}
+
+@mixin link-visited {
+  display: inline-block;
   position: relative;
-  cursor: pointer;
-  font-weight: bold;
-  min-width: 120px;
-  min-height: 48px;
-  padding: 0.75rem 1.5rem 1rem;
-  background: none;
+
+  &::after {
+    content: "\2713";
+    position: absolute;
+    top: -5px;
+    font-weight: bold;
+    color: $color-success-lt;
+    width: 10px;
+    height: 10px;
+    opacity: 0.3;
+  }
+}
+
+@mixin link-active {
   border-radius: 5px;
+  outline: 1px solid $color-alert;
+  outline-offset: 3px;
+}
+
+@mixin link-focus {
+  border-radius: 5px;
+  outline: 1px solid $color-dodger;
+  outline-offset: 3px;
+}
+
+@mixin link-disabled {
+  pointer-events: none;
+  color: $color-disabled-lt !important;
+}
+
+@mixin link {
+  font-family: $font-copy;
+  color: $color-text-link;
+  transition: 0.5s;
+
+  &:visited {
+    @include link-visited;
+  }
+
+  &:active {
+    @include link-active;
+  }
+
+  &:focus,
+  &:focus-visible {
+    @include link-focus;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      @include link-hover;
+    }
+  }
+
+  &:disabled {
+    @include link-disabled;
+  }
+}
+
+@mixin btn-before-after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  left: 1px;
+  width: 100%;
+  height: 10px;
+}
+
+@mixin btn-flourish {
+  &::before {
+    @include btn-before-after;
+    top: 0;
+    background: $gradient-linear-reflection;
+    border-radius: 3px 3px 0 0;
+  }
+
+  &::after {
+    @include btn-before-after;
+    bottom: 0;
+    background: $gradient-linear-shadow;
+    border-radius: 0 0 3px 3px;
+  }
+}
+
+@mixin btn-reset {
+  cursor: pointer;
+  background: none;
   border: 1px solid transparent;
   outline: none;
   transition: 0.5s;
 }
 
-@mixin btn-before {
-  pointer-events: none;
-  content: "";
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  width: 98%;
-  height: 10px;
-  border-radius: 10px / 30px;
+@mixin btn-active {
+  color: $color-alert;
+  border: 1px solid $color-dodger;
 }
 
-@mixin btn-after {
-  pointer-events: none;
-  content: "";
-  position: absolute;
-  bottom: 1px;
-  left: 1px;
-  width: 98%;
-  height: 10px;
-  border-radius: 10px / 30px;
+@mixin btn-focus {
+  color: $color-alert;
+  border: 1px solid $color-dodger;
+  outline: 4px solid $color-dodger;
+  outline-offset: 3px;
+}
+
+@mixin btn-disabled {
+  cursor: not-allowed;
+  color: $color-disabled-dk;
+  background: $color-disabled-lt;
+  border: 1px solid transparent;
+}
+
+@mixin btn {
+  position: relative;
+  font-family: $font-cursive;
+  font-weight: bold;
+  min-width: 150px;
+  min-height: 50px;
+  padding: 0.75rem 1.5rem 1rem;
+  margin: auto auto 1.25rem;
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+
+  @include btn-flourish;
+
+  &:focus,
+  &:focus-visible {
+    @include btn-focus;
+  }
+
+  &:active {
+    @include btn-active;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: $color-alert;
+      border: 1px solid $color-dodger;
+      box-shadow: 1px 1px 10px $color-dodger inset, -1px -1px 10px $color-dodger inset;
+    }
+  }
+
+  &:disabled {
+    @include btn-disabled;
+    box-shadow: none;
+  }
+}
+
+@mixin btn-primary {
+  color: $color-text-lt;
+  background: $color-blue;
+  background: $gradient-linear-primary-btn;
+  background-size: 700%;
+  background-position: left;
+  animation: bg-gradient-slide 10s ease-in-out alternate infinite;
+}
+
+@mixin btn-secondary {
+  color: $color-dodger;
+  border: 1px solid $color-blue;
+}
+
+// Media queries
+@mixin md {
+  @media (min-width: #{$tablet-brk}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$desktop-brk}) {
+    @content;
+  }
+}
+
+@mixin lg-down {
+  @media (max-width: #{$desktop-brk}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$xl-brk}) {
+    @content;
+  }
 }

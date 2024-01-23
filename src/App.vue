@@ -1,16 +1,7 @@
 <template>
-  <div class="wrapper-primary">
-    <TheHeader />
-    <RouterView />
-  </div>
-  <TheFooter />
+  <TheLayout />
 </template>
 
 <script setup>
-import { RouterView } from 'vue-router';
-import TheHeader from './components/TheHeader.vue';
-import TheFooter from './components/TheFooter.vue';
+import TheLayout from './components/TheLayout.vue';
 </script>
-
-<style lang="scss" scoped>
-</style>

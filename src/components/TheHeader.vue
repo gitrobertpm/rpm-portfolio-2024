@@ -13,9 +13,17 @@ import TheNav from './TheNav.vue';
 
 <style lang="scss" scoped>
 header {
-  background: $color-bg-dk;
-  background: linear-gradient(to bottom, $color-bg-dk-glass, $color-bg-dk);
-  backdrop-filter: blur(5px);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+
+  @include md {
+    margin-bottom: 40px;
+  }
+
+  @include lg {
+    margin-bottom: 50px;
+  }
 }
 
 .header-box {

@@ -1,6 +1,6 @@
 <template>
   <main class="main-home">
-    <h1>This is the home page</h1>
+    <h1>RPM</h1>
     <!-- <div class="avatar-frame">
       <img alt="Me" class="avatar" src="@/assets/img/pics/me-jan-2024.jpg" />
     </div> -->
