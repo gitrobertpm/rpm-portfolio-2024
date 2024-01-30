@@ -62,8 +62,8 @@
 
 // LINKS --------------------------------------------------------------------------------------------------
 @mixin link-hover {
-  color: $color-text-link-hover !important;
-  filter: drop-shadow(0 1px 25px $color-alert);
+  color: $color-deep-sky !important;
+  filter: drop-shadow(0 1px 25px $color-deep-sky);
 }
 
 @mixin link-visited {
@@ -88,7 +88,7 @@
 }
 
 @mixin link-focus-visible {
-  border: 1px solid $color-dodger !important;
+  border: 1px solid $color-deep-sky !important;
   outline: 1px solid $color-dodger;
 }
 
@@ -132,9 +132,10 @@
 
 // BUTTONS --------------------------------------------------------------------------------------
 @mixin btn-hover {
-  color: $color-alert;
-  border: 1px solid $color-blue;
-  box-shadow: 1px 1px 5px $color-dodger inset, -1px -1px 5px $color-dodger inset;
+  color: $color-deep-sky !important;
+  border: 1px solid $color-deep-sky;
+  filter: drop-shadow(0 5px 15px $color-bg-deep-sky-glass);
+  box-shadow: 25px 12px 0 $color-bg-deep-sky-glass inset, -25px -10px 0 $color-bg-deep-sky-glass inset;
 }
 
 @mixin btn-active {
@@ -149,7 +150,7 @@
 
 @mixin btn-focus-visible {
   color: $color-dodger;
-  border: 1px solid $color-dodger;
+  border: 1px solid $color-deep-sky;
   outline: 3px solid $color-dodger;
   outline-offset: 2px;
 }
@@ -242,8 +243,8 @@
   background: linear-gradient(to right, $color-bg-dk-glass-thinner, $color-bg-lt-glass-thinner 30%, $color-bg-lt-glass-thinner 70%, $color-bg-dk-glass-thinner);
   // background-size: 700%;
   // background-position: left;
-  border: 1px solid $color-bg-dk-glass-thinner;
-  box-shadow: 1px 1px 0 $color-bg-lt-glass-thinner, -1px -1px 0 $color-bg-lt-glass-thinner;
+  border: 1px solid $color-bg-lt-glass-thinner;
+  border-top: 1px solid $color-bg-dk-glass-thinner;
   // animation: bg-gradient-slide 10s ease-in-out alternate infinite;
 }
 

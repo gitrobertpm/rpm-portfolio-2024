@@ -26,12 +26,12 @@ main {
   max-width: $max-width-primary;
   margin: auto;
   // Extra bottom padding to accommodate absolute positioned footer
-  padding: 3rem 0 56px;
+  padding: 2.5rem 0 56px;
   @include md {
-    padding: 3rem 2rem 56px;
+    padding: 2.5rem 2rem 56px;
   }
   @include lg {
-    padding: 3rem 4rem 56px;
+    padding: 2.5rem 4rem 56px;
   }
 }
 
