@@ -1,147 +1,1161 @@
 <template>
-  <h1>STYLE GUIDE</h1>
-  <main class="style-guide">
-    <hr>
-    <div class="section">
-      <h2>Buttons & Links</h2>
+  <main class="main main__style-guide">
+    <h1>STYLE GUIDE</h1>
 
-      <div class="text-block--lt flex--row--between" style="gap: 25px">
-        <button class="btn btn--primary">Primary</button>
-        <button class="btn btn--secondary">Secondary</button>
-        <button class="btn btn-hover-styles">Hover</button>
-        <button class="btn btn--active">Active</button>
-        <button class="btn btn--focus">Focus</button>
-        <button class="btn" disabled>Disabled</button>
-      </div>
+    <ASection 
+      light 
+      hero 
+      heading 
+      subheading 
+      text 
+      footer
+    >
+      <template #hero>
+        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-candy.png" alt="My Logo">
+      </template>
 
-      <div class="text-block--dk flex--row--between" style="gap: 25px">
-        <button class="btn btn--primary">Primary</button>
-        <button class="btn btn--secondary">Secondary</button>
-        <button class="btn btn-hover-styles">Hover</button>
-        <button class="btn btn--active">Active</button>
-        <button class="btn btn--focus">Focus</button>
-        <button class="btn" disabled>Disabled</button>
-      </div>
+      <template #heading>
+        <h2>Light Section</h2>
+      </template>
 
-      <div class="text-block--lt flex--row--between" style="gap: 25px">
-        <a href="#">Link</a>
-        <a href="#" class="link--hover">Hover</a>
-        <a href="#" class="link--active">Active</a>
-        <a href="#" class="link--focus">Focus</a>
-        <a href="#" class="link--visited">Visited</a>
-        <a href="#" class="link--disabled" disabled>Disabled</a>
-      </div>
+      <template #subheading>
+        <h3>Reusable Component</h3>
+      </template>
 
-      <div class="text-block--dk flex--row--between" style="gap: 25px">
-        <a href="#">Link</a>
-        <a href="#" class="link--hover">Hover</a>
-        <a href="#" class="link--active">Active</a>
-        <a href="#" class="link--focus">Focus</a>
-        <a href="#" class="link--visited">Visited</a>
-        <a href="#" class="link--disabled" disabled>Disabled</a>
-      </div>
+      <template #text>
+        <p>This is a reusable <code>Section</code> component. The use of slots facilitates content injection. Which means the headings, this block of text, the footer below, and even the accordion after that are completely optional, adding to the component's flexibility.</p>
+        <p>Modular Sass with a blend of helpful utility classes and BEM selectors makes this component more maintainable and a breeze to use with little-to-no added styles.</p>
+      </template>
 
-      <br>
-      <br>
-      <br>
-    </div>
-    <hr>
+      <template #footer>
+        <p><b>Section footer:</b> for <a href="Links">Links</a>, <button style="border: 1px solid rgba(0, 0, 0, 0.1)">Buttons</button>, notes, or whatever.</p>
+      </template>
 
-    <div class="section">
-      <h2>Text Blocks</h2>
+      <template #supplemental>
+        <div class="flex--row--right">
+          <AnAccordion theme="lt" heading text footer>
+          <template #heading>
+            <h3>Light Accordion</h3>
+          </template>
 
-      <div class="text-block--dk">
-          <p>This is a dark text block. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Here's a <a href="#">link</a>. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Here's <a href="#">another link</a>, and <a href="#">here is a third link</a> dude.</p>
+          <template #text>
+            <p>Cards — red, green, blue, yellow, light, clear, and dark.</p>
+          </template>
+
+          <div class="card-box">
+            <ACard theme="red" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+
+            <ACard theme="green" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+
+            <ACard theme="blue" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+
+            <ACard theme="yellow" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+
+            <ACard theme="lt" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+
+            <ACard theme="dk" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>            
+
+            <ACard theme="clr" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+          </div>
+
+          <template #footer>
+            <p>This is a footer</p>
+          </template>
+        </AnAccordion>
         </div>
+      </template>
+    </ASection>
 
-        <div class="text-block--lt">
-          <p>This is a light text block. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Here's a <a href="#">link</a>. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Here's <a href="#">another link</a>, and <a href="#">here is a third link</a> dude.</p>
-        </div>
-        <hr>
+    <ASection
+      hero 
+      heading 
+      subheading 
+      text 
+      footer
+    >
+      <template #hero>
+        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-candy.png" alt="My Logo">
+      </template>
+
+      <template #heading>
+        <h2>Dark Section</h2>
+      </template>
+
+      <template #subheading>
+        <h3>Reusable Component</h3>
+      </template>
+
+      <template #text>
+        <p>This is a reusable <code>Section</code> component. The use of slots facilitates content injection. Which means the headings, this block of text, the footer below, and even the accordion after that are completely optional, adding to the component's flexibility.</p>
+        <p>Modular Sass with a blend of helpful utility classes and BEM selectors makes this component more maintainable and a breeze to use with little-to-no added styles.</p>
+      </template>
+
+      <template #footer>
+        <p><b>Section footer:</b> for <a href="Links">Links</a>, <button style="color: #eee; border: 1px solid rgba(255, 255, 255, 0.1)">Buttons</button>, notes, or whatever.</p>
+      </template>
+
+      <template #supplemental>
+        <AnAccordion theme="dk" heading text footer>
+          <template #heading>
+            <h3>Dark Accordion</h3>
+          </template>
+
+          <template #text>
+            <p>Cards — red, green, blue, yellow, light, clear, and dark.</p>
+          </template>
+
+          <div class="card-box">
+            <ACard theme="red" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+
+            <ACard theme="green" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+
+            <ACard theme="blue" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+
+            <ACard theme="yellow" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+
+            <ACard theme="lt" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+
+            <ACard theme="dk" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+
+            <ACard theme="clr" heading text footer drawer>
+              <template #heading>
+                <h4>Card</h4>
+              </template>
+
+              <template #text>
+                <p>Test</p>
+              </template>
+
+              <template #footer>
+                <p>Footer</p>
+              </template>
+
+              <template #drawer>
+                <AnAccordion heading text footer>
+                  <template #heading>
+                    <h5>Clear Accordion</h5>
+                  </template>
+
+                  <template #text>
+                    <p>Text content goes here.</p>
+                  </template>
+
+                  <template #footer>
+                    <p>Footer</p>
+                  </template>
+                </AnAccordion>
+              </template>
+            </ACard>
+          </div>
+
+          <template #footer>
+            <p>Footer</p>
+          </template>
+        </AnAccordion>
+      </template>
+    </ASection>
+
+    <hr>
+    <div class="cutout--dk">
+      <h2>Cards — light, clear, dark</h2>
     </div>
 
-    <div class="section">
-      <h2>Cards & Lists</h2>
+    
+    <div class="flex--row--left">
+      <AnAccordion heading text footer>
+        <template #heading>
+          <h5>Clear Accordion</h5>
+        </template>
 
+        <template #text>
+          <p>Text content goes here.</p>
+        </template>
+        <div class="card-box">
+      <ACard theme="lt" heading text footer drawer>
+        <template #heading>
+          <h4>Card</h4>
+        </template>
+
+        <template #text>
+          <p>Test</p>
+        </template>
+
+        <template #footer>
+          <p>Footer</p>
+        </template>
+
+        <template #drawer>
+          <AnAccordion heading text footer>
+            <template #heading>
+              <h5>Clear Accordion</h5>
+            </template>
+
+            <template #text>
+              <p>Text content goes here.</p>
+            </template>
+
+            <template #footer>
+              <p>Footer</p>
+            </template>
+          </AnAccordion>
+        </template>
+      </ACard>
+
+      <ACard theme="clr" heading text footer drawer>
+        <template #heading>
+          <h4>Card</h4>
+        </template>
+
+        <template #text>
+          <p>Test</p>
+        </template>
+
+        <template #footer>
+          <p>Footer</p>
+        </template>
+
+        <template #drawer>
+          <AnAccordion heading text footer>
+            <template #heading>
+              <h5>Clear Accordion</h5>
+            </template>
+
+            <template #text>
+              <p>Text content goes here.</p>
+            </template>
+
+            <template #footer>
+              <p>Footer</p>
+            </template>
+          </AnAccordion>
+        </template>
+      </ACard>
+
+      <ACard theme="dk" heading text footer drawer>
+        <template #heading>
+          <h4>Card</h4>
+        </template>
+
+        <template #text>
+          <p>Test</p>
+        </template>
+
+        <template #footer>
+          <p>Footer</p>
+        </template>
+
+        <template #drawer>
+          <AnAccordion heading text footer>
+            <template #heading>
+              <h5>Clear Accordion</h5>
+            </template>
+
+            <template #text>
+              <p>Text content goes here.</p>
+            </template>
+
+            <template #footer>
+              <p>Footer</p>
+            </template>
+          </AnAccordion>
+        </template>
+      </ACard>
+    </div>
+    <div class="card-box">
+      <ACard theme="dk" heading text footer drawer>
+        <template #heading>
+          <h4>Card</h4>
+        </template>
+
+        <template #text>
+          <p>Test</p>
+        </template>
+
+        <template #footer>
+          <p>Footer</p>
+        </template>
+
+        <template #drawer>
+          <AnAccordion heading text footer>
+            <template #heading>
+              <h5>Clear Accordion</h5>
+            </template>
+
+            <template #text>
+              <p>Text content goes here.</p>
+            </template>
+
+            <template #footer>
+              <p>Footer</p>
+            </template>
+          </AnAccordion>
+        </template>
+      </ACard>
+
+      <ACard theme="clr" heading text footer drawer>
+        <template #heading>
+          <h4>Card</h4>
+        </template>
+
+        <template #text>
+          <p>Test</p>
+        </template>
+
+        <template #footer>
+          <p>Footer</p>
+        </template>
+
+        <template #drawer>
+          <AnAccordion heading text footer>
+            <template #heading>
+              <h5>Clear Accordion</h5>
+            </template>
+
+            <template #text>
+              <p>Text content goes here.</p>
+            </template>
+
+            <template #footer>
+              <p>Footer</p>
+            </template>
+          </AnAccordion>
+        </template>
+      </ACard>
+
+      <ACard theme="lt" heading text footer drawer>
+        <template #heading>
+          <h4>Card</h4>
+        </template>
+
+        <template #text>
+          <p>Test</p>
+        </template>
+
+        <template #footer>
+          <p>Footer</p>
+        </template>
+
+        <template #drawer>
+          <AnAccordion heading text footer>
+            <template #heading>
+              <h5>Clear Accordion</h5>
+            </template>
+
+            <template #text>
+              <p>Text content goes here.</p>
+            </template>
+
+            <template #footer>
+              <p>Footer</p>
+            </template>
+          </AnAccordion>
+        </template>
+      </ACard>
+    </div>
+    <div class="card-box">
+      <ACard theme="lt" heading text footer drawer>
+        <template #heading>
+          <h4>Card</h4>
+        </template>
+
+        <template #text>
+          <p>Test</p>
+        </template>
+
+        <template #footer>
+          <p>Footer</p>
+        </template>
+
+        <template #drawer>
+          <AnAccordion heading text footer>
+            <template #heading>
+              <h5>Clear Accordion</h5>
+            </template>
+
+            <template #text>
+              <p>Text content goes here.</p>
+            </template>
+
+            <template #footer>
+              <p>Footer</p>
+            </template>
+          </AnAccordion>
+        </template>
+      </ACard>
+    </div>
+    <div class="card-box">
+      <ACard theme="clr" heading text footer drawer>
+        <template #heading>
+          <h4>Card</h4>
+        </template>
+
+        <template #text>
+          <p>Test</p>
+        </template>
+
+        <template #footer>
+          <p>Footer</p>
+        </template>
+
+        <template #drawer>
+          <AnAccordion heading text footer>
+            <template #heading>
+              <h5>Clear Accordion</h5>
+            </template>
+
+            <template #text>
+              <p>Text content goes here.</p>
+            </template>
+
+            <template #footer>
+              <p>Footer</p>
+            </template>
+          </AnAccordion>
+        </template>
+      </ACard>
+    </div>
+    <div class="card-box">
+      <ACard theme="dk" heading text footer drawer>
+        <template #heading>
+          <h4>Card</h4>
+        </template>
+
+        <template #text>
+          <p>Test</p>
+        </template>
+
+        <template #footer>
+          <p>Footer</p>
+        </template>
+
+        <template #drawer>
+          <AnAccordion heading text footer>
+            <template #heading>
+              <h5>Clear Accordion</h5>
+            </template>
+
+            <template #text>
+              <p>Text content goes here.</p>
+            </template>
+
+            <template #footer>
+              <p>Footer</p>
+            </template>
+          </AnAccordion>
+        </template>
+      </ACard>
+    </div>
+        <template #footer>
+          <p>Footer</p>
+        </template>
+      </AnAccordion>
+    </div>
+
+    <br>
+    <hr>
+
+    <ASection 
+      light 
+      hero
+      heading
+      subheading
+    >
+      <template #hero>
+        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-candy.png" alt="My Logo">
+      </template>
+
+      <template #heading>
+        <h2>Light Section</h2>
+      </template>
+
+      <template #subheading>
+        <h3>Links & Buttons</h3>
+      </template>
+
+      <template #supplemental>
+        <div class="flex--row--right">
+          <AnAccordion theme="lt" heading text footer>
+            <template #heading>
+              <h3>Light Accordion</h3>
+            </template>
+
+            <template #text>
+              <p>Text content goes here.</p>
+            </template>
+            <div class="flex--row--evenly gap--2 pad--all--montana">
+              <a href="#">Link</a>
+              <a href="#" class="link--hover">Hover</a>
+              <a href="#" class="link--active">Active</a>
+              <a href="#" class="link--focus">Focus</a>
+              <a href="#" class="link--focus-visible">Focus Visible</a>
+              <a href="#" class="link--visited">Visited</a>
+              <a href="#" class="link--disabled" disabled>Disabled</a>
+            </div>
+            <div class="flex--row--around gap--1-5 pad--all--loose">
+              <button class="btn btn--primary">Primary</button>
+              <button class="btn btn--secondary">Secondary</button>
+            </div>
+            <div class="flex--row--around gap--1-5 pad--all--loose">
+              <button class="btn btn--hover">Hover</button>
+              <button class="btn btn--active">Active</button>
+              <button class="btn btn--focus">Focus</button>
+              <button class="btn btn--focus-visible">Focus Visible</button>
+              <button class="btn" disabled>Disabled</button>
+            </div>
+
+            <template #footer>
+              <p>This is a footer.</p>
+            </template>
+          </AnAccordion>
+        </div>
+      </template>
+    </ASection>
+
+    <ASection
+      hero
+      heading
+      subheading
+    >
+      <template #hero>
+        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-candy.png" alt="My Logo">
+      </template>
+
+      <template #heading>
+        <h2>Dark Section</h2>
+      </template>
+
+      <template #subheading>
+        <h3>Links & Buttons</h3>
+      </template>
+
+      <template #supplemental>
+        <AnAccordion theme="dk" heading text footer>
+          <template #heading>
+            <h3>Dark Accordion</h3>
+          </template>
+
+          <template #text>
+            <p>Text content goes here.</p>
+          </template>
+          <div class="flex--row--evenly gap--2 pad--all--montana">
+            <a href="#">Link</a>
+            <a href="#" class="link--hover">Hover</a>
+            <a href="#" class="link--active">Active</a>
+            <a href="#" class="link--focus">Focus</a>
+            <a href="#" class="link--focus-visible">Focus Visible</a>
+            <a href="#" class="link--visited">Visited</a>
+            <a href="#" class="link--disabled" disabled>Disabled</a>
+          </div>
+          <div class="flex--row--around gap--1-5 pad--all--loose">
+            <button class="btn btn--primary">Primary</button>
+            <button class="btn btn--secondary">Secondary</button>
+          </div>
+          <div class="flex--row--around gap--1-5 pad--all--loose">
+            <button class="btn btn--hover">Hover</button>
+            <button class="btn btn--active">Active</button>
+            <button class="btn btn--focus">Focus</button>
+            <button class="btn btn--focus-visible">Focus Visible</button>
+            <button class="btn" disabled>Disabled</button>
+          </div>
+          <template #footer>
+            <p>Footer.</p>
+          </template>
+        </AnAccordion>
+      </template>
+    </ASection>
+
+    
+
+    <!-- <div class="section">
+      <div class="cutout--lt">
+        <h2>Sections, Cards & Blocks</h2>
+      </div>
+      
       <div class="card--lt">
         <h3>Light Card</h3>
-        <p>...with <code>p</code> tag and both unordered and ordered lists.</p>
-        <ul>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-        </ul>
-        <ol>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-        </ol>
       </div>
 
       <div class="card--dk">
         <h3>Dark Card</h3>
-        <p>...with <code>p</code> tag and both unordered and ordered lists.</p>
-        <ul>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-        </ul>
-        <ol>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-        </ol>
       </div>
-      <hr>
-    </div>
+    </div> -->
+
+    <!-- <div class="section">
+
+      <div class="cutout--lt">
+        <h2>Links & Buttons</h2>
+      </div>
+
+      <div class="cutout--dk--fat grid--2 grid--3">
+        <p>Here's a <code>&lt;div class="cutout--dk--fat"&gt;</code> with some <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code> tags dressed in the styles of their respective states. This <code>&lt;div&gt;</code> and the ones within use utility classes from the <code>_base.scss</code> file for a responsive layout.</p>
+        <div>
+          <div class="flex--row--evenly gap--2 pad--all--montana">
+            <a href="#">Link</a>
+            <a href="#" class="link--hover">Hover</a>
+            <a href="#" class="link--active">Active</a>
+            <a href="#" class="link--focus">Focus</a>
+            <a href="#" class="link--visited">Visited</a>
+            <a href="#" class="link--disabled" disabled>Disabled</a>
+          </div>
+          <div class="flex--row--around gap--1-5 pad--all--loose">
+            <button class="btn btn--primary">Primary</button>
+            <button class="btn btn--secondary">Secondary</button>
+            <button class="btn btn-hover-styles">Hover</button>
+            <button class="btn btn--active">Active</button>
+            <button class="btn btn--focus">Focus</button>
+            <button class="btn" disabled>Disabled</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cutout--lt--fat grid--2 grid--3">
+        <p>Here's a <code>&lt;div class="cutout--lt--fat"&gt;</code> with some <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code> tags dressed in the styles of their respective states. This <code>&lt;div&gt;</code> and the ones within leverage utility classes from the <code>_base.scss</code> file for a responsive layout.</p>
+        <div class="flex--row--evenly gap--2 pad--all--montana">
+          <a href="#">Link</a>
+          <a href="#" class="link--hover">Hover</a>
+          <a href="#" class="link--active">Active</a>
+          <a href="#" class="link--focus">Focus</a>
+          <a href="#" class="link--visited">Visited</a>
+          <a href="#" class="link--disabled" disabled>Disabled</a>
+        </div>
+        <div class="flex--row--around gap--1-5 pad--all--loose">
+          <button class="btn btn--primary">Primary</button>
+          <button class="btn btn--secondary">Secondary</button>
+          <button class="btn btn-hover-styles">Hover</button>
+          <button class="btn btn--active">Active</button>
+          <button class="btn btn--focus">Focus</button>
+          <button class="btn" disabled>Disabled</button>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="section">
+      <div class="cutout--dk">
+        <h2>Text, Lists & imgs</h2>
+      </div>
+
+      <div class="card--lt">
+        <h3>Light Card</h3>
+        <div class="text-block--lt">
+          <p>Here's some <code>&lt;p&gt;</code> and <code>&lt;a&gt;</code> tags in a <code>&lt;div class="text-block--lt"&gt;</code>. Here's a <a href="#">link</a>, and <a href="#">here's another link</a>.</p>
+          <p>And here's a second <code>&lt;p&gt;</code> tag dude.</p>
+        </div>
+        <div class="text-block--lt">
+          <p>Here's a <code>&lt;ul&gt;</code> with four <code>&lt;li&gt;</code> tags.</p>
+          <ul>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+          </ul>
+
+        </div>
+        
+        <div class="text-block--lt">
+          <p>Here's an <code>&lt;ol&gt;</code> with four <code>&lt;li&gt;</code> tags.</p>
+          <ol>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+          </ol>
+        </div>
+        
+      </div>
+
+      <div class="card--dk">
+        <h3>Dark Card</h3>
+        <div class="text-block--dk">
+          <p>Here's some <code>&lt;p&gt;</code> and <code>&lt;a&gt;</code> tags in a <code>&lt;div class="text-block--dk"&gt;</code>. Here's a <a href="#">link</a>, and <a href="#">here's another link</a>.</p>
+          <p>And here's a second <code>&lt;p&gt;</code> tag dude.</p>
+        </div>
+        <div class="text-block--dk">
+          <p>Here's a <code>&lt;ul&gt;</code> with four <code>&lt;li&gt;</code> tags.</p>
+          <ul>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+          </ul>
+        </div>
+        
+        <div class="text-block--dk">
+          <p>Here's an <code>&lt;ol&gt;</code> with four <code>&lt;li&gt;</code> tags.</p>
+          <ol>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+          </ol>
+        </div>
+        
+      </div>
+    </div> -->
     
-    <div class="section">
+    <!-- <div class="section">
       <h1>This is an h1 heading</h1>
-      <h2>This is an h2 heading</h2>
-      <h3>This is an h3 heading</h3>
-      <h4>This is an h4 heading</h4>
-      <h5>This is an h5 heading</h5>
-      <h6>This is an h6 heading</h6>
-      <hr>
-    </div>
+      <div class="cutout--lt">
+        <h2>This is an h2 heading</h2>
+      </div>
+      <div class="cutout--dk">
+        <h3>This is an h3 heading</h3>
+      </div>
+      <div class="cutout--lt">
+        <h4>This is an h4 heading</h4>
+      </div>
+      <div class="cutout--dk">
+        <h5>This is an h5 heading</h5>
+      </div>
+      <div class="cutout--lt">
+        <h6>This is an h6 heading</h6>
+      </div>
+    </div> -->
 
-    <div class="section">
-      <h2>Web Safe Fonts</h2>
-
-      <div class="text-block--lt">
-        <h3 class="text-block-heading">Copy</h3>
-        <p style="font-family: Tahoma, sans-serif">Tahoma (sans-serif)</p>
-        <p style="font-family: 'Trebuchet MS', sans-serif">Trebuchet MS (sans-serif)</p>
-        <p style="font-family: Verdana, sans-serif">Verdana (sans-serif)</p>
-        <p style="font-family: Arial, sans-serif">Arial (sans-serif)</p>
+    <!-- <div class="section section-icons">
+      <div class="cutout--dk">
+        <h2>Icons</h2>
+      </div>
+      <div class="cutout--lt flex--row--around">
+        <IconHamburger />
+        <IconHome />
+        <IconProjects />
+        <IconAbout />
+        <IconContact />
+        <IconStyleguide />
+        <IconClose />
       </div>
 
-      <div class="text-block--dk">
-        <h3 class="text-block-heading">Headings</h3>
-        <p style="font-family: Georgia, serif">Georgia (serif)</p>
-        <p style="font-family: Garamond, serif">Garamond (serif)</p>
-        <p style="font-family: 'Times New Roman', serif">Times New Roman (serif)</p>
+      <div class="cutout--lt flex--row--around">
+        <DocumentationIcon />
+        <ToolingIcon />
+        <EcosystemIcon />
+        <CommunityIcon />
+        <SupportIcon />
       </div>
+    </div> -->
 
-      <div class="text-block--lt">
-        <h3 class="text-block-heading">Code</h3>
-        <p style="font-family: 'Courier New', monospace">Courier New (monospace)</p>
-      </div>
+    <!-- <div class="section section--fonts">
+      <div class="card--lt">
+        <h2>Web Safe Fonts</h2>
+        <div class="text-block--lt">
+          <h3 class="text-block-heading">Copy</h3>
+          <p style="font-family: Tahoma, sans-serif">Tahoma (sans-serif)</p>
+          <p style="font-family: 'Trebuchet MS', sans-serif">Trebuchet MS (sans-serif)</p>
+          <p style="font-family: Verdana, sans-serif">Verdana (sans-serif)</p>
+          <p style="font-family: Arial, sans-serif">Arial (sans-serif)</p>
+        </div>
 
-      <div class="text-block--dk">
-        <h3 class="text-block-heading">Buttons</h3>
-        <p style="font-family: 'Brush Script MT', cursive">Brush Script MT (cursive)</p>
+        <div class="text-block--dk">
+          <h3 class="text-block-heading">Headings</h3>
+          <p style="font-family: Georgia, serif">Georgia (serif)</p>
+          <p style="font-family: Garamond, serif">Garamond (serif)</p>
+          <p style="font-family: 'Times New Roman', serif">Times New Roman (serif)</p>
+        </div>
+
+        <div class="text-block--lt">
+          <h3 class="text-block-heading">Code</h3>
+          <p style="font-family: 'Courier New', monospace">Courier New (monospace)</p>
+        </div>
+
+        <div class="text-block--dk">
+          <h3 class="text-block-heading">Buttons</h3>
+          <p style="font-family: 'Brush Script MT', cursive">Brush Script MT (cursive)</p>
+        </div>
       </div>
-      <hr>
-    </div>
+    </div> -->
   </main>
 </template>
 
+<script setup>
+import ASection from '@/components/reusables/ASection.vue';
+import AnAccordion from '@/components/reusables/AnAccordion.vue';
+import ACard from '@/components/reusables/ACard.vue';
+// import IconHamburger from '@/components/icons/IconHamburger.vue';
+// import IconHome from '@/components/icons/IconHome.vue';
+// import IconProjects from '@/components/icons/IconProjects.vue';
+// import IconAbout from '@/components/icons/IconAbout.vue';
+// import IconContact from '@/components/icons/IconContact.vue';
+// import IconStyleguide from '@/components/icons/IconStyleguide.vue';
+// import IconClose from '@/components/icons/IconClose.vue';
+// import DocumentationIcon from '@/components/icons/IconDocumentation.vue';
+// import ToolingIcon from '@/components/icons/IconTooling.vue';
+// import EcosystemIcon from '@/components/icons/IconEcosystem.vue';
+// import CommunityIcon from '@/components/icons/IconCommunity.vue';
+// import SupportIcon from '@/components/icons/IconSupport.vue';
+
+</script>
+
 <style lang="scss" scoped>
+.section-icons {
+  svg {
+    width: 75px;
+    height: 75px;
+  }
+}
 
 .default {
   width: 90%;
@@ -150,9 +1164,17 @@
   margin: auto auto 50px;
 }
 
-.btn-hover-styles {
-  color: $color-alert;
-  border: 1px solid $color-dodger;
-  box-shadow: 1px 1px 10px $color-dodger inset, -1px -1px 10px $color-dodger inset;
+// .link-hover-styles {
+//   color: $color-alert;
+// }
+// .btn-hover-styles {
+//   color: $color-alert;
+//   border: 1px solid $color-blue;
+//   box-shadow: 1px 1px 5px $color-dodger inset, -1px -1px 5px $color-dodger inset
+// }
+
+.last-row::after {
+  content: "";
+  flex: auto;
 }
 </style>

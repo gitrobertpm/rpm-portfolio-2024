@@ -1,10 +1,12 @@
 // Dimensions
-$max-width-primary: 1224px;
+$max-width-primary: 1280px;
+$max-width-text: 700px;
 
 // Breakpoints
+$mobile-brk: 480px;
 $tablet-brk: 768px;
 $desktop-brk: 1024px;
-$xl-brk: $max-width-primary;
+$xl-brk: 1200px;
 
 // Typography
 $font-heading: Georgia, Garamond, 'Times New Roman', serif;
@@ -14,41 +16,69 @@ $font-cursive: 'Brush Script MT', cursive;
 
 // Colors
 $color-wht: #fff;
-$color-dodger: #1e90ff;
-$color-blue: #0707db;
-$color-midnight: #020224;
-$color-warning: #ffd000;
-$color-alert: #ff320e;
-$color-error: #c71313;
-$color-success-lt: #00d400;
-$color-success-dk: #004d00;
-$color-special-lt: #ff9bff;
-$color-special-dk: #4a06b8;
+$color-deep-sky: rgb(0, 191, 255);
+$color-dodger: rgb(30, 144, 255);
+$color-blue: rgb(7, 7, 219);
+$color-midnight: rgb(2, 2, 36);
+$color-warning-lt: rgb(255, 255, 125);
+$color-warning: rgb(255, 215, 0);
+$color-warning-dk: rgb(255, 165, 0);
+$color-dirty: rgb(102, 54, 0);
+$color-alert: rgb(255, 50, 14);
+$color-error: rgb(199, 19, 19);
+$color-success-lt: rgb(0, 212, 0);
+$color-success: rgb(0, 187, 0);
+$color-success-dk: rgb(0, 77, 0);
+$color-special-lt: rgb(255, 155, 255);
+$color-special: rgb(255, 0, 235);
+$color-special-dk: rgb(74, 6, 184);
 $color-disabled-lt: #969696;
 $color-disabled-dk: #1d1c1f;
 $color-blk: #000;
 
 // Typography colors
-$color-text-lt: #f8f8f8;
-$color-text-dk: #111;
+$color-text-lt: rgba(248, 248, 248, 0.9);
+$color-text-dk: rgba(24, 24, 24, 0.9);
 $color-text-link: $color-dodger;
 $color-text-link-hover: $color-alert;
 
 // Background colors
-$color-bg-lt-glass-lt: rgba(var(--wht-r-g-b), 0.3);
-$color-bg-lt-glass: rgba(var(--wht-r-g-b), 0.5);
-$color-bg-lt-glass-dk: rgba(var(--wht-r-g-b), 0.7);
-$color-bg-dk-glass-lt: rgba(var(--blk-r-g-b), 0.3);
-$color-bg-dk-glass: rgba(var(--blk-r-g-b), 0.5);
-$color-bg-dk-glass-dk: rgba(var(--blk-r-g-b), 0.7);
 $color-bg-lt: $color-text-lt;
 $color-bg-dk: $color-text-dk;
 
+$color-bg-deep-sky-glass: rgba(0, 191, 255, 0.1);
+$color-bg-dodger-glass: rgba(30, 144, 255, 0.1);
+$color-bg-blue-glass: rgba(7, 7, 219, 0.1);
+$color-bg-midnight-glass: rgba(2, 2, 36, 0.1);
+$color-bg-warning-lt-glass: rgba(255, 255, 125, 0.1);
+$color-bg-warning-glass: rgba(255, 215, 0, 0.1);
+$color-bg-warning-dk-glass: rgba(255, 165, 0, 0.1);
+$color-bg-dirty-glass: rgba(102, 54, 0, 0.1);
+$color-bg-alert-glass: rgba(255, 50, 14, 0.1);
+$color-bg-error-glass: rgba(199, 19, 19, 0.1);
+$color-bg-success-lt-glass: rgba(0, 212, 0, 0.1);
+$color-bg-success-glass: rgba(0, 187, 0, 0.1);
+$color-bg-success-dk-glass: rgba(0, 77, 0, 0.1);
+$color-bg-special-lt-glass: rgba(255, 155, 255, 0.1);
+$color-bg-special-glass: rgba(255, 0, 235, 0.1);
+$color-bg-special-dk-glass: rgba(74, 6, 184, 0.1);
+
+$color-bg-lt-glass-thinner: rgba(var(--wht-r-g-b), 0.1);
+$color-bg-lt-glass-thin: rgba(var(--wht-r-g-b), 0.3);
+$color-bg-lt-glass: rgba(var(--wht-r-g-b), 0.5);
+$color-bg-lt-glass-thick: rgba(var(--wht-r-g-b), 0.9);
+$color-bg-lt-glass-thicker: rgba(var(--wht-r-g-b), 0.95);
+$color-bg-dk-glass-thinner: rgba(var(--blk-r-g-b), 0.1);
+$color-bg-dk-glass-thin: rgba(var(--blk-r-g-b), 0.3);
+$color-bg-dk-glass: rgba(var(--blk-r-g-b), 0.5);
+$color-bg-dk-glass-thick: rgba(var(--blk-r-g-b), 0.9);
+$color-bg-dk-glass-thicker: rgba(var(--blk-r-g-b), 0.95);
+
 // Gradients
-$gradient-radial-card-lt: radial-gradient(ellipse, $color-bg-lt , $color-bg-lt-glass);
-$gradient-radial-card-dk: radial-gradient(circle, $color-bg-dk, $color-bg-dk-glass);
+$gradient-radial-card-lt: radial-gradient(ellipse at bottom, $color-wht, $color-bg-lt-glass-thick);
+$gradient-radial-card-dk: radial-gradient(ellipse at bottom, $color-blk, $color-bg-dk-glass-thick);
 $gradient-radial-nav: radial-gradient(circle at bottom, $color-bg-dk, $color-bg-dk-glass);
 $gradient-linear-text: linear-gradient(to right, $color-dodger 5%, $color-blue 20%, $color-special-dk 35%, $color-alert 50%, $color-warning 60%, $color-alert 70%, $color-special-dk 80%, $color-dodger 95%);
 $gradient-linear-primary-btn: linear-gradient(to right, $color-midnight, $color-blue 10%, $color-special-dk 50%, $color-blue 90%, $color-midnight 100%);
-$gradient-linear-reflection: linear-gradient(to bottom, $color-bg-lt-glass, transparent 75%);
-$gradient-linear-shadow: linear-gradient(to top, $color-bg-dk-glass, transparent 75%);
+$gradient-linear-reflection: linear-gradient(to bottom, $color-bg-lt-glass-thin, transparent 75%);
+$gradient-linear-shadow: linear-gradient(to top, $color-bg-dk-glass-thin, transparent 75%);

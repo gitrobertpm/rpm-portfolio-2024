@@ -1,5 +1,5 @@
 <template>
-  <main class="main-home">
+  <main class="main main__home">
     <h1>RPM</h1>
     <!-- <div class="avatar-frame">
       <img alt="Me" class="avatar" src="@/assets/img/pics/me-jan-2024.jpg" />
@@ -11,6 +11,11 @@
 </script>
 
 <style lang="scss" scoped>
+  // .heading-flourish {
+    // text-shadow: 1px 1px 0 #fff;
+    // filter: drop-shadow(1px 1px 0 $color-text-lt);
+    // filter: drop-shadow(1px 1px 0 $color-text-dk) drop-shadow(1px 1px 0 $color-text-lt);
+  // }
   // .main-home {
     
   // }

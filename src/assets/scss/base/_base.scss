@@ -29,6 +29,21 @@
   --forest: #004d00;  
 }
 
+// Utility classes
+.grid {
+  &--2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: flex-start;
+  }
+
+  &--3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-content: flex-start;
+  }
+}
+
 .flex {
   &--row {
     &--left {
@@ -103,6 +118,125 @@
       display: flex;
       flex-flow: column wrap;
       justify-content: space-evenly;
+    }
+  }
+}
+
+.flex-reverse {
+  &--row {
+    flex-direction: row-reverse;
+  }
+
+  &--column {
+    flex-direction: column-reverse;
+  }
+
+  &--md {
+    &--row {
+      flex-direction: row-reverse;
+    }
+  
+    &--column {
+      flex-direction: column-reverse;
+    }
+  }
+  
+  &--lg {
+    &--row {
+      flex-direction: row-reverse;
+    }
+  
+    &--column {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+.gap {
+  &--0-5 {
+    gap: 0.5rem;
+  }
+  &--1 {
+    gap: 1rem;
+  }
+  &--1-5 {
+    gap: 1.5rem;
+  }
+  &--2 {
+    gap: 2rem
+  }
+  &--2-5 {
+    gap: 2.5rem;
+  }
+  &--3 {
+    gap: 3rem;
+  }
+}
+
+.pad {
+  &--vert {
+    &--claustrophobic {
+      padding: 0.1rem 0;
+    }
+
+    &--tight {
+      padding: 0.5rem 0;
+    }
+
+    &--cozy {
+      padding: 1rem 0;
+    }
+
+    &--loose {
+      padding: 2rem 0;
+    }
+
+    &--montana {
+      padding: 4rem 0;
+    }
+  }
+
+  &--horz {
+    &--claustrophobic {
+      padding: 0 0.1rem;
+    }
+
+    &--tight {
+      padding: 0 0.5rem;
+    }
+
+    &--cozy {
+      padding: 0 1rem;
+    }
+
+    &--loose {
+      padding: 0 2rem;
+    }
+
+    &--montana {
+      padding: 0 4rem;
+    }
+  }
+
+  &--all {
+    &--claustrophobic {
+      padding: 0.1rem;
+    }
+
+    &--tight {
+      padding: 0.5rem;
+    }
+
+    &--cozy {
+      padding: 1rem;
+    }
+
+    &--loose {
+      padding: 2rem;
+    }
+
+    &--montana {
+      padding: 4rem;
     }
   }
 }

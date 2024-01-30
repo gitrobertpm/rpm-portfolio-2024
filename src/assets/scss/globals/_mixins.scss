@@ -1,129 +1,72 @@
 @import "variables";
 
-@mixin section {
-  width: 100%;
-  max-width: $max-width-primary;
-  margin: auto auto 50px;
-}
+// Style
+// @mixin bipolar-brk-top {
+//   border-top: 1px solid $color-bg-dk-glass-thick;
+//   box-shadow: 0 -1px 0 $color-bg-lt-glass-thick;
+// }
+
+// @mixin bipolar-brk-bottom {
+//   border-bottom: 1px solid $color-bg-dk-glass-thick;
+//   box-shadow: 0 1px 0 $color-bg-lt-glass-thick;
+// }
 
 // Typography
 @mixin heading {
+  position: relative;
   font-family: $font-heading;
-  font-weight: bold;
-  text-align: center;
+  font-weight: bold !important;
+  margin-top: 1em;
+  margin-bottom: 0.75em;
+  padding: 0 0.5rem;
+
+  @include lg {
+    text-align: unset;
+    padding: 0;
+  }
+}
+
+@mixin heading-candy {
   color: transparent;
-  padding: 0.35em 0 0.70em;
   background: $gradient-linear-text;
   background-size: 20%;
   background-clip: text;
   background-position: left;
+  filter: drop-shadow(0 -1px 0 $color-text-lt) drop-shadow(0 2px 0 $color-text-dk);
   animation: bg-gradient-slide 187s ease-in-out alternate infinite;
 
   @include lg {
     background-size: 10%;
-    padding: 0.6em 0 1.2em;
   }
 }
 
-@mixin text-block-heading {
-  // Interpolated double ampersand increases specificity to limit upper whitespace when adding heading to text-blocks. 
-  &#{&} {
-    h2, h3, h4, h5, h6 {
-      padding-top: 0;
-    }
+@mixin heading-soothe {
+  color: transparent;
+  background: $gradient-linear-primary-btn;
+  background-size: 20%;
+  background-clip: text;
+  background-position: left;
+  filter: drop-shadow(0 -1px 0 $color-text-lt) drop-shadow(0 2px 0 $color-text-dk);
+  animation: bg-gradient-slide 187s ease-in-out alternate infinite;
+
+  @include lg {
+    background-size: 10%;
   }
 }
 
 @mixin copy {
   font-family: $font-copy;
+  text-align: left;
   max-width: 700px;
 }
 
-// Blocks
-@mixin content {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: auto;
-  padding: 2.5rem 2rem;
-  transition: 0.5s;
-
-  @include md {
-    width: 90%;
-    padding: 3rem 4rem;
-    margin: auto auto 50px;
-  }
-}
-
-@mixin card {
-  @include content;
-  backdrop-filter: blur(5px);
-
-  @include md {
-    border-radius: 5px;
-  }
-}
-
-@mixin card-lt {
-  @include card;
-  color: $color-text-dk;
-  background: $color-bg-lt;
-  background: $gradient-radial-card-lt;
-  // border: 1px solid $color-text-lt;
-  // box-shadow: 1px 1px 5px $color-bg-lt-glass inset, -1px -1px 5px $color-bg-lt-glass inset;
-}
-
-@mixin card-dk {
-  @include card;
-  color: $color-text-lt;
-  background: $color-bg-dk;
-  background: $gradient-radial-card-dk;
-  // border: 1px solid $color-text-dk;
-  // box-shadow: 1px 1px 5px $color-bg-dk-glass inset, -1px -1px 5px $color-bg-dk-glass inset;
-}
-
-@mixin text-block {
-  @include content;
-  text-align: justify;
-  backdrop-filter: blur(5px);
-  @include lg {
-    backdrop-filter: none;
-  }
-}
-
-@mixin text-block-lt {
-  @include text-block;
-  color: $color-text-dk;
-  background: $color-wht;
-  background: $gradient-radial-card-lt;
-
-  @include md {
-    background: $color-wht;
-    border-radius: 4rem;
-  }
-}
-
-@mixin text-block-dk {
-  @include text-block;
-  color: $color-text-lt;
-  background: $color-blk;
-  background: $gradient-radial-card-dk;
-
-  @include md {
-    background: $color-blk;
-    border-radius: 4rem;
-  }
-}
-
-// Elements
+// LINKS --------------------------------------------------------------------------------------------------
 @mixin link-hover {
   color: $color-text-link-hover !important;
+  filter: drop-shadow(0 1px 25px $color-alert);
 }
 
 @mixin link-visited {
-  display: inline-block;
-  position: relative;
-
   &::after {
     content: "\2713";
     position: absolute;
@@ -137,48 +80,113 @@
 }
 
 @mixin link-active {
-  border-radius: 5px;
-  outline: 1px solid $color-alert;
-  outline-offset: 3px;
+  color: $color-alert !important;
 }
 
 @mixin link-focus {
-  border-radius: 5px;
   outline: 1px solid $color-dodger;
-  outline-offset: 3px;
+}
+
+@mixin link-focus-visible {
+  border: 1px solid $color-dodger !important;
+  outline: 1px solid $color-dodger;
 }
 
 @mixin link-disabled {
   pointer-events: none;
+  text-decoration: line-through;
   color: $color-disabled-lt !important;
 }
 
 @mixin link {
+  display: inline-block;
+  position: relative;
   font-family: $font-copy;
   color: $color-text-link;
-  transition: 0.5s;
-
+  text-shadow: 0 -0.75px 0 $color-bg-lt-glass-thin, 0 1px 0 $color-bg-dk-glass;
+  border-radius: 5px;
+  border-color: transparent;
+  outline-offset: 3px;
+  transition: 0.5s ease-in-out;
   &:visited {
     @include link-visited;
   }
-
   &:active {
     @include link-active;
   }
-
-  &:focus,
-  &:focus-visible {
+  &:focus {
     @include link-focus;
   }
-
+  &:focus-visible {
+    @include link-focus-visible;
+  }
   @media (hover: hover) {
     &:hover {
       @include link-hover;
     }
   }
-
   &:disabled {
     @include link-disabled;
+  }
+}
+
+// BUTTONS --------------------------------------------------------------------------------------
+@mixin btn-hover {
+  color: $color-alert;
+  border: 1px solid $color-blue;
+  box-shadow: 1px 1px 5px $color-dodger inset, -1px -1px 5px $color-dodger inset;
+}
+
+@mixin btn-active {
+  color: $color-alert;
+  border: 1px solid $color-alert;
+}
+
+@mixin btn-focus {
+  color: $color-dodger;
+  border: 1px solid $color-dodger;
+}
+
+@mixin btn-focus-visible {
+  color: $color-dodger;
+  border: 1px solid $color-dodger;
+  outline: 3px solid $color-dodger;
+  outline-offset: 2px;
+}
+
+@mixin btn-disabled {
+  cursor: not-allowed;
+  color: $color-disabled-dk;
+  background: $color-disabled-lt;
+  border: 1px solid transparent;
+}
+
+@mixin btn {
+  position: relative;
+  font-family: $font-cursive;
+  font-size: 1rem;
+  text-shadow: 0 -0.75px 0 $color-bg-lt-glass-thin, 0 1px 0 $color-bg-dk-glass;
+  margin: auto;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: 0.5s ease-in-out;
+  &:focus {
+    @include btn-focus;
+  }
+  &:focus-visible {
+    @include btn-focus-visible;
+  }
+  &:active {
+    @include btn-active;
+  }
+  @media (hover: hover) {
+    &:hover {
+      @include btn-hover;
+    }
+  }
+  &:disabled {
+    @include btn-disabled;
+    box-shadow: none;
   }
 }
 
@@ -186,9 +194,9 @@
   pointer-events: none;
   content: "";
   position: absolute;
-  left: 1px;
+  left: 0;
   width: 100%;
-  height: 10px;
+  height: 0.5rem;
 }
 
 @mixin btn-flourish {
@@ -207,70 +215,19 @@
   }
 }
 
-@mixin btn-reset {
-  cursor: pointer;
-  background: none;
-  border: 1px solid transparent;
-  outline: none;
-  transition: 0.5s;
-}
-
-@mixin btn-active {
-  color: $color-alert;
-  border: 1px solid $color-dodger;
-}
-
-@mixin btn-focus {
-  color: $color-alert;
-  border: 1px solid $color-dodger;
-  outline: 4px solid $color-dodger;
-  outline-offset: 3px;
-}
-
-@mixin btn-disabled {
-  cursor: not-allowed;
-  color: $color-disabled-dk;
-  background: $color-disabled-lt;
-  border: 1px solid transparent;
-}
-
-@mixin btn {
-  position: relative;
-  font-family: $font-cursive;
-  font-weight: bold;
-  min-width: 150px;
-  min-height: 50px;
-  padding: 0.75rem 1.5rem 1rem;
-  margin: auto auto 1.25rem;
-  border-radius: 5px;
-  backdrop-filter: blur(5px);
-
+@mixin btn-special {
   @include btn-flourish;
-
-  &:focus,
-  &:focus-visible {
-    @include btn-focus;
-  }
-
-  &:active {
-    @include btn-active;
-  }
-
-  @media (hover: hover) {
-    &:hover {
-      color: $color-alert;
-      border: 1px solid $color-dodger;
-      box-shadow: 1px 1px 10px $color-dodger inset, -1px -1px 10px $color-dodger inset;
-    }
-  }
-
-  &:disabled {
-    @include btn-disabled;
-    box-shadow: none;
+  width: 100%;
+  padding: 0.75rem 1.5rem 1rem;
+  @include md {
+    min-width: 150px;
+    max-width: 200px;
+    min-height: 48px;
   }
 }
 
 @mixin btn-primary {
+  @include btn-special;
   color: $color-text-lt;
   background: $color-blue;
   background: $gradient-linear-primary-btn;
@@ -280,11 +237,466 @@
 }
 
 @mixin btn-secondary {
+  @include btn-special;
   color: $color-dodger;
-  border: 1px solid $color-blue;
+  background: linear-gradient(to right, $color-bg-dk-glass-thinner, $color-bg-lt-glass-thinner 30%, $color-bg-lt-glass-thinner 70%, $color-bg-dk-glass-thinner);
+  // background-size: 700%;
+  // background-position: left;
+  border: 1px solid $color-bg-dk-glass-thinner;
+  box-shadow: 1px 1px 0 $color-bg-lt-glass-thinner, -1px -1px 0 $color-bg-lt-glass-thinner;
+  // animation: bg-gradient-slide 10s ease-in-out alternate infinite;
+}
+
+// Section ---------------------------------------------------------------------------------------------
+@mixin section {
+  width: 100%;
+  margin: 3rem auto;
+  padding: 0.5rem;
+  border-top: 1px solid $color-bg-dk-glass-thinner;
+  box-shadow: 0 -1px 0 $color-bg-lt-glass-thinner;
+  transition: 0.7s ease-out;
+  @include sm {
+    padding: 1rem;
+  }
+  @include md {
+    margin: 3rem auto 5rem;
+    background: linear-gradient(to bottom left, $color-bg-lt-glass-thinner, transparent 20%, transparent 85%, $color-bg-dk-glass-thinner);
+    border-radius: 1.75rem;
+    border: 1px solid $color-bg-dk-glass-thinner;
+    box-shadow: 0 1px 3px $color-bg-lt-glass-thinner, 0 -1px 3px $color-bg-lt-glass-thinner;
+  }
+}
+
+@mixin section-main {
+  margin: 1rem auto;
+  @include md {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: left;
+  }
+}
+
+@mixin section-hero {
+  @include md {
+    align-self: center;
+    width: 30%;
+  }
+}
+
+@mixin section-body {
+  margin: 2rem auto;
+  @include md {
+    width: 70%;
+    margin: 0 auto 1rem;
+  }
+}
+
+@mixin section-supplemental {
+  position: relative;
+  @include md {
+    width: 100%;
+  }
+}
+
+// Cutout ---------------------------------------------------------------------------------------------
+@mixin cutout {
+  width: fit-content;
+  margin: 1rem auto;
+  padding: 0 0.5rem;
+  border-radius: 0.75rem;
+  @include sm {
+    padding: 0 1rem;
+    border-radius: 4rem;
+  }
+  @include md {
+    padding: 0 1.5rem;
+  }
+}
+
+@mixin cutout-lt {
+  @include cutout;
+  background: $color-wht;
+  @include md {
+    background: linear-gradient(to left, $color-wht 75%, transparent);
+  }
+  @include lg {
+    text-align: left;
+    padding: 0 3rem;
+    margin-left: 0;
+  }
+}
+
+@mixin cutout-lt-img {
+  @include cutout-lt;
+  padding: 1rem;
+  border-radius: 4rem;
+  @include sm {
+    padding: 1rem;
+  }
+  @include md {
+    background: $color-wht;
+  }
+  @include lg {
+    margin: auto;
+    padding: 1rem;
+  }
+}
+
+@mixin cutout-lt-chubby {
+  @include cutout-lt;
+  padding: 1.5rem 1rem;
+  @include sm {
+    padding: 0.25rem 3rem;
+  }
+  @include lg {
+    padding: 0.25rem 3rem;
+  }
+}
+
+@mixin cutout-lt-fat {
+  @include cutout-lt;
+  padding: 2rem 1rem;
+  @include sm {
+    padding: 1.5rem 3rem;
+  }
+  @include lg {
+    padding: 1.5rem 3rem;
+  }
+}
+
+@mixin cutout-dk {
+  @include cutout; 
+  color: $color-text-lt;
+  background: $color-blk;
+  @include md {
+    background: linear-gradient(to right, $color-blk 75%, transparent);
+  }
+  @include lg {
+    text-align: left;
+    margin-left: 0;
+    padding: 0 3rem;
+  }
+}
+
+@mixin cutout-dk-img {
+  @include cutout-dk;
+  padding: 1rem;
+  border-radius: 4rem;
+  @include sm {
+    padding: 1rem;
+  }
+  @include md {
+    background: $color-blk;
+  }
+  @include lg {
+    margin: auto;
+    padding: 1rem;
+  }
+}
+
+@mixin cutout-dk-chubby {
+  @include cutout-dk;
+  padding: 1.5rem 1rem;
+  @include sm {
+    padding: 0.25rem 3rem;
+  }
+  @include lg {
+    padding: 0.25rem 3rem;
+  }
+}
+
+@mixin cutout-dk-fat {
+  @include cutout-dk;
+  padding: 1.5rem 1rem;
+  @include sm {
+    padding: 1.5rem 3rem;
+  }
+  @include lg {
+    padding: 1.5rem 3rem;
+  }
+}
+
+// Accordion ---------------------------------------------------------------------------------------------------
+// @mixin accordion-back {
+//   background-size: 500%;
+//   background-position: left;
+// }
+
+@mixin accordion {
+  border-radius: 0.85rem;
+  border-top: 1px solid $color-bg-lt-glass-thinner;
+  border: 1px solid $color-bg-dk-glass-thinner;
+  box-shadow: 1px 1px 0 $color-bg-lt-glass-thinner, 0 -1px 0 $color-bg-lt-glass-thinner;
+  transition: 0.7s ease-out;
+  overflow: hidden;
+}
+
+// @mixin accordion-lt {
+//   background: linear-gradient(70deg, transparent 45%, $color-bg-lt-glass-thick 50%, $color-bg-dk-glass-thin 55%, transparent 60%);
+//   @include accordion-back;
+// }
+
+// @mixin accordion-dk {
+//   background: linear-gradient(70deg, transparent 45%, $color-bg-lt-glass-thin 50%, $color-bg-dk-glass-thin 55%, transparent 60%);
+//   @include accordion-back;
+// }
+
+// @mixin accordion-clr {
+//   background: linear-gradient(70deg, transparent 45%, $color-bg-lt-glass-thinner 49%, $color-bg-dk-glass-thinner 51%, transparent 55%);
+//   @include accordion-back;
+// }
+
+@mixin accordion-controller {
+  padding-top: 0.4rem;
+}
+
+@mixin accordion-controller-clr {
+  @include accordion-controller;
+}
+
+@mixin accordion-controller-lt {
+  @include accordion-controller;
+}
+
+@mixin accordion-controller-dk {
+  @include accordion-controller;
+}
+
+@mixin accordion-btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  transition: 0.5s;
+  perspective: 200px;
+  &:hover {
+    color: $color-alert;
+  }
+}
+
+@mixin accordion-btn-clr {
+  @include accordion-btn;
+  color: $color-dodger;
+}
+
+@mixin accordion-btn-lt {
+  @include accordion-btn;
+}
+
+@mixin accordion-btn-dk {
+  @include accordion-btn;
+  color: $color-text-lt;
+}
+
+@mixin accordion-body {
+}
+
+@mixin accordion-body-clr {
+  @include accordion-body;
+  background: none;
+}
+
+@mixin accordion-body-lt {
+  @include accordion-body;
+  background: $color-bg-lt-glass-thicker;
+  background: $gradient-radial-card-lt;
+}
+
+@mixin accordion-body-dk {
+  @include accordion-body;
+  color: $color-text-lt;
+  background: $color-bg-dk-glass-thick;
+  background: $gradient-radial-card-dk;
+}
+
+@mixin accordion-heading {
+  border-bottom: 1px solid $color-bg-lt-glass-thinner;
+  box-shadow: 0 1px 0 $color-bg-dk-glass-thinner;
+  @include lg {
+    text-align: left;
+    padding: 0 1.70rem;
+  }
+}
+
+@mixin accordion-text {
+  padding: 0 1.25rem;
+  @include sm{
+    padding: 0 1.70rem;
+  }
+}
+
+@mixin accordion-footer {
+  padding: 0.1rem 1.25rem;
+  margin-top: 1rem;
+  border-top: 1px solid $color-bg-lt-glass-thinner;
+  box-shadow: 0 -1px 0 $color-bg-dk-glass-thinner;
+  @include sm{
+    padding: 0.1rem 1.70rem;
+  }
+}
+
+// Card -------------------------------------------------------------------------------------------------------------------------------------
+@mixin card-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0 0.5rem;
+
+  @include sm {
+    gap: 1rem;
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
+}
+
+@mixin card {
+  position: relative;
+  width: 100%;
+  margin: 0.75rem 0.1rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 1px 1px 0 $color-bg-lt-glass-thinner, -1px -1px 0 $color-bg-lt-glass-thinner;
+  overflow: hidden;
+  transition: 0.5s;
+  backdrop-filter: blur(5px);
+  @include sm {
+    min-width: 250px;
+    width: 45%;
+    margin: 0;
+    flex-grow: 1;
+  }
+  @include md {
+    width: 25%
+  }
+  // @media (hover: hover) {
+  //   &:hover {
+  //     box-shadow: 3px 3px 5px $color-bg-dk-glass-thin;
+  //   }
+  // }
+}
+
+@mixin card-red {
+  background: linear-gradient(to top, $color-bg-alert-glass, $color-bg-special-glass);
+  border: 1px solid $color-bg-special-dk-glass;
+}
+
+@mixin card-green {
+  background: linear-gradient(to top, $color-bg-success-glass, $color-bg-warning-glass);
+  border: 1px solid $color-bg-success-dk-glass;
+}
+
+@mixin card-blue {
+  background: linear-gradient(to top, $color-bg-blue-glass, $color-bg-deep-sky-glass);
+  border: 1px solid $color-bg-midnight-glass;
+}
+
+@mixin card-yellow {
+  background: linear-gradient(to top, $color-bg-warning-dk-glass, $color-bg-warning-lt-glass);
+  border: 1px solid $color-bg-dirty-glass;
+}
+
+@mixin card-lt {
+  color: $color-text-dk;
+  background: linear-gradient(to top, $color-bg-lt-glass-thicker, $color-bg-lt-glass-thick);
+  border: 1px solid $color-bg-dk-glass-thinner;
+  box-shadow: 1px 1px 0 $color-bg-lt-glass-thinner, -1px -1px 0 $color-bg-lt-glass-thinner;
+}
+
+@mixin card-clr {
+  color: $color-dodger;
+  background: linear-gradient(to top, $color-bg-dk-glass-thinner, $color-bg-lt-glass-thinner);
+  border: 1px solid $color-bg-dk-glass-thinner;
+  box-shadow: 1px 1px 0 $color-bg-lt-glass-thinner, -1px -1px 0 $color-bg-lt-glass-thinner;
+  text-shadow: 0 1px 0 $color-bg-dk-glass-thicker, 0 -1px 0 $color-bg-lt-glass-thin;
+}
+
+@mixin card-dk {
+  color: $color-text-lt;
+  background: linear-gradient(to top, $color-bg-dk-glass-thicker, $color-bg-dk-glass-thick);
+  border: 1px solid $color-bg-dk-glass-thinner;
+  box-shadow: 1px 1px 0 $color-bg-lt-glass-thinner, -1px -1px 0 $color-bg-lt-glass-thinner;
+}
+
+@mixin card-main {}
+
+@mixin card-body {}
+
+@mixin card-heading {
+  padding: 0.1rem 1rem;
+}
+
+@mixin card-heading-red {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 -1px 0 $color-bg-alert-glass, 0 1px 0 $color-error;
+  background: linear-gradient(to right, $color-bg-error-glass, $color-bg-alert-glass);
+  border-bottom: 1px solid $color-bg-special-dk-glass;
+}
+
+@mixin card-heading-green {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 -1px 0 $color-bg-success-glass, 0 1px 0 $color-success-dk;
+  background: linear-gradient(to right, $color-bg-success-dk-glass, $color-bg-success-glass);
+  border-bottom: 1px solid $color-bg-success-dk-glass;
+}
+
+@mixin card-heading-blue {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 -1px 0 $color-bg-blue-glass, 0 1px 0 $color-blue;
+  background: linear-gradient(to right, $color-bg-midnight-glass, $color-bg-blue-glass);
+  border-bottom: 1px solid $color-bg-midnight-glass;
+}
+
+@mixin card-heading-yellow {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 -1px 0 $color-bg-warning-lt-glass, 0 1px 0 $color-dirty;
+  background: linear-gradient(to right, $color-bg-dirty-glass, $color-bg-warning-dk-glass);
+  border-bottom: 1px solid $color-bg-dirty-glass;
+}
+
+@mixin card-heading-lt {
+  background: linear-gradient(to right, $color-bg-lt-glass-thicker, $color-bg-lt-glass-thinner);
+  border-bottom: 1px solid $color-bg-dk-glass-thinner;
+}
+
+@mixin card-heading-clr {
+  background: linear-gradient(to right, $color-bg-dk-glass-thinner, $color-bg-lt-glass-thinner);
+  border-bottom: 1px solid $color-bg-lt-glass-thinner;
+  box-shadow: 0 1px 0 $color-bg-dk-glass-thinner;
+}
+
+@mixin card-heading-dk {
+  background: linear-gradient(to right, $color-bg-dk-glass-thicker, $color-bg-dk-glass-thick);
+  border-bottom: 1px solid $color-bg-lt-glass-thinner;
+}
+
+@mixin card-text {
+  display: none;
+  @include md {
+    display: block;
+    padding-left: 1rem;
+  }
+}
+
+@mixin card-footer {
+  display: none;
+  @include md {
+    display: block;
+    padding-left: 1rem;
+  }
+}
+
+@mixin card-drawer {
+  div {
+    border: none;
+    box-shadow: none;
+  }
 }
 
 // Media queries
+@mixin sm {
+  @media (min-width: #{$mobile-brk}) {
+    @content;
+  }
+}
+
 @mixin md {
   @media (min-width: #{$tablet-brk}) {
     @content;

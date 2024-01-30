@@ -1,6 +1,11 @@
 <template>
   <div>
-
+  <!-- <li class="nav__list__item">
+      <RouterLink class="nav__list__item__link" to="/experience">
+        <CommunityIcon class="nav__list__item__link__icon" />
+        <span class="nav__list__item__link__text">Experience</span>
+      </RouterLink>
+    </li> -->
   </div>
 </template>
 

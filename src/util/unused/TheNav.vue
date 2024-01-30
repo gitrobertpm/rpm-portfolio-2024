@@ -168,8 +168,9 @@ function toggleNav() {
 
     &:focus,
     &:focus-visible {
-      border-radius: 5px;
-      outline: 1px solid $color-dodger;
+      border-radius: 15px;
+      outline: 2px solid $color-dodger;
+      outline-offset: -5px;
     }
 
     &::after {

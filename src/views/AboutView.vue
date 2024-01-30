@@ -1,6 +1,6 @@
 <template>
-  <main class="main-about">
-    <h1>About Me</h1>
+  <main class="main main__about">
+    <h1>ABOUT</h1>
   </main>
 </template>
 

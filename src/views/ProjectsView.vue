@@ -1,5 +1,5 @@
 <template>
-  <main class="main-projects">
-    <h1>My Projects</h1>
+  <main class="main main__projects">
+    <h1>PROJECTS</h1>
   </main>
 </template>

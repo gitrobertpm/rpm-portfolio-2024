@@ -13,13 +13,20 @@
   bottom: 0;
   width: 100%;
   padding: 1rem 0;
-  // background: $color-bg-dk-glass;
-  // backdrop-filter: blur(5px);
+  background: $color-bg-dk-glass-thick;
+  border-top: 1px solid $color-bg-lt-glass-thinner;
+  backdrop-filter: blur(5px);
 
-  // @include lg {
-  //   background: none;
-  //   backdrop-filter: none;
-  // }
+  @include md {
+    background: none;
+    border-top: none;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  @include lg {
+    width: calc(100% - 150px);
+  }
 
   &__box {
     max-width: $max-width-primary;
@@ -29,7 +36,7 @@
       font-family: $font-cursive;
       color: transparent;
       font-weight: bold;
-      background: linear-gradient(to right, $color-disabled-dk, $color-disabled-lt);
+      background: linear-gradient(to right, $color-disabled-lt, $color-disabled-dk);
       background-clip: text;
     }
   }
