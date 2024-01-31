@@ -125,7 +125,7 @@ function toggleNav() {
   margin: 10px 0 0 10px;
   border-radius: 5px;
   filter: drop-shadow(0 -1px 0 $color-text-lt);
-  z-index: 99;
+  z-index: 999;
 }
 
 .nav {
@@ -135,7 +135,7 @@ function toggleNav() {
   max-width: $max-width-primary;
   background: $gradient-radial-nav;
   backdrop-filter: blur(5px);
-  z-index: 9;
+  z-index: 99;
 
   .btn-box {
     height: 0;

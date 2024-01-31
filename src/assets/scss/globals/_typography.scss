@@ -21,7 +21,7 @@ ul, ol {
   margin: auto auto 2rem;
 }
 
-p, li, span {
+p, li {
   @include copy;
 }
 

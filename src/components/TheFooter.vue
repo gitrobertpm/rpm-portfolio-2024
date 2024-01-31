@@ -25,7 +25,7 @@
   }
 
   @include lg {
-    width: calc(100% - 150px);
+    width: calc(100% - 111px);
   }
 
   &__box {
@@ -34,8 +34,9 @@
 
     &__note {
       font-family: $font-cursive;
-      color: transparent;
+      font-size: 0.75rem;
       font-weight: bold;
+      color: transparent;
       background: linear-gradient(to right, $color-disabled-lt, $color-disabled-dk);
       background-clip: text;
     }

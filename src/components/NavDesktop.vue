@@ -69,7 +69,7 @@ import IconStyleguide from './icons/IconStyleguide.vue';
   top: 0;
   bottom: 0;
   left: 0;
-  width: 100px;
+  width: 111px;
   height: 100vh;
   background: $color-text-dk;
   background: $gradient-radial-nav;
