@@ -1,5 +1,4 @@
 @import "base";
-
 body {
   color: $color-text-dk;
   background-image: url('../img/bgs/deconstructed-yin-yang.svg');
@@ -11,7 +10,6 @@ body {
     color 0.5s,
     background-color 0.5s;
 }
-
 #app {
   position: relative;
   min-height: 100vh;
@@ -20,7 +18,6 @@ body {
     padding-left: 111px;
   }
 }
-
 main {
   text-align: center;
   max-width: $max-width-primary;
@@ -34,27 +31,7 @@ main {
     padding: 2.5rem 4rem 56px;
   }
 }
-
 // Blocks
-.section {
-  @include section;
-  &__main {
-    @include section-main;
-    &--reverse {
-      flex-direction: row-reverse;
-    }
-  }
-  &__main__hero {
-    @include section-hero;
-  }
-  &__main__body {
-    @include section-body;
-  }
-  &__supplemental {
-    @include section-supplemental;
-  }
-}
-
 .cutout {
   &--dk {
     @include cutout-dk;
@@ -82,130 +59,9 @@ main {
     @include cutout-lt-fat;
   }
 }
-
-.accordion {
-  @include accordion;
-  // &--clr {
-  //   @include accordion-clr;
-  // }
-  // &--lt {
-  //   @include accordion-lt;
-  // }
-  // &--dk {
-  //   @include accordion-dk;
-  // }
-  &__body {
-    &--clr {
-      @include accordion-body-clr;
-    }
-    &--lt {
-      @include accordion-body-lt;
-    }
-    &--dk {
-      @include accordion-body-dk;
-    }
-  }
-  &__controller {
-    &--clr {
-      @include accordion-controller-clr;
-    }
-    &--lt {
-      @include accordion-controller-lt;
-    }
-    &--dk {
-      @include accordion-controller-dk;
-    }
-    &__btn {
-      &--clr {
-        @include accordion-btn-clr;
-      }
-      &--lt {
-        @include accordion-btn-lt;
-      }
-      &--dk {
-        @include accordion-btn-dk;
-      }
-    }
-  }
-  &__heading {
-    @include accordion-heading;
-  }
-  &__text {
-    @include accordion-text;
-  }
-  &__footer {
-    @include accordion-footer;
-  }
-}
-
 .card-box {
   @include card-box;
 }
-
-.card {
-  @include card;
-  &--red {
-    @include card-red;
-  }
-  &--green {
-    @include card-green;
-  }
-  &--blue {
-    @include card-blue;
-  }
-  &--yellow {
-    @include card-yellow;
-  }
-  &--lt {
-    @include card-lt;
-  }
-  &--clr {
-    @include card-clr;
-  }
-  &--dk {
-    @include card-dk;
-  }
-  &__main {
-    @include card-main;
-    &__body {
-      @include card-body;
-      &__heading {
-        @include card-heading;
-        &--red {
-          @include card-heading-red;
-        }
-        &--green {
-          @include card-heading-green;
-        }
-        &--blue {
-          @include card-heading-blue;
-        }
-        &--yellow {
-          @include card-heading-yellow;
-        }
-        &--lt {
-          @include card-heading-lt;
-        }
-        &--clr {
-          @include card-heading-clr;
-        }
-        &--dk {
-          @include card-heading-dk;
-        }
-      }
-      &__text {
-        @include card-text;
-      }
-    }
-    &__footer {
-      @include card-footer;
-    }
-  }
-  &__drawer {
-    @include card-drawer;
-  }
-}
-
 // Link & button base and state-specific styles are defined in mixins and applied to tags in typography files.
 // BEM classes below are mostly for dev and testing purposes and display on the style guide view.
 // But these can double as utility classes if needed. 
@@ -249,15 +105,5 @@ main {
   }
   &--active {
     @include btn-active;
-  }
-}
-
-// Animates background gradients for headings and primary buttons
-@keyframes bg-gradient-slide {
-  from {
-    background-position: left;
-  }
-  to {
-    background-position: right;
   }
 }

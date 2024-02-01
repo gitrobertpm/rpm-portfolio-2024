@@ -39,17 +39,18 @@
           </template>
 
           <template #text>
-            <p>Cards — red, green, blue, yellow, light, clear, and dark.</p>
+            <p>This is a reusable <code>Accordion</code> component. The use of slots facilitates content injection. Which means the headings, this block of text, the footer below, and even the accordion after that are completely optional, adding to the component's flexibility.</p>
+            <p>Modular Sass with a blend of helpful utility classes and BEM selectors makes this component more maintainable and a breeze to use with little-to-no added styles.</p>
           </template>
 
           <div class="card-box">
             <ACard theme="red" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Red Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -57,9 +58,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -75,11 +76,11 @@
 
             <ACard theme="green" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Green Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -87,9 +88,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -105,11 +106,11 @@
 
             <ACard theme="blue" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Blue Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -117,9 +118,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -135,11 +136,11 @@
 
             <ACard theme="yellow" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Yellow Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -147,9 +148,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -165,11 +166,11 @@
 
             <ACard theme="lt" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Light Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -177,9 +178,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -195,11 +196,11 @@
 
             <ACard theme="dk" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Dark Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -207,9 +208,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -225,11 +226,11 @@
 
             <ACard theme="clr" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Clear Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -237,9 +238,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -297,17 +298,18 @@
           </template>
 
           <template #text>
-            <p>Cards — red, green, blue, yellow, light, clear, and dark.</p>
+            <p>This is a reusable <code>Accordion</code> component. The use of slots facilitates content injection. Which means the headings, this block of text, the footer below, and even the accordion after that are completely optional, adding to the component's flexibility.</p>
+            <p>Modular Sass with a blend of helpful utility classes and BEM selectors makes this component more maintainable and a breeze to use with little-to-no added styles.</p>
           </template>
 
           <div class="card-box">
             <ACard theme="red" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Red Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -315,9 +317,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -333,11 +335,11 @@
 
             <ACard theme="green" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Green Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -345,9 +347,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -363,11 +365,11 @@
 
             <ACard theme="blue" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Blue Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -375,9 +377,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -393,11 +395,11 @@
 
             <ACard theme="yellow" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Yellow Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -405,9 +407,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -423,11 +425,11 @@
 
             <ACard theme="lt" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Light Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -435,9 +437,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -453,11 +455,11 @@
 
             <ACard theme="dk" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Dark Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -465,9 +467,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -483,11 +485,11 @@
 
             <ACard theme="clr" heading text footer drawer>
               <template #heading>
-                <h4>Card</h4>
+                <h4>Clear Card</h4>
               </template>
 
               <template #text>
-                <p>Test</p>
+                <p>This is a reusable card component</p>
               </template>
 
               <template #footer>
@@ -495,9 +497,9 @@
               </template>
 
               <template #drawer>
-                <AnAccordion heading text footer>
+                <AnAccordion borderless heading text footer>
                   <template #heading>
-                    <h5>Clear Accordion</h5>
+                    <h5>Clear Borderless Accordion</h5>
                   </template>
 
                   <template #text>
@@ -537,11 +539,11 @@
         <div class="card-box">
       <ACard theme="lt" heading text footer drawer>
         <template #heading>
-          <h4>Card</h4>
+          <h4>Light Card</h4>
         </template>
 
         <template #text>
-          <p>Test</p>
+          <p>This is a reusable card component</p>
         </template>
 
         <template #footer>
@@ -549,9 +551,9 @@
         </template>
 
         <template #drawer>
-          <AnAccordion heading text footer>
+          <AnAccordion borderless heading text footer>
             <template #heading>
-              <h5>Clear Accordion</h5>
+              <h5>Clear Borderless Accordion</h5>
             </template>
 
             <template #text>
@@ -567,11 +569,11 @@
 
       <ACard theme="clr" heading text footer drawer>
         <template #heading>
-          <h4>Card</h4>
+          <h4>Clear Card</h4>
         </template>
 
         <template #text>
-          <p>Test</p>
+          <p>This is a reusable card component</p>
         </template>
 
         <template #footer>
@@ -579,9 +581,9 @@
         </template>
 
         <template #drawer>
-          <AnAccordion heading text footer>
+          <AnAccordion borderless heading text footer>
             <template #heading>
-              <h5>Clear Accordion</h5>
+              <h5>Clear Borderless Accordion</h5>
             </template>
 
             <template #text>
@@ -597,11 +599,11 @@
 
       <ACard theme="dk" heading text footer drawer>
         <template #heading>
-          <h4>Card</h4>
+          <h4>Dark Card</h4>
         </template>
 
         <template #text>
-          <p>Test</p>
+          <p>This is a reusable card component</p>
         </template>
 
         <template #footer>
@@ -609,9 +611,9 @@
         </template>
 
         <template #drawer>
-          <AnAccordion heading text footer>
+          <AnAccordion borderless heading text footer>
             <template #heading>
-              <h5>Clear Accordion</h5>
+              <h5>Clear Borderless Accordion</h5>
             </template>
 
             <template #text>
@@ -628,11 +630,11 @@
     <div class="card-box">
       <ACard theme="dk" heading text footer drawer>
         <template #heading>
-          <h4>Card</h4>
+          <h4>Dark Card</h4>
         </template>
 
         <template #text>
-          <p>Test</p>
+          <p>This is a reusable card component</p>
         </template>
 
         <template #footer>
@@ -640,9 +642,9 @@
         </template>
 
         <template #drawer>
-          <AnAccordion heading text footer>
+          <AnAccordion borderless heading text footer>
             <template #heading>
-              <h5>Clear Accordion</h5>
+              <h5>Clear Borderless Accordion</h5>
             </template>
 
             <template #text>
@@ -658,11 +660,11 @@
 
       <ACard theme="clr" heading text footer drawer>
         <template #heading>
-          <h4>Card</h4>
+          <h4>Clear Card</h4>
         </template>
 
         <template #text>
-          <p>Test</p>
+          <p>This is a reusable card component</p>
         </template>
 
         <template #footer>
@@ -670,9 +672,9 @@
         </template>
 
         <template #drawer>
-          <AnAccordion heading text footer>
+          <AnAccordion borderless heading text footer>
             <template #heading>
-              <h5>Clear Accordion</h5>
+              <h5>Clear Borderless Accordion</h5>
             </template>
 
             <template #text>
@@ -688,11 +690,11 @@
 
       <ACard theme="lt" heading text footer drawer>
         <template #heading>
-          <h4>Card</h4>
+          <h4>Light Card</h4>
         </template>
 
         <template #text>
-          <p>Test</p>
+          <p>This is a reusable card component</p>
         </template>
 
         <template #footer>
@@ -700,9 +702,9 @@
         </template>
 
         <template #drawer>
-          <AnAccordion heading text footer>
+          <AnAccordion borderless heading text footer>
             <template #heading>
-              <h5>Clear Accordion</h5>
+              <h5>Clear Borderless Accordion</h5>
             </template>
 
             <template #text>
@@ -719,11 +721,11 @@
     <div class="card-box">
       <ACard theme="lt" heading text footer drawer>
         <template #heading>
-          <h4>Card</h4>
+          <h4>Light Card</h4>
         </template>
 
         <template #text>
-          <p>Test</p>
+          <p>This is a reusable card component</p>
         </template>
 
         <template #footer>
@@ -731,9 +733,9 @@
         </template>
 
         <template #drawer>
-          <AnAccordion heading text footer>
+          <AnAccordion borderless heading text footer>
             <template #heading>
-              <h5>Clear Accordion</h5>
+              <h5>Clear Borderless Accordion</h5>
             </template>
 
             <template #text>
@@ -750,11 +752,11 @@
     <div class="card-box">
       <ACard theme="clr" heading text footer drawer>
         <template #heading>
-          <h4>Card</h4>
+          <h4>Clear Card</h4>
         </template>
 
         <template #text>
-          <p>Test</p>
+          <p>This is a reusable card component</p>
         </template>
 
         <template #footer>
@@ -762,9 +764,9 @@
         </template>
 
         <template #drawer>
-          <AnAccordion heading text footer>
+          <AnAccordion borderless heading text footer>
             <template #heading>
-              <h5>Clear Accordion</h5>
+              <h5>Clear Borderless Accordion</h5>
             </template>
 
             <template #text>
@@ -781,11 +783,11 @@
     <div class="card-box">
       <ACard theme="dk" heading text footer drawer>
         <template #heading>
-          <h4>Card</h4>
+          <h4>Dark Card</h4>
         </template>
 
         <template #text>
-          <p>Test</p>
+          <p>This is a reusable card component</p>
         </template>
 
         <template #footer>
@@ -793,9 +795,9 @@
         </template>
 
         <template #drawer>
-          <AnAccordion heading text footer>
+          <AnAccordion borderless heading text footer>
             <template #heading>
-              <h5>Clear Accordion</h5>
+              <h5>Clear Borderless Accordion</h5>
             </template>
 
             <template #text>
@@ -846,7 +848,7 @@
             <template #text>
               <p>Text content goes here.</p>
             </template>
-            <div class="flex--row--evenly gap--2 pad--all--montana">
+            <div class="flex--row--se--wrap gap--10 pad-xy--10 mar-xy--10">
               <a href="#">Link</a>
               <a href="#" class="link--hover">Hover</a>
               <a href="#" class="link--active">Active</a>
@@ -855,11 +857,11 @@
               <a href="#" class="link--visited">Visited</a>
               <a href="#" class="link--disabled" disabled>Disabled</a>
             </div>
-            <div class="flex--row--around gap--1-5 pad--all--loose">
+            <div class="flex--row--se gap--10 pad-xy--10 mar-xy--10">
               <button class="btn btn--primary">Primary</button>
               <button class="btn btn--secondary">Secondary</button>
             </div>
-            <div class="flex--row--around gap--1-5 pad--all--loose">
+            <div class="flex--row--sa gap--10 pad-xy--10 mar-xy--10">
               <button class="btn btn--hover">Hover</button>
               <button class="btn btn--active">Active</button>
               <button class="btn btn--focus">Focus</button>
@@ -901,7 +903,7 @@
           <template #text>
             <p>Text content goes here.</p>
           </template>
-          <div class="flex--row--evenly gap--2 pad--all--montana">
+          <div class="flex--row--se--wrap gap--10 pad-xy--10 mar-xy--10">
             <a href="#">Link</a>
             <a href="#" class="link--hover">Hover</a>
             <a href="#" class="link--active">Active</a>
@@ -910,11 +912,11 @@
             <a href="#" class="link--visited">Visited</a>
             <a href="#" class="link--disabled" disabled>Disabled</a>
           </div>
-          <div class="flex--row--around gap--1-5 pad--all--loose">
+          <div class="flex--row--se gap--10 pad-xy--10 mar-xy--10">
             <button class="btn btn--primary">Primary</button>
             <button class="btn btn--secondary">Secondary</button>
           </div>
-          <div class="flex--row--around gap--1-5 pad--all--loose">
+          <div class="flex--row--sa gap--10 pad-xy--10 mar-xy--10">
             <button class="btn btn--hover">Hover</button>
             <button class="btn btn--active">Active</button>
             <button class="btn btn--focus">Focus</button>
@@ -927,71 +929,6 @@
         </AnAccordion>
       </template>
     </ASection>
-
-    
-
-    <!-- <div class="section">
-      <div class="cutout--lt">
-        <h2>Sections, Cards & Blocks</h2>
-      </div>
-      
-      <div class="card--lt">
-        <h3>Light Card</h3>
-      </div>
-
-      <div class="card--dk">
-        <h3>Dark Card</h3>
-      </div>
-    </div> -->
-
-    <!-- <div class="section">
-
-      <div class="cutout--lt">
-        <h2>Links & Buttons</h2>
-      </div>
-
-      <div class="cutout--dk--fat grid--2 grid--3">
-        <p>Here's a <code>&lt;div class="cutout--dk--fat"&gt;</code> with some <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code> tags dressed in the styles of their respective states. This <code>&lt;div&gt;</code> and the ones within use utility classes from the <code>_base.scss</code> file for a responsive layout.</p>
-        <div>
-          <div class="flex--row--evenly gap--2 pad--all--montana">
-            <a href="#">Link</a>
-            <a href="#" class="link--hover">Hover</a>
-            <a href="#" class="link--active">Active</a>
-            <a href="#" class="link--focus">Focus</a>
-            <a href="#" class="link--visited">Visited</a>
-            <a href="#" class="link--disabled" disabled>Disabled</a>
-          </div>
-          <div class="flex--row--around gap--1-5 pad--all--loose">
-            <button class="btn btn--primary">Primary</button>
-            <button class="btn btn--secondary">Secondary</button>
-            <button class="btn btn-hover-styles">Hover</button>
-            <button class="btn btn--active">Active</button>
-            <button class="btn btn--focus">Focus</button>
-            <button class="btn" disabled>Disabled</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="cutout--lt--fat grid--2 grid--3">
-        <p>Here's a <code>&lt;div class="cutout--lt--fat"&gt;</code> with some <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code> tags dressed in the styles of their respective states. This <code>&lt;div&gt;</code> and the ones within leverage utility classes from the <code>_base.scss</code> file for a responsive layout.</p>
-        <div class="flex--row--evenly gap--2 pad--all--montana">
-          <a href="#">Link</a>
-          <a href="#" class="link--hover">Hover</a>
-          <a href="#" class="link--active">Active</a>
-          <a href="#" class="link--focus">Focus</a>
-          <a href="#" class="link--visited">Visited</a>
-          <a href="#" class="link--disabled" disabled>Disabled</a>
-        </div>
-        <div class="flex--row--around gap--1-5 pad--all--loose">
-          <button class="btn btn--primary">Primary</button>
-          <button class="btn btn--secondary">Secondary</button>
-          <button class="btn btn-hover-styles">Hover</button>
-          <button class="btn btn--active">Active</button>
-          <button class="btn btn--focus">Focus</button>
-          <button class="btn" disabled>Disabled</button>
-        </div>
-      </div>
-    </div> -->
 
     <!-- <div class="section">
       <div class="cutout--dk">
@@ -1146,7 +1083,6 @@ import ACard from '@/components/reusables/ACard.vue';
 // import EcosystemIcon from '@/components/icons/IconEcosystem.vue';
 // import CommunityIcon from '@/components/icons/IconCommunity.vue';
 // import SupportIcon from '@/components/icons/IconSupport.vue';
-
 </script>
 
 <style lang="scss" scoped>
@@ -1156,23 +1092,12 @@ import ACard from '@/components/reusables/ACard.vue';
     height: 75px;
   }
 }
-
 .default {
   width: 90%;
   max-width: 1224px;
   padding: 10px 0px;
   margin: auto auto 50px;
 }
-
-// .link-hover-styles {
-//   color: $color-alert;
-// }
-// .btn-hover-styles {
-//   color: $color-alert;
-//   border: 1px solid $color-blue;
-//   box-shadow: 1px 1px 5px $color-dodger inset, -1px -1px 5px $color-dodger inset
-// }
-
 .last-row::after {
   content: "";
   flex: auto;

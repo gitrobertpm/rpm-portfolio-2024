@@ -29,214 +29,114 @@
   --forest: #004d00;  
 }
 
-// Utility classes
-.grid {
-  &--2 {
+// UTILITY CLASSES 
+// FLEX
+$flexDir: (
+  "row": "row",
+  "row-rev": "row-reverse",
+  "col": "column",
+  "col-rev": "column-reverse"
+);
+$flexJustify: (
+  "start": "start",
+  "end": "end",
+  "fs": "flex-start",
+  "fe": "flex-end",
+  "cent": "center",
+  "left": "left",
+  "right": "right",
+  "norm": "normal",
+  "sb": "space-between",
+  "sa": "space-around",
+  "se": "space-evenly"
+);
+$flexAlign: (
+  "fs": "flex-start",
+  "fe": "flex-end",
+  "center": "center",
+  "stretch": "stretch",
+);
+
+// The maps above and loops in the section below create flexbox utility classes that do a lot with a little
+// Map keys = class name modifiers
+// Map values = real world flex values
+// Class syntax: `flex--{dir}--{justify-}-{align*}--{wrap*}
+// - The `{}` in the class syntax example directly above only indicate class name modifiers.
+// - Modifiers must be added in the order demonstrated above and separated by the --
+// **NOTE:** 
+// - The `*` indicates optional modifiers. If both are used, 'align' must come first.
+
+@each $dirKey, $dir in $flexDir {
+  @each $jusKey, $justify in $flexJustify {
+    .flex--#{$dirKey}--#{$jusKey} {
+      display: flex;
+      flex-direction: #{$dir};
+      justify-content: #{$justify};
+    }
+    .flex--#{$dirKey}--#{$jusKey}--wrap {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: #{$dir};
+      justify-content: #{$justify};
+    }
+    @each $aliKey, $align in flexAlign {
+      .flex--#{$dirKey}--#{$jusKey}--#{$aliKey} {
+        display: flex;
+        flex-direction: #{$dir};
+        justify-content: #{$justify};
+        align-items: #{$align};
+      }
+      .flex--#{$dirKey}--#{$jusKey}--#{$aliKey}--wrap {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: #{$dir};
+        justify-content: #{$justify};
+        align-items: #{$align};
+      }
+    }
+  }
+}
+
+// GRID - modifiers for number of columns
+@for $g from 1 through 12 {
+	.grid--#{$g} {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-content: flex-start;
-  }
-
-  &--3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-content: flex-start;
+    grid-template-columns: repeat(#{$g}, 1fr);
   }
 }
 
-.flex {
-  &--row {
-    &--left {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: left;
-    }
-
-    &--center {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-    }
-
-    &--right {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: right;
-    }
-
-    &--around {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-around;
-    }
-
-    &--between {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-between;
-    }
-
-    &--evenly {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-evenly;
-    }
+// SPACERS modifiers for 1/10 rem values - e.g. 5 = 0.5rem, 10 = 1rem, 21 = 2.1rem, up to 50 = 5rem; 
+@for $i from 1 through 50 {
+  $x: $i * 0.1rem;
+  .gap--#{$i} {
+    gap: $x;
   }
-
-  &--colum {
-    &--left {
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: left;
-    }
-
-    &--center {
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: center;
-    }
-
-    &--right {
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: right;
-    }
-
-    &--around {
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: space-around;
-    }
-
-    &--between {
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: space-between;
-    }
-
-    &--evenly {
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: space-evenly;
-    }
+  .row-gap--#{$i} {
+    row-gap: $x;
   }
-}
-
-.flex-reverse {
-  &--row {
-    flex-direction: row-reverse;
+  .col-gap--#{$i} {
+    column-gap: $x;
   }
-
-  &--column {
-    flex-direction: column-reverse;
+  .pad-x--#{$i} {
+    padding-right: $x;
+    padding-left: $x;
   }
-
-  &--md {
-    &--row {
-      flex-direction: row-reverse;
-    }
-  
-    &--column {
-      flex-direction: column-reverse;
-    }
+  .pad-y--#{$i} {
+    padding-top: $x;
+    padding-bottom: $x;
   }
-  
-  &--lg {
-    &--row {
-      flex-direction: row-reverse;
-    }
-  
-    &--column {
-      flex-direction: column-reverse;
-    }
+  .pad-xy--#{$i} {
+    padding: $x;
   }
-}
-
-.gap {
-  &--0-5 {
-    gap: 0.5rem;
+  .mar-x--#{$i} {
+    margin-right: $x;
+    margin-left: $x;
   }
-  &--1 {
-    gap: 1rem;
+  .mar-y--#{$i} {
+    margin-top: $x;
+    margin-bottom: $x;
   }
-  &--1-5 {
-    gap: 1.5rem;
-  }
-  &--2 {
-    gap: 2rem
-  }
-  &--2-5 {
-    gap: 2.5rem;
-  }
-  &--3 {
-    gap: 3rem;
-  }
-}
-
-.pad {
-  &--vert {
-    &--claustrophobic {
-      padding: 0.1rem 0;
-    }
-
-    &--tight {
-      padding: 0.5rem 0;
-    }
-
-    &--cozy {
-      padding: 1rem 0;
-    }
-
-    &--loose {
-      padding: 2rem 0;
-    }
-
-    &--montana {
-      padding: 4rem 0;
-    }
-  }
-
-  &--horz {
-    &--claustrophobic {
-      padding: 0 0.1rem;
-    }
-
-    &--tight {
-      padding: 0 0.5rem;
-    }
-
-    &--cozy {
-      padding: 0 1rem;
-    }
-
-    &--loose {
-      padding: 0 2rem;
-    }
-
-    &--montana {
-      padding: 0 4rem;
-    }
-  }
-
-  &--all {
-    &--claustrophobic {
-      padding: 0.1rem;
-    }
-
-    &--tight {
-      padding: 0.5rem;
-    }
-
-    &--cozy {
-      padding: 1rem;
-    }
-
-    &--loose {
-      padding: 2rem;
-    }
-
-    &--montana {
-      padding: 4rem;
-    }
+  .mar-xy--#{$i} {
+    margin: $x;
   }
 }

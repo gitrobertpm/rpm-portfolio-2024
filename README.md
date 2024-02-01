@@ -1,41 +1,21 @@
-# rpm-portfolio-2024
+# Web Dev Portfolio — 2024
 
-This template should help get you started developing with Vue 3 in Vite.
+**Priorities: responsive, mobile-first, modular, accessible, maintainable, scalable, and custom**
 
-## Recommended IDE Setup
+Reusable Vue components, custom utility classes, and nested Sass and BEM selectors make this project modular, scalable and a breeze to maintain, update, and customize.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+The design is original, unique and perhaps even a bit unconventional overall, but still adheres to the fundamental principles and conventions of modern web development, typography, and accessibility. 
 
-## Customize configuration
+Powered by: 
+<img src="src/assets/img/logos/vectors/vue-logo.svg" width="25px" />
+<img src="src/assets/img/logos/rasters/pinia.png" width="17px" />
+<img src="src/assets/img/logos/rasters/sass.png" width="27px" />
+<img src="src/assets/img/logos/rasters/js2.png" width="25px" />
+<img src="src/assets/img/logos/rasters/css2.png" width="25px" />
+<img src="src/assets/img/logos/rasters/html2.png" width="25px" />
+<img src="src/assets/img/logos/rasters/vscode.png" width="25px" />
+<img src="src/assets/img/logos/rasters/vite.png" width="27px" />
+<img src="src/assets/img/logos/rasters/affinity-designer.png" width="25px" />
+<img src="src/assets/img/logos/rasters/yySmiley.png" width="30px" />
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```

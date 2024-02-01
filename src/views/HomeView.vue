@@ -1,8 +1,8 @@
 <template>
   <main class="main main__home">
     <div class="name-title-container">
-
       <div class="name" lang="en">
+
         <div class="avatar-frame">
           <div class="avatar-mat">
             <img alt="Me" class="avatar" src="@/assets/img/pics/me-jan-2024.jpg" />
@@ -49,105 +49,17 @@
         </div>
 
       </div>
-
     </div>
   </main>
 </template>
 
-<script setup>
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
-.logo-box {
-  position: absolute;
-  top: -150px;
-  // left: calc(50% - 100px);
-  right: 10px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  width: 120px;
-  height: 42px;
-  perspective: 250px;
-  opacity: 0;
-  animation: fade-in 1s ease 5.5s forwards;
-
-  @include md {
-    top: -175px;
-  }
-
-  @include lg {
-    right: -20px;
-  }
-
-  .logo {
-    width: 30px;
-    transform-style: preserve-3d;
-  }
-
-  .github {
-    animation: rotate 15s linear 6s infinite;
-  }
-
-  .linkedin {
-    animation: rotate 15s linear 7s infinite;
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-}
-
-.avatar-frame {
-  position: absolute;
-  top: 300px;
-  left: 42px;
-  width: 100px;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  opacity: 0;
-  animation: fade-in 1s ease-in-out 4.5s forwards;
-  @include md {
-    top: 325px;
-    left: 21px;
-    width: 125px;
-  }
-  @include lg {
-    top: 360px;
-    left: 17px;
-  }
-
-  .avatar-mat {
-    position: relative;
-
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 110%;
-      background: linear-gradient(to bottom, $color-bg-dk-glass-thin, $color-bg-dk-glass-thinner, $color-bg-dk-glass);
-    }
-  }
-
-  .avatar {
-    margin: -15px auto 8px;
-    transform: scale(1.5);
-  }
-}
-
 .main {
   overflow: hidden;
   height: 100vh;
 }
-
 .name-title-container {
   width: 100%;
   min-width: 320px;
@@ -159,6 +71,86 @@
   }
 }
 
+// NAME --------------------------------------------------------------------------------------------------
+.name {
+  position: relative;
+  width: 100%;
+  .name-box {
+    position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin: auto;
+    h1 {
+      display: inline-block;
+      font-size: 4rem;
+      letter-spacing: 0.25rem;
+      padding: 0;
+      margin: 0;
+      @include lg {
+        letter-spacing: 0.35rem;
+      }
+    }
+  }
+  .initial {
+    background-size: 75%;
+    opacity: 0;
+  }
+  .remainder {
+    background-size: 30%;
+    opacity: 0;
+    animation: fade-in 1s ease-in-out 2.5s forwards;
+  }
+  &__first {
+    left: calc(30% - 40px);
+    animation: position-first 1.5s ease-in-out 1s forwards, position-first-final 0.5s ease-out 5s forwards;
+    @include md {
+      animation: position-first 1.5s ease-in-out 1s forwards, position-first-final-md 0.5s ease-out 5s forwards;
+    }
+    @include lg {
+      animation: position-first 1.5s ease-in-out 1s forwards, position-first-final-lg 0.5s ease-out 5s forwards;
+    }
+    &__initial {
+      animation: fade-in 1s ease-in-out forwards;
+    }
+  }
+  &__middle {
+    left: calc(55% - 40px);
+    animation: position-middle 1.5s ease-in-out 1s forwards;
+    @include md {
+      left: calc(57% - 40px);
+      animation: position-middle-md 1.5s ease-in-out 1s forwards;
+    }
+    @include lg {
+      left: calc(59% - 40px);
+      animation: position-middle-lg 1.5s ease-in-out 1s forwards;
+    }
+    &__initial {
+      animation: fade-in 1s ease-in-out 0.05s forwards, fade-out 1.25s ease-in-out 2.75s forwards;
+    }
+    &__remainder {
+      visibility: hidden;
+    }
+  }
+  &__last {
+    left: calc(75% - 40px);
+    white-space: nowrap;
+    animation: position-last 1.5s ease-in-out 1s forwards;
+    @include md {
+      left: calc(80% - 40px);
+      animation: position-last-md 1.5s ease-in-out 1s forwards;
+    }
+    @include lg {
+      left: calc(85% - 40px);
+      animation: position-last-lg 1.5s ease-in-out 1s forwards;
+    }
+    &__initial {
+      animation: fade-in 1s ease-in-out 0.10s forwards;
+    }
+  }
+}
+
+// TITLE ---------------------------------------------------------------------------------------------------
 .title {
   position: absolute;
   font-size: 3.75rem;
@@ -168,11 +160,9 @@
   background: none;
   opacity: 0;
   animation: fade-in 1s ease-in-out 4s forwards;
-
   @include lg {
     text-shadow: 0 1px 0 $color-bg-lt-glass-thick;
   }
-
   &.Web {
     &__W {
       text-shadow: 0 1px 0 $color-bg-dk-glass;
@@ -221,7 +211,6 @@
       }
     }
   }
-
   &.De {
     &__D {
       top: -40px;
@@ -249,7 +238,6 @@
       }
     }
   }
-
   &.vel {
     &__v {
       top: 52px;
@@ -288,7 +276,6 @@
       }
     }
   }
-
   &.oper {
     &__o {
       top: 201px;
@@ -341,119 +328,76 @@
   }
 }
 
-.name-box {
+// SOCIAL MEDIA LINKS --------------------------------------------------------------------------------
+.logo-box {
   position: absolute;
+  top: -150px;
+  right: 10px;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
-  margin: auto;
-
-  h1 {
-    display: inline-block;
-    font-size: 4rem;
-    letter-spacing: 0.25rem;
-    padding: 0;
-    margin: 0;
-    @include lg {
-      letter-spacing: 0.35rem;
-    }
-  }
-}
-
-.initial {
-  background-size: 75%;
+  justify-content: space-between;
+  width: 120px;
+  height: 42px;
+  perspective: 250px;
   opacity: 0;
-  
+  animation: fade-in 1s ease 5.5s forwards;
+  @include md {
+    top: -175px;
+  }
+  @include lg {
+    right: -20px;
+  }
+  .logo {
+    width: 30px;
+    transform-style: preserve-3d;
+  }
+  .github {
+    animation: rotate 15s linear 6s infinite;
+  }
+  .linkedin {
+    animation: rotate 15s linear 7s infinite;
+  }
 }
 
-.remainder {
-  background-size: 30%;
+// PROFILE PIC --------------------------------------------------------------------------------------------
+.avatar-frame {
+  position: absolute;
+  top: 300px;
+  left: 42px;
+  width: 100px;
+  border-radius: 0.5rem;
+  overflow: hidden;
   opacity: 0;
-  animation: fade-in 1s ease-in-out 2.5s forwards;
-}
-
-.name {
-  position: relative;
-  width: 100%;
-
-  &__first {
-    left: calc(30% - 40px);
-    animation: position-first 1.5s ease-in-out 1s forwards, position-first-final 0.5s ease-out 5s forwards;
-    @include md {
-      animation: position-first 1.5s ease-in-out 1s forwards, position-first-final-md 0.5s ease-out 5s forwards;
-    }
-    @include lg {
-      animation: position-first 1.5s ease-in-out 1s forwards, position-first-final-lg 0.5s ease-out 5s forwards;
-    }
-    &__initial {
-      animation: fade-in 1s ease-in-out forwards;
+  animation: fade-in 1s ease-in-out 4.5s forwards;
+  @include md {
+    top: 325px;
+    left: 21px;
+    width: 125px;
+  }
+  @include lg {
+    top: 360px;
+    left: 17px;
+  }
+  .avatar-mat {
+    position: relative;
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 110%;
+      background: linear-gradient(to bottom, $color-bg-dk-glass-thin, $color-bg-dk-glass-thinner, $color-bg-dk-glass);
     }
   }
-
-  &__middle {
-    left: calc(55% - 40px);
-    animation: position-middle 1.5s ease-in-out 1s forwards;
-    @include md {
-      left: calc(57% - 40px);
-      animation: position-middle-md 1.5s ease-in-out 1s forwards;
-    }
-    @include lg {
-      left: calc(59% - 40px);
-      animation: position-middle-lg 1.5s ease-in-out 1s forwards;
-    }
-    &__initial {
-      animation: fade-in 1s ease-in-out 0.05s forwards, fade-out 1.25s ease-in-out 2.75s forwards;
-    }
-    &__remainder {
-      visibility: hidden;
-    }
-  }
-
-  &__last {
-    left: calc(75% - 40px);
-    white-space: nowrap;
-    animation: position-last 1.5s ease-in-out 1s forwards;
-    @include md {
-      left: calc(80% - 40px);
-      animation: position-last-md 1.5s ease-in-out 1s forwards;
-    }
-    @include lg {
-      left: calc(85% - 40px);
-      animation: position-last-lg 1.5s ease-in-out 1s forwards;
-    }
-    &__initial {
-      animation: fade-in 1s ease-in-out 0.10s forwards;
-    }
+  .avatar {
+    margin: -15px auto 8px;
+    transform: scale(1.5);
   }
 }
 
-@keyframes position-first-final {
-  from {
-    translate: 0 0;
-  }
-  to {
-    translate: 3px 97px;
-  }
-}
-
-@keyframes position-first-final-md {
-  from {
-    translate: 0 0;
-  }
-  to {
-    translate: 2px 98px;
-  }
-}
-
-@keyframes position-first-final-lg {
-  from {
-    translate: 0 0;
-  }
-  to {
-    translate: -1px 109px;
-  }
-}
-
+// ANIMATIONS -----------------------------------------------------------------------------------------------
 @keyframes position-first {
   from {
     left: calc(30% - 40px);
@@ -462,7 +406,30 @@
     left: 1.5rem;
   }
 }
-
+@keyframes position-first-final {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 3px 97px;
+  }
+}
+@keyframes position-first-final-md {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 2px 98px;
+  }
+}
+@keyframes position-first-final-lg {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: -1px 109px;
+  }
+}
 @keyframes position-middle {
   from {
     left: calc(55% - 40px);
@@ -473,7 +440,6 @@
     translate: 0 100px;
   }
 }
-
 @keyframes position-middle-md {
   from {
     left: calc(57% - 40px);
@@ -484,7 +450,6 @@
     translate: 0 115px;
   }
 }
-
 @keyframes position-middle-lg {
   from {
     left: calc(59% - 40px);
@@ -495,7 +460,6 @@
     translate: 0 120px;
   }
 }
-
 @keyframes position-last {
   from {
     left: calc(75% - 40px);
@@ -506,7 +470,6 @@
     translate: 0 200px;
   }
 }
-
 @keyframes position-last-md {
   from {
     left: calc(80% - 40px);
@@ -517,7 +480,6 @@
     translate: 0 215px;
   }
 }
-
 @keyframes position-last-lg {
   from {
     left: calc(85% - 40px);
@@ -528,7 +490,6 @@
     translate: 0 230px;
   }
 }
-
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -537,7 +498,6 @@
     opacity: 1;
   }
 }
-
 @keyframes fade-out {
   from {
     opacity: 1;
@@ -546,23 +506,12 @@
     opacity: 0;
   }
 }
-
-@keyframes rotate-right {
+@keyframes rotate {
   from {
-    transform: rotate(0deg);
+    transform: rotateY(0deg);
   }
   to {
-    transform: rotate(90deg);
+    transform: rotateY(360deg);
   }
 }
-
-@keyframes rotate-left {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-90deg);
-  }
-}
-
 </style>
