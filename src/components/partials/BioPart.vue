@@ -4,7 +4,7 @@
       <h2>Bio</h2>
     </template>
     <template #drawer>
-      <AnAccordion theme="clr" btnTheme="lt" borderless>
+      <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
         <div class="bio-wrapper">
           <ACard theme="blue" drawer>
             <template #drawer>
@@ -37,6 +37,11 @@
 <script setup>
 import ACard from '@/components/reusables/ACard.vue';
 import AnAccordion from '@/components/reusables/AnAccordion.vue';
+const emit = defineEmits(['accordionClick']);
+
+const accordionClick = ()=> {
+  emit('accordionClick');
+};
 </script>
 
 <style lang="scss" scoped>

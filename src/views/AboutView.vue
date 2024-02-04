@@ -12,16 +12,16 @@
     <div class="container flex--column--stretch">
       <div class="cube" ref="cube">
         <div class="side front" ref="front">
-          <WorkPart />
+          <WorkPart @accordionClick="accordionClick" />
         </div>
         <div class="side back" ref="back">
-          <PlayPart />
+          <PlayPart @accordionClick="accordionClick" />
         </div>
         <div class="side right" ref="right">
-          <PortfolioPart />
+          <PortfolioPart @accordionClick="accordionClick" />
         </div>
         <div class="side left" ref="left">
-          <BioPart />
+          <BioPart @accordionClick="accordionClick" />
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, nextTick, onMounted } from 'vue';
 import PlayPart from '@/components/partials/PlayPart.vue';
 import BioPart from '@/components/partials/BioPart.vue';
 import PortfolioPart from '@/components/partials/PortfolioPart.vue';
@@ -44,24 +44,35 @@ const isMobile = () => globalState.width < md;
 
 // Scroll to top when mounted
 const initialize = () => window.scrollTo(0,0);
+onMounted(initialize);
 
-// CARD STUFF
+// Listen for outer accordion opening/closing 
+// and adjust page height to compensate for absolute positioned content
 const page = ref(null);
 const front = ref(null);
 const left = ref(null);
 const back = ref(null);
 const right = ref(null);
+const originalHeight = ref(0);
 
-onMounted(() => {
-  initialize();
-  const height = Math.max(
-    front.value.firstChild.offsetHeight,
-    left.value.firstChild.offsetHeight,
-    back.value.firstChild.offsetHeight,
-    right.value.firstChild.offsetHeight
-  );
-  page.value.style.height = `${height * 1.3}px`;
+onMounted(async () => {
+  await nextTick();
+  originalHeight.value = page.value.offsetHeight;
 });
+
+const accordionClick = async () => {
+  setTimeout(() => {
+    const cardHeights = [
+      front.value.firstChild.offsetHeight,
+      left.value.firstChild.offsetHeight,
+      back.value.firstChild.offsetHeight,
+      right.value.firstChild.offsetHeight
+    ];
+    const maxHeight = Math.max(...cardHeights);
+    const multiplier = maxHeight < 1000 ? 2 : 1.5
+    page.value.style.height = (maxHeight + 200) > originalHeight.value ? `${maxHeight * multiplier}px` : `${originalHeight.value}px`;
+    }, 750);
+};
 
 // CUBE STUFF
 const cube = ref(null);
@@ -105,7 +116,6 @@ const handlePortfolio = () => {
 <style lang="scss" scoped>
 .main {
  height: 100vh;
- overflow: auto;
 }
 
 .ctrl {

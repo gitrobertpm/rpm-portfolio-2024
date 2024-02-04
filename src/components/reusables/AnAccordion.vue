@@ -62,10 +62,13 @@ defineProps({
   footer: Boolean
 });
 
+const emit = defineEmits(['accordionClick']);
+
 const accordionOpen = ref(false);
 
 function toggleAccordion() {
   accordionOpen.value = !accordionOpen.value;
+  emit('accordionClick');
 }
 </script>
 
