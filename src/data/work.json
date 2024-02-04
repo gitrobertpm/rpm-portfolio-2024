@@ -1,0 +1,60 @@
+[ {
+    "id": 0,
+    "date": "9/2022 - 1/2024",
+    "company": "Pollinate Spectrum",
+    "title": "Front-end Developer - W2 - Remote",
+    "description": "Accepted my second dev role and was awesome!",
+    "bullets": {
+      "heading": "Details",
+      "points": [
+        "Maintained, debugged, and contributed to product customizer apps for numerous high-volume e-commerce platforms using Vue, Sass, Jest, proprietary frameworks, Jira, and Bitbucket.",
+        "Wrote documentation and helped with tech debt: Accessibility updates, version updates, adding unit tests and internationalization.",
+        "Participated on client calls and collaborated with Back-end, UX/UI, Data, and 3D teams in an Agile hybrid environment."
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "date": "9/2021 - 1/2022",
+    "company": "Unleashed Technologies",
+    "title": "Front-end React Developer - Contract - Remote",
+    "description": "Landed my first real web developer position. Just a short contract role that was over too soon. But it was fun, I learned a lot, and I'm ready for whatever's next.",
+    "bullets": {
+      "heading": "Details",
+      "points": [
+        "Built and debugged SPA components for a large e-commerce app with React, Sass, TypeScript, Cypress, Jira, and GitLab.",
+        "Worked with client devs and Back-end devs to define deliverables, plan sprints, and resolve bugs in an Agile-like environment."
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "date": "2/2017 - 6/2021",
+    "company": "Treehouse",
+    "title": "Front-end and Full Stack JavaScript Techdegree Administrator and Student Success Specialist - W2 - Remote",
+    "description": "Promoted from contract to part time, then to full time, and from front end to the illustrious Full Stack JavaScript Techdegree.",
+    "bullets": {
+      "heading": "Details",
+      "points": [
+        "Wrote, reviewed and maintained educational software and instructional materials.",
+        "Evaluated 4,600+ student projects.",
+        "Mentored students on front-end and full stack programming concepts and techniques, debugging assistance, industry trends and standards, how to learn, impostor syndrome, job search.", 
+        "Created, documented, and reported on student programs and team processes."
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "date": "3/2016 - 2/2017",
+    "company": "Treehouse",
+    "title": "Contractor — Web Development Student Mentor",
+    "description": "Got my first web dev gig.",
+    "bullets": {
+      "heading": "Details",
+      "points": [
+        "Review, evaluate and grade student code and project submissions.", 
+        "Live debugging and mentoring in Slack support community."
+      ]
+    } 
+  }
+]

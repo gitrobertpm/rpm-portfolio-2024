@@ -53,10 +53,11 @@
 }
 // LINKS -------------------------------------------------------------------------------------------------------------------
 @mixin link-hover {
-  color: $color-deep-sky !important;
   box-shadow: 1px 0 3px $color-bg-deep-sky-glass-lt inset, -1px 0 3px $color-bg-alert-glass-lt inset;
   &::before {
-    background-image: conic-gradient(at 0% 0%, transparent 0deg, transparent 90deg, $color-bg-deep-sky-glass-lt, transparent 180deg), conic-gradient(at 100% 0%, transparent 0deg, transparent 180deg, $color-bg-alert-glass-lt, transparent 270deg);
+    background-image: 
+    conic-gradient(at 0% 0%, transparent 0deg, transparent 90deg, $color-bg-dodger-glass, transparent 180deg), 
+    conic-gradient(at 100% 0%, transparent 0deg, transparent 180deg, $color-bg-alert-glass-lt, transparent 270deg);
     animation: lights-on 0.3s ease-out forwards;
   }
 }
@@ -113,10 +114,11 @@
     top: -5px;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% + 0.1rem);
     padding: 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
     opacity: 0;
-    transition: 0.3s;
+    transition: 0.4s;
   }
   
   &:visited {
@@ -142,10 +144,10 @@
 }
 // BUTTONS ---------------------------------------------------------------------------------------------------------
 @mixin btn-hover {
-  color: $color-deep-sky !important;
+  color: $color-deep-sky;
   border: 1px solid $color-deep-sky;
   filter: drop-shadow(0 5px 15px $color-bg-deep-sky-glass);
-  box-shadow: 0.5rem 12px 0 $color-bg-deep-sky-glass inset, -0.5rem -10px 0 $color-bg-alert-glass inset;
+  box-shadow: 0.5rem 12px 0 $color-bg-dodger-glass inset, -0.5rem -10px 0 $color-bg-alert-glass inset;
 }
 @mixin btn-active {
   color: $color-alert;
@@ -371,6 +373,11 @@
 // Media queries -----------------------------------------------------------------------------------------------------------------------------
 @mixin sm {
   @media (min-width: #{$mobile-brk}) {
+    @content;
+  }
+}
+@mixin sm-md-mid {
+  @media (min-width: #{$mob-tab-mid-brk}) {
     @content;
   }
 }

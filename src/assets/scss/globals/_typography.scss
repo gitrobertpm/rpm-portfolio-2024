@@ -29,7 +29,6 @@ li {
 }
 a {
   @include link;
-  margin: 1rem auto;
 }
 button {
   @include btn;

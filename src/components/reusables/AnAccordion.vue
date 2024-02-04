@@ -7,13 +7,14 @@
     <!-- 
       Flexible, responsive, animated accordion component to hold click-through-content
       Props used to determine theme: 'clr', 'lt', 'dk' - ALL STRINGS - defaults to 'clr'
+      Props used to determine button theme: 'lt' - STING - defaults to ''
       Prop used to determine type: 'borderless' - BOOLEAN
       Props used to include children: 'heading', 'text', 'footer' - ALL BOOLEANS 
     -->
     <div :class="`accordion__body--${ theme }`">
       <div :class="`accordion__controller--${ theme }`">
         <button 
-          :class="`accordion__controller__btn--${ theme }`"
+          :class="`accordion__controller__btn--${ theme } btn--${ btnTheme }`"
           @click="toggleAccordion"
           title="More..."
         >
@@ -50,6 +51,10 @@ defineProps({
   theme: {
     type: String,
     default: 'clr'
+  },
+  btnTheme: {
+    type: String,
+    default: ''
   },
   borderless: Boolean,
   heading: Boolean,
@@ -212,6 +217,25 @@ function toggleAccordion() {
   }
   &__footer {
     @include accordion-footer;
+  }
+}
+
+.btn--lt {
+  color: $color-text-lt;
+  &:hover,
+  &:focus {
+    color: $color-alert;
+    border: 1px solid $color-text-lt;
+    box-shadow: 0.5rem 12px 0 $color-bg-lt-glass-thinner inset, -0.5rem -10px 0 $color-bg-lt-glass-thinner inset;
+  }
+}
+.btn--dk {
+  color: $color-text-dk;
+  &:hover,
+  &:focus {
+    color: $color-alert;
+    border: 1px solid $color-text-dk;
+    box-shadow: 0.5rem 12px 0 $color-bg-dk-glass-thinner inset, -0.5rem -10px 0 $color-bg-dk-glass-thinner inset;
   }
 }
 .borderless {

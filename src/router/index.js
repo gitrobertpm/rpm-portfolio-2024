@@ -36,6 +36,11 @@ const router = createRouter({
       path: '/style-guide',
       name: 'style-guide',
       component: () => import('../views/StyleGuideView.vue')
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'not-found',
+      component: () => import('../views/NotFoundView.vue')
     }
   ]
 })

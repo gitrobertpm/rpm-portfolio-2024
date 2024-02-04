@@ -84,16 +84,29 @@ import IconStyleguide from './icons/IconStyleguide.vue';
     &__item {
       text-align: center;
       width: 100px;
-      height: 120px;
+      height: auto;
 
       &__link {
         display: flex;
         flex-flow: column nowrap;
         color: $color-text-lt;
+        padding: 1rem 0;
+        margin: 0.5rem auto;
         // Double specificity
         &#{&} {
           outline-offset: -2px;
         }
+
+        &:hover {
+          box-shadow: 1px 0 3px $color-bg-lt-glass-thinner inset, -1px 0 3px $color-bg-dk-glass-thinner inset;
+          &::before {
+            background-image: 
+              conic-gradient(at 0% 0%, transparent 0deg, transparent 90deg, $color-bg-lt-glass-thinner, transparent 180deg), 
+              conic-gradient(at 100% 0%, transparent 0deg, transparent 180deg, $color-bg-lt-glass-thinner, transparent 270deg),
+              linear-gradient(to top, $color-bg-dk-glass-thin, transparent);
+          }
+        }
+        
 
         &__icon {
           width: 42px;

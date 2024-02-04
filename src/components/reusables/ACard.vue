@@ -2,7 +2,7 @@
   <div :class="`card card--${ theme }`">
     <!-- 
       Smaller reusable responsive card to break up content in a section or other container 
-      Props used to determine theme: 'red', 'blue', 'green', 'yellow', 'lt', 'clr', 'dk' - ALL STRINGS - defaults to 'clr'
+      Props used to determine theme: 'red', 'blue', 'green', 'yellow', 'lt', 'clr', 'dk' - ALL STRINGS - defaults to 'dk'
       Props used to include children: 'heading', 'text', 'footer', 'drawer' - ALL BOOLEANS 
     -->
     <!-- CARD FACE-->
@@ -38,7 +38,7 @@
 defineProps({
   theme: {
     type: String,
-    default: 'blue'
+    default: 'dk'
   },
   heading: Boolean,
   text: Boolean,
@@ -73,15 +73,15 @@ defineProps({
   // }
 }
 @mixin card-red {
-  background: linear-gradient(to top, $color-bg-alert-glass, $color-bg-special-glass);
-  border: 1px solid $color-bg-special-dk-glass;
+  background: linear-gradient(to top, $color-bg-error-glass, $color-bg-alert-glass);
+  border: 1px solid $color-bg-error-glass;
 }
 @mixin card-green {
   background: linear-gradient(to top, $color-bg-success-glass, $color-bg-warning-glass);
   border: 1px solid $color-bg-success-dk-glass;
 }
 @mixin card-blue {
-  background: linear-gradient(to top, $color-bg-blue-glass, $color-bg-deep-sky-glass);
+  background: linear-gradient(to top, $color-bg-blue-glass, $color-bg-dodger-glass);
   border: 1px solid $color-bg-midnight-glass;
 }
 @mixin card-yellow {
@@ -107,16 +107,21 @@ defineProps({
   border: 1px solid $color-bg-dk-glass-thinner;
   box-shadow: 1px 1px 0 $color-bg-lt-glass-thinner, -1px -1px 0 $color-bg-lt-glass-thinner;
 }
-@mixin card-main {}
-@mixin card-body {}
+@mixin card-main {
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+@mixin card-body {
+  border-radius: 0.75rem 0.75rem 0 0;
+}
 @mixin card-heading {
   padding: 0.1rem 1rem;
+  border-radius: 0.75rem 0.75rem 0 0;
 }
 @mixin card-heading-red {
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 -1px 0 $color-bg-alert-glass, 0 1px 0 $color-error;
   background: linear-gradient(to right, $color-bg-error-glass, $color-bg-alert-glass);
-  border-bottom: 1px solid $color-bg-special-dk-glass;
+  border-bottom: 1px solid $color-bg-error-glass;
 }
 @mixin card-heading-green {
   color: rgba(255, 255, 255, 0.95);
@@ -132,7 +137,7 @@ defineProps({
 }
 @mixin card-heading-yellow {
   color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 -1px 0 $color-bg-warning-lt-glass, 0 1px 0 $color-dirty;
+  text-shadow: 0 -1px 0 $color-bg-warning-glass, 0 1px 0 $color-dirty;
   background: linear-gradient(to right, $color-bg-dirty-glass, $color-bg-warning-dk-glass);
   border-bottom: 1px solid $color-bg-dirty-glass;
 }

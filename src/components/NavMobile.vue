@@ -124,7 +124,7 @@ function toggleNav() {
   padding: 5px;
   margin: 10px 0 0 10px;
   border-radius: 5px;
-  filter: drop-shadow(0 -1px 0 $color-text-lt);
+  filter: drop-shadow(0 -1px 0 $color-bg-lt-glass-thin);
   z-index: 999;
 }
 

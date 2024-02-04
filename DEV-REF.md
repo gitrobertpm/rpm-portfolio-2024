@@ -25,7 +25,7 @@ These reusable Vue components use slots for content injection and props/attribut
 ### Section
 Large reusable responsive section to break up content on a page/view.
 
-Theme props: 
+`theme` props: 
 * 'light' - `BOOLEAN`
 
 Child props: 
@@ -40,8 +40,8 @@ File name: `ASection.vue`
 ### Card
 Responsive reusable component to break up content in a section.
 
-Theme props:
-REQUIRED - defaults - to 'clr'
+`theme` props:
+Defaults to 'dk'
 * 'red' - `STRING`
 * 'green' - `STRING`
 * 'blue' - `STRING`
@@ -61,9 +61,14 @@ File name: `ACard.vue`
 ### Accordion
 Responsive reusable expanding component to contain click-through/supplemental content in a section or a card.
 
-Theme props:
-REQUIRED - defaults - to 'clr'
+`theme` props:
+Defaults to 'clr'
 * 'clr' - `STRING`
+* 'lt' - `STRING`
+* 'dk' - `STRING`
+
+`btn-theme` props:
+Defaults to ''
 * 'lt' - `STRING`
 * 'dk' - `STRING`
 
@@ -108,12 +113,12 @@ The table below defines the class name modifiers and their respective flex value
 | --sb  | space-between  |
 | --sa  | space-around  |
 | --se  | space-evenly  |
-| **3. Alignment\* ↑ ↓** |
+| **3. \*Alignment ↑ ↓** |
 | --fs  | flex-start  |
 | --fe  | lex-end  |
 | --cent  | center  |
 | --stretch  | stretch  |
-| **4. Wrap\* ↻** |
+| **4. \*Wrap ↻** |
 | --wrap  | wrap  |
 
 ### Grid
