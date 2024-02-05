@@ -4,7 +4,7 @@
       <h2>Work</h2>
     </template>
     <template #drawer>
-      <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
+      <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
         <div class="work-wrapper">
           <h3>Employment History</h3>
           <p class="pad-x--15">Most of my experience is building things with JavaScript FE libraries like React and Vue, and styling them with CSS/Sass. But I have worked with Backend and database technologies as well.</p>
@@ -16,7 +16,7 @@
             <template #drawer>
               <div class="pad-x--10">
                 <h4>{{ job.company }}</h4>
-                <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
+                <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
                   <br>
                   <code class="date">{{ job.date }}</code>
                   <h5>{{ job.title }}</h5>
@@ -37,6 +37,13 @@
 import ACard from '@/components/reusables/ACard.vue';
 import AnAccordion from '@/components/reusables/AnAccordion.vue';
 import jobs from '@/data/work.json';
+import useWindowResize from '@/composables/useWindowResize.js';
+import { BREAKPOINTS } from '@/util/constants.js';
+
+// Screen width
+const { globalState } = useWindowResize();
+const { md } = BREAKPOINTS;
+const isMobile = () => globalState.width < md;
 
 const emit = defineEmits(['accordionClick']);
 

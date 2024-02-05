@@ -9,7 +9,30 @@
       <button @click="handlePortfolio" class="ctrl__btn ctrl__btn__port">This</button>
     </div>
 
-    <div class="container flex--column--stretch">
+    <div v-if="isMobile()" class="mobile-container">
+      <Transition name="fade" mode="out-in">
+        <div v-show="showPart === 'Work'" class="part-wrapper">
+          <WorkPart />
+        </div>
+      </Transition>
+      <Transition name="fade" mode="out-in">
+        <div v-show="showPart === 'Play'" class="part-wrapper">
+          <PlayPart />
+        </div>
+      </Transition>
+      <Transition name="fade" mode="out-in">
+        <div v-show="showPart === 'This'" class="part-wrapper">
+          <PortfolioPart />
+        </div>
+      </Transition>
+      <Transition name="fade" mode="out-in">
+        <div v-show="showPart === 'Bio'" class="part-wrapper">
+          <BioPart />
+        </div>
+      </Transition>
+    </div>
+
+    <div v-if="!isMobile()" class="container flex--column--stretch">
       <div class="cube" ref="cube">
         <div class="side front" ref="front">
           <WorkPart @accordionClick="accordionClick" />
@@ -60,7 +83,9 @@ onMounted(async () => {
   originalHeight.value = page.value.offsetHeight;
 });
 
-const accordionClick = async () => {
+// const emit = defineEmits(['accordionClick']);
+
+const accordionClick = () => {
   setTimeout(() => {
     const cardHeights = [
       front.value.firstChild.offsetHeight,
@@ -74,7 +99,10 @@ const accordionClick = async () => {
     }, 750);
 };
 
-// CUBE STUFF
+// DISPLAY SELECTION - MOBILE
+const showPart = ref('Work');
+
+// CUBE STUFF - DESKTOP
 const cube = ref(null);
 
 // Get cube position
@@ -85,37 +113,58 @@ const getTransformVal = () => {
 };
 
 // Animate cube selection transition, even on first click
-const animateSelection = (transformMobile, transformNotMobile) => {
+const animateSelection = (transformString) => {
   cube.value.style.animation = "none";
   const transformVal = getTransformVal();
   cube.value.style.transform = transformVal;
-  cube.value.style.transform = isMobile ? transformMobile : transformNotMobile;
+  cube.value.style.transform = transformString;
 };
 
 // FRONT
-const handleWork = () => {
-  animateSelection('rotateY(360deg)', 'rotateY(360deg) translateZ(-300px)');
+const handleWork = (e) => {
+  if (isMobile()) {
+    showPart.value = e.target.textContent;
+  } else {
+    animateSelection('rotateY(360deg) translateZ(-300px)');
+  }
 };
 
 // LEFT
-const handleBio = () => {
-  animateSelection('rotateY(90deg)', 'rotateY(90deg) translateX(300px)');
+const handleBio = (e) => {
+  if (isMobile()) {
+    showPart.value = e.target.textContent;
+  } else {
+    animateSelection('rotateY(90deg) translateX(300px)');
+  }
 };
 
 // BACK
-const handlePlay = () => {
-  animateSelection('rotateY(180deg)', 'rotateY(180deg) translateZ(300px)');
+const handlePlay = (e) => {
+  if (isMobile()) {
+    showPart.value = e.target.textContent;
+  } else {
+    animateSelection('rotateY(180deg) translateZ(300px)');
+  }
 };
 
 // RIGHT
-const handlePortfolio = () => {
-  animateSelection('rotateY(270deg)', 'rotateY(270deg) translateX(-300px)');
+const handlePortfolio = (e) => {
+  if (isMobile()) {
+    showPart.value = e.target.textContent;
+  } else {
+    animateSelection('rotateY(270deg) translateX(-300px)');
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .main {
- height: 100vh;
+ min-height: 100vh;
+}
+
+.part-wrapper {
+  width: 95%;
+  margin: 3rem auto auto;
 }
 
 .ctrl {
@@ -185,28 +234,31 @@ const handlePortfolio = () => {
   margin-top: 75px;
 }
 .cube {
-  width: calc(100vw - 2rem);
+  width: 720px;
   height: 400px;
   margin: auto;
   transition: 0.75s ease-out;
   transform-style: preserve-3d;
-  // animation: cube-rotate 10s infinite;
+  animation: cube-rotate-md 10s infinite; 
   /* animation: cube-dance 10s infinite; */
-  @include sm {
-    width: calc(100vw - 4rem);
-  }
-  @include sm-md-mid {
-    width: calc(100vw - 8rem);
-  }
-  @include md {
-    width: 720px;
-    animation: cube-rotate-md 10s infinite; 
-  }
+  // animation: cube-rotate 10s infinite;
+  
+  // @include sm {
+  //   width: calc(100vw - 4rem);
+  // }
+  // @include sm-md-mid {
+  //   width: calc(100vw - 8rem);
+  // }
+  // @include md {
+  //   width: 720px;
+  //   animation: cube-rotate-md 10s infinite; 
+  //   /* animation: cube-dance 10s infinite; */
+  // }
   .side {
     display: block;
     position: absolute;
-    width: calc(100vw - 2rem);
-    height: 175px;
+    width: 720px;
+    height: 210px;
     text-align: center;
     background-image: 
     linear-gradient(to top, $color-bg-dk-glass-thick, $color-bg-dk-glass-thin),
@@ -214,29 +266,29 @@ const handlePortfolio = () => {
       conic-gradient(at 100% 0%, transparent 0deg, transparent 180deg, $color-bg-lt-glass-thin, transparent 270deg);
     border-radius: 0.75rem;
     border: none;
-    @include sm {
-      width: calc(100vw - 4rem);
-    }
-    @include sm-md-mid {
-      width: calc(100vw - 8rem);
-    }
-    @include md {
-      width: 720px;
-      height: 210px;
-    }
+    // @include sm {
+    //   width: calc(100vw - 4rem);
+    // }
+    // @include sm-md-mid {
+    //   width: calc(100vw - 8rem);
+    // }
+    // @include md {
+    //   width: 720px;
+    //   height: 210px;
+    // }
     @include lg {
       width: 720px;
       height: 247px;
     }
   }
 }
-@keyframes cube-rotate {
-  0% { transform: rotateY(0deg); }
-  25% { transform: rotateY(90deg); }
-  50% { transform: rotateY(180deg); }
-  75% { transform: rotateY(270deg); }
-  100% { transform: rotateY(360deg); }
-}
+// @keyframes cube-rotate {
+//   0% { transform: rotateY(0deg); }
+//   25% { transform: rotateY(90deg); }
+//   50% { transform: rotateY(180deg); }
+//   75% { transform: rotateY(270deg); }
+//   100% { transform: rotateY(360deg); }
+// }
 @keyframes cube-rotate-md {
   0% { transform: rotateY(0deg) translateZ( -300px ); }
   25% { transform: rotateY(90deg) translateX( 300px ); }
@@ -252,51 +304,61 @@ const handlePortfolio = () => {
 //   100% { transform: rotateX(360deg) rotateY(0deg) rotateZ(270deg); }
 // }
 .cube .front  {
-  transform: rotateY( 0deg ) translateZ( calc(50vw - 1rem) );
-  @include sm {
-    transform: rotateY( 0deg ) translateZ( calc(50vw - 2rem) );
-  }
-  @include sm-md-mid {
-    transform: rotateY( 0deg ) translateZ( calc(50vw - 4rem) );
-  }
+  // transform: rotateY( 0deg ) translateZ( calc(50vw - 1rem) );
+  // @include sm {
+  //   transform: rotateY( 0deg ) translateZ( calc(50vw - 2rem) );
+  // }
+  // @include sm-md-mid {
+  //   transform: rotateY( 0deg ) translateZ( calc(50vw - 4rem) );
+  // }
   @include md {
     transform: rotateY( 0deg ) translateZ( 360px );
   }
 }
 .cube .back {
-  transform: rotateY( 180deg ) translateZ( calc(50vw - 1rem) );
-  @include sm {
-    transform: rotateY( 180deg ) translateZ( calc(50vw - 2rem) );
-  }
-  @include sm-md-mid {
-    transform: rotateY( 180deg ) translateZ( calc(50vw - 4rem) );
-  }
+  // transform: rotateY( 180deg ) translateZ( calc(50vw - 1rem) );
+  // @include sm {
+  //   transform: rotateY( 180deg ) translateZ( calc(50vw - 2rem) );
+  // }
+  // @include sm-md-mid {
+  //   transform: rotateY( 180deg ) translateZ( calc(50vw - 4rem) );
+  // }
   @include md {
     transform: rotateY( 180deg ) translateZ( 360px );
   }
 }
 .cube .right  {
-  transform: rotateY(  90deg ) translateZ( calc(50vw - 1rem) );
-  @include sm {
-    transform: rotateY( 90deg ) translateZ( calc(50vw - 2rem) );
-  }
-  @include sm-md-mid {
-    transform: rotateY( 90deg ) translateZ( calc(50vw - 4rem) );
-  }
+  // transform: rotateY(  90deg ) translateZ( calc(50vw - 1rem) );
+  // @include sm {
+  //   transform: rotateY( 90deg ) translateZ( calc(50vw - 2rem) );
+  // }
+  // @include sm-md-mid {
+  //   transform: rotateY( 90deg ) translateZ( calc(50vw - 4rem) );
+  // }
   @include md {
     transform: rotateY( 90deg ) translateZ( 360px );
   }
 }
 .cube .left   {
-  transform: rotateY( -90deg ) translateZ( calc(50vw - 1rem) );
-  @include sm {
-    transform: rotateY( -90deg ) translateZ( calc(50vw - 2rem) );
-  }
-  @include sm-md-mid {
-    transform: rotateY( -90deg ) translateZ( calc(50vw - 4rem) );
-  }
+  // transform: rotateY( -90deg ) translateZ( calc(50vw - 1rem) );
+  // @include sm {
+  //   transform: rotateY( -90deg ) translateZ( calc(50vw - 2rem) );
+  // }
+  // @include sm-md-mid {
+  //   transform: rotateY( -90deg ) translateZ( calc(50vw - 4rem) );
+  // }
   @include md {
     transform: rotateY( -90deg ) translateZ( 360px );
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

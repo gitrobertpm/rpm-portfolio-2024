@@ -1,0 +1,1 @@
+import{_ as e,o as c,e as n,b as s}from"./index-NqOf4YX9.js";const o={},t={class:"main main__experience"},_=s("h1",null,"My Experience",-1),a=[_];function r(i,d){return c(),n("main",t,a)}const m=e(o,[["render",r]]);export{m as default};

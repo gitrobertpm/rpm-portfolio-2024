@@ -4,7 +4,7 @@
       <h2>Play</h2>
     </template>
     <template #drawer>
-      <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
+      <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
         <div class="play-wrapper">
           <ACard theme="red" drawer>
             <template #drawer>
@@ -29,6 +29,13 @@
 <script setup>
 import ACard from '@/components/reusables/ACard.vue';
 import AnAccordion from '@/components/reusables/AnAccordion.vue';
+import useWindowResize from '@/composables/useWindowResize.js';
+import { BREAKPOINTS } from '@/util/constants.js';
+
+// Screen width
+const { globalState } = useWindowResize();
+const { md } = BREAKPOINTS;
+const isMobile = () => globalState.width < md;
 
 const emit = defineEmits(['accordionClick']);
 

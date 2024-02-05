@@ -78,6 +78,8 @@ function toggleAccordion() {
 //   background-position: left;
 // }
 @mixin accordion {
+  width: 64px;
+  max-height: 64px;
   border-radius: 0.85rem;
   border-top: 1px solid $color-bg-lt-glass-thinner;
   border: 1px solid $color-bg-dk-glass-thinner;
@@ -225,6 +227,7 @@ function toggleAccordion() {
 
 .btn--lt {
   color: $color-text-lt;
+  filter: drop-shadow(-1px 0 1px $color-bg-dk-glass-thin);
   &:hover,
   &:focus {
     color: $color-alert;
@@ -234,6 +237,7 @@ function toggleAccordion() {
 }
 .btn--dk {
   color: $color-text-dk;
+  filter: drop-shadow(1px 0 1px $color-bg-lt-glass);
   &:hover,
   &:focus {
     color: $color-alert;

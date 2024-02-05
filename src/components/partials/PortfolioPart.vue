@@ -4,7 +4,7 @@
       <h2>This</h2>
     </template>
     <template #drawer>
-      <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
+      <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
         <div class="port-wrapper">
           <h3>Portfolio Details</h3>
           <p class="pad-x--15">Here's a breakdown of what has gone into the different aspects of this project.</p>
@@ -15,7 +15,7 @@
             <template #drawer>
               <div class="pad-x--10">
                 <h3>Accessibility</h3>
-                <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
+                <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
                   <p>Considerations:</p>
                   <ul class="port-list">
                     <li>Aria roles</li>
@@ -52,7 +52,7 @@
             <template #drawer>
               <div class="pad-x--10">
                 <h3>Composition</h3>
-                <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
+                <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
                   <p>Here's a high level view of the app architecture:</p>
                   <ul class="port-list">
                     <li>Root</li>
@@ -94,7 +94,7 @@
             <template #drawer>
               <div class="pad-x--10">
                 <h3>State & Routing</h3>
-                <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
+                <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
                   <ul class="port-list">
                     <li>Catch all route and custom NotFound component for handling 404s</li>
                     <li>Pinia and composables for state</li>
@@ -113,6 +113,14 @@
 <script setup>
 import ACard from '@/components/reusables/ACard.vue';
 import AnAccordion from '@/components/reusables/AnAccordion.vue';
+import useWindowResize from '@/composables/useWindowResize.js';
+import { BREAKPOINTS } from '@/util/constants.js';
+
+// Screen width
+const { globalState } = useWindowResize();
+const { md } = BREAKPOINTS;
+const isMobile = () => globalState.width < md;
+
 const emit = defineEmits(['accordionClick']);
 
 const accordionClick = ()=> {
