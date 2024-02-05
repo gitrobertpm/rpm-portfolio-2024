@@ -19,9 +19,8 @@
                 <p>That first real developer job was scary and challenging, but I learned a lot and grew as a result.</p>
                 <p>In 2022, I accepted a Front-end Vue Developer role to work on 3D product customizer applications that were deployed on the web applications of major brands like XBOX, Hydro Flask, and JBL to name a few.</p>
                 <p>My second real developer job was less scary and less challenging, but more fun, and I learned and grew even more.</p>
-                <p>Unfortunately, changes in the client roster resulted in the elimination of positions and mine was among them.</p>
                 <p>Unfortunately, changes in the client roster resulted in the elimination of positions and mine was among them. So now I'm looking forward to the next chapter and my next developer role with great enthusiasm.</p>
-                <p>I'm hoping for something long term and remote on a supportive team, but I'm flexible and open to new opportunities.</p>
+                <p>I'm hoping for something long term and remote on a supportive team, but I'm flexible and open to any new opportunities.</p>
                 <div class="flex--row--cent">
                   <p><span class="emoji" role="img" aria-label="Walking emoji">🚶‍♂️</span></p>
                 </div>

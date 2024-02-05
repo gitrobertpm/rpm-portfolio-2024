@@ -3,7 +3,10 @@
     <h1 class="four-oh-four-heading">&lt;~*404*~&gt;</h1>
     <ASection hero heading text footer>
       <template #hero>
-        <img src="@/assets/img/icons/rasters/impossible-triangle.png" alt="Impossible Triangle" class="not-found-hero" />
+        <div class="triangle-box">
+          <IconImpossibleTriangle />
+        </div>
+        <!-- <img src="@/assets/img/icons/rasters/impossible-triangle.png" alt="Impossible Triangle" class="not-found-hero" /> -->
       </template>
       <template #heading>
         <h2 class="oops">Not Found</h2>
@@ -20,6 +23,7 @@
 
 <script setup>
 import ASection from '@/components/reusables/ASection.vue';
+import IconImpossibleTriangle from '@/components/icons/IconImpossibleTriangle.vue';
 </script>
 
 <style lang="scss" scoped>
@@ -32,13 +36,35 @@ import ASection from '@/components/reusables/ASection.vue';
 .four-oh-four-heading {
   text-align: center;
 }
-.not-found-hero {
-  padding: 1rem;
+.triangle-box {
+  color: $color-text-lt;
+  padding: 0.5rem 2.5rem 1.5rem;
+  @include md {
+    padding: 0.5rem 1.5rem 1rem;
+  }
   @include lg {
-    width: 187px;
-    height: 142px;
+    padding: 0.5rem 1.5rem 2rem;
+  }
+  svg {
+    width: 145px;
+    @include md {
+      width: 100px;
+    }
+    @include lg {
+      width: 150px;
+    }
+    @include xl {
+      width: 200px;
+    }
   }
 }
+// .not-found-hero {
+//   padding: 1rem;
+//   @include lg {
+//     width: 187px;
+//     height: 142px;
+//   }
+// }
 .spacer {
   visibility: hidden;
 }

@@ -267,7 +267,7 @@
   @include cutout;
   background: $color-wht;
   @include md {
-    background: linear-gradient(to left, $color-wht 75%, transparent);
+    background: linear-gradient(to left, $color-wht 75%, transparent 80%);
   }
   @include lg {
     text-align: left;
@@ -278,9 +278,10 @@
 @mixin cutout-lt-img {
   @include cutout-lt;
   padding: 1rem;
-  border-radius: 4rem;
+  border-radius: 5rem;
   @include sm {
     padding: 1rem;
+    border-radius: 5rem;
   }
   @include md {
     background: $color-wht;
@@ -326,8 +327,9 @@
 @mixin cutout-dk-img {
   @include cutout-dk;
   padding: 1rem;
-  border-radius: 4rem;
+  border-radius: 5rem;
   @include sm {
+    border-radius: 5rem;
     padding: 1rem;
   }
   @include md {

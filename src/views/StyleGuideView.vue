@@ -11,7 +11,7 @@
       footer
     >
       <template #hero>
-        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-candy.png" alt="My Logo">
+        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-fill-sunset.png" alt="My Logo">
       </template>
 
       <template #heading>
@@ -271,7 +271,7 @@
       footer
     >
       <template #hero>
-        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-candy.png" alt="My Logo">
+        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-stroke-sunset.png" alt="My Logo">
       </template>
 
       <template #heading>
@@ -827,7 +827,7 @@
       subheading
     >
       <template #hero>
-        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-candy.png" alt="My Logo">
+        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-fill-sunset.png" alt="My Logo">
       </template>
 
       <template #heading>
@@ -883,7 +883,7 @@
       subheading
     >
       <template #hero>
-        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-candy.png" alt="My Logo">
+        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-stroke-sunset.png" alt="My Logo">
       </template>
 
       <template #heading>

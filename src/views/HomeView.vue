@@ -331,7 +331,7 @@
 // SOCIAL MEDIA LINKS --------------------------------------------------------------------------------
 .logo-box {
   position: absolute;
-  top: -150px;
+  top: -135px;
   right: 10px;
   display: flex;
   flex-flow: row nowrap;
@@ -342,7 +342,7 @@
   opacity: 0;
   animation: fade-in 1s ease 5.5s forwards;
   @include md {
-    top: -175px;
+    top: -155px;
   }
   @include lg {
     right: -20px;

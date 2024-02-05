@@ -69,17 +69,17 @@ const pole = props.light ? 'lt' : 'dk';
 <style lang="scss" scoped>
 @mixin section {
   width: 100%;
-  margin: 3rem auto;
-  padding: 0.5rem;
+  margin: 2rem auto;
+  padding: 0 0.5rem 0.5rem;
   border-top: 1px solid $color-bg-dk-glass-thinner;
   box-shadow: 0 -1px 0 $color-bg-lt-glass-thinner;
   transition: 0.7s ease-out;
   @include sm {
-    padding: 1rem;
+    padding: 0 1rem 1rem;
   }
   @include md {
-    margin: 3rem auto 5rem;
-    background: linear-gradient(to bottom left, $color-bg-lt-glass-thinner, transparent 20%, transparent 85%, $color-bg-dk-glass-thinner);
+    margin: 2rem auto 5rem;
+    background: linear-gradient(to bottom left, $color-bg-lt-glass-thinner, transparent 20%, transparent 90%, $color-bg-dk-glass-thinner);
     border-radius: 1.75rem;
     border: 1px solid $color-bg-dk-glass-thinner;
     box-shadow: 0 1px 3px $color-bg-lt-glass-thinner, 0 -1px 3px $color-bg-lt-glass-thinner;
@@ -119,12 +119,12 @@ const pole = props.light ? 'lt' : 'dk';
     &--reverse {
       flex-direction: row-reverse;
     }
-  }
-  &__main__hero {
-    @include section-hero;
-  }
-  &__main__body {
-    @include section-body;
+    &__hero {
+      @include section-hero;
+    }
+    &__body {
+      @include section-body;
+    }
   }
   &__supplemental {
     @include section-supplemental;
