@@ -3,11 +3,11 @@
     <div class="name-title-container">
       <div class="name" lang="en">
 
-        <div class="avatar-frame">
+        <!-- <div class="avatar-frame">
           <div class="avatar-mat">
             <img alt="Me" class="avatar" src="@/assets/img/pics/me-jan-2024.jpg" />
           </div>
-        </div>
+        </div> -->
 
         <h1 class="title Web__W">W</h1>
         <h1 class="title Web__e">e</h1>
@@ -199,7 +199,7 @@
       animation: fade-in 1s ease-in-out 3.5s forwards;
       top: 2px;
       left: 124px;
-      z-index: 9;
+      // z-index: 9;
       @include md {
         top: 3px;
         left: 132px;
@@ -227,7 +227,7 @@
     &__e {
       top: 3px;
       left: 170px;
-      z-index: 9;
+      // z-index: 9;
       @include md {
         top: 4px;
         left: 180px;
@@ -254,6 +254,7 @@
     &__e {
       top: 99px;
       left: 173px;
+      z-index: -9;
       @include md {
         top: 101px;
         left: 182px;
@@ -280,6 +281,7 @@
     &__o {
       top: 201px;
       left: 172px;
+      z-index: -9;
       @include md {
         top: 218px;
         left: 183px;

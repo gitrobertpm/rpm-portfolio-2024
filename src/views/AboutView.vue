@@ -190,7 +190,7 @@ const handlePortfolio = () => {
   margin: auto;
   transition: 0.75s ease-out;
   transform-style: preserve-3d;
-  animation: cube-rotate 10s infinite;
+  // animation: cube-rotate 10s infinite;
   /* animation: cube-dance 10s infinite; */
   @include sm {
     width: calc(100vw - 4rem);
