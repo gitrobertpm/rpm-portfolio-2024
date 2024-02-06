@@ -83,19 +83,19 @@
   }
 }
 @mixin link-active {
-  color: $color-alert !important;
+  color: $color-alert;
 }
 @mixin link-focus {
   outline: 1px solid $color-dodger;
 }
 @mixin link-focus-visible {
-  border: 1px solid $color-deep-sky !important;
+  border: 1px solid $color-deep-sky;
   outline: 1px solid $color-dodger;
 }
 @mixin link-disabled {
   pointer-events: none;
   text-decoration: line-through;
-  color: $color-disabled-lt !important;
+  color: $color-disabled-lt;
 }
 @mixin link {
   display: inline-block;

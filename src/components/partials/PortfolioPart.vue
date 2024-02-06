@@ -7,7 +7,7 @@
       <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
         <div class="port-wrapper">
           <h3>Portfolio Details</h3>
-          <p class="pad-x--15">Here's a breakdown of what has gone into the different aspects of this project.</p>
+          <p class="pad-x--15">Here's a brief breakdown of what's going into this project.</p>
           <div class="flex--row--cent">
             <p><span class="emoji" role="img" aria-label="Artist palette emoji">🎨</span></p>
           </div>
@@ -15,7 +15,7 @@
             <template #drawer>
               <div class="pad-x--10">
                 <h3>Accessibility</h3>
-                <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
+                <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
                   <p>Considerations:</p>
                   <ul class="port-list">
                     <li>Aria roles</li>
@@ -52,7 +52,7 @@
             <template #drawer>
               <div class="pad-x--10">
                 <h3>Composition</h3>
-                <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
+                <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
                   <p>Here's a high level view of the app architecture:</p>
                   <ul class="port-list">
                     <li>Root</li>
@@ -94,7 +94,7 @@
             <template #drawer>
               <div class="pad-x--10">
                 <h3>State & Routing</h3>
-                <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
+                <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
                   <ul class="port-list">
                     <li>Catch all route and custom NotFound component for handling 404s</li>
                     <li>Pinia and composables for state</li>
@@ -135,11 +135,9 @@ const accordionClick = ()=> {
     width: 100%;
     margin: 0;
   }
-
   h2 {
     color: #fff;
   }
-
   .port-wrapper {
     height: 100%;
     margin-top: 0.71rem;
@@ -154,7 +152,6 @@ const accordionClick = ()=> {
       margin-top: 0.62rem;
     }
   }
-
   .port-list {
     list-style: disc;
     padding-left: 1rem;
@@ -162,11 +159,9 @@ const accordionClick = ()=> {
       padding-left: 2rem;
     }
   }
-
   .sub-ul {
     margin-bottom: 0.5rem;
   }
-
   .emoji {
     font-size: 1.2rem;
   }

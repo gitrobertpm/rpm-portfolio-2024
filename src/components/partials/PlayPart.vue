@@ -9,7 +9,8 @@
           <ACard theme="red" drawer>
             <template #drawer>
               <div class="pad-x--10">
-                <p>When I'm not working or writing code, I love watching movies and playing video games with my kids.</p>
+                <h5 class="intro">When I'm not working,</h5>
+                <p>I love watching movies and playing video games with my kids.</p>
                 <p>My hobbies include writing, playing guitar, drawing, and of course building cool things with code.</p>
                 <p>I have a deep appreciation for nature and a good book, but don't get to either as much as I should.</p>
                 <p>I'm a big fan of Pink Floyd, Stephen King, and Star Wars. But not necessarily in that order.</p>
@@ -51,11 +52,9 @@ const accordionClick = ()=> {
     width: 100%;
     margin: 0;
   }
-
   h2 {
     color: #fff;
   }
-
   .play-wrapper {
     height: 100%;
     margin-top: 0.71rem;
@@ -70,7 +69,9 @@ const accordionClick = ()=> {
       margin-top: 0.62rem;
     }
   }
-
+  .intro {
+    margin: 3rem auto 2rem;
+  }
   .emoji {
     font-size: 1.2rem;
   }

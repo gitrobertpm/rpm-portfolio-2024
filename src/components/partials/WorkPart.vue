@@ -6,9 +6,9 @@
     <template #drawer>
       <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
         <div class="work-wrapper">
-          <h3>Employment History</h3>
-          <p class="pad-x--15">Most of my experience is building things with JavaScript FE libraries like React and Vue, and styling them with CSS/Sass. But I have worked with Backend and database technologies as well.</p>
-          <p class="pad-x--15">My contributions have included new features, bug fixes, style refactors, accessibility updates, dependency and version updates, unit tests, internationalization, and documentation.</p>
+          <h3>Professional History</h3>
+          <p class="pad-x--15">As a Front-end dev, I've written code that lives on sites like <code>XBOX</code>, <code>Hydro Flask</code>, and <code>Pandora</code>.</p>
+          <p class="pad-x--15">As a web dev mentor, I've reviewed over <code>4,600</code> student projects.</p>
           <div class="flex--row--cent">
             <p><span class="emoji" role="img" aria-label="Technologist emoji">🧑‍💻</span></p>
           </div>
@@ -16,7 +16,7 @@
             <template #drawer>
               <div class="pad-x--10">
                 <h4>{{ job.company }}</h4>
-                <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
+                <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
                   <br>
                   <code class="date">{{ job.date }}</code>
                   <h5>{{ job.title }}</h5>

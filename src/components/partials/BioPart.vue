@@ -9,7 +9,8 @@
           <ACard theme="blue" drawer>
             <template #drawer>
               <div class="pad-x--10">
-                <p>I didn't start out in tech. Before that my background was in construction and the service industry.</p>
+                <h5 class="intro">I didn't start out in tech.</h5>
+                <p>Before that my background was in construction and the service industry.</p>
                 <p>The trades satisfied my love of problem solving, fixing things and figuring out how things work. And Bartending was a lot of fun. And I was good at both. But neither was my end game.</p>
                 <p>When my son was diagnosed with Autism, I volunteered to stay home with the kids. There was no other option really. It was rewarding, but once they were all in school full time, I needed to get back to work. But starting over in construction or the service industry lacked appeal.</p>
                 <p>The search for something new led to web development. I had long held the misconception that it was only for the extremely gifted. Learning I was wrong was one of the best discoveries of my life.</p>
@@ -58,11 +59,9 @@ const accordionClick = ()=> {
     width: 100%;
     margin: 0;
   }
-
   h2 {
     color: #fff;
   }
-
   .bio-wrapper {
     height: 100%;
     margin-top: 0.71rem;
@@ -76,6 +75,9 @@ const accordionClick = ()=> {
     @include lg {
       margin-top: 0.62rem;
     }
+  }
+  .intro {
+    margin: 3rem auto 2rem;
   }
   .emoji {
     font-size: 1.5rem;

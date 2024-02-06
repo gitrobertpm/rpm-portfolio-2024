@@ -2,6 +2,20 @@
   <main class="main main__about" ref="page">
     <h1>ABOUT</h1>
 
+    <div class="intro">
+      <div class="cutout--dk--fat avatar-wrapper">
+        <div class="avatar-frame">
+          <div class="avatar-mat">
+            <img alt="Me" class="avatar" src="@/assets/img/pics/me-jan-2024.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="cutout--lt--fat greeting-wrapper">
+        <h3>Greetings!</h3>
+        <p>I'm Robert Manolis, your friendly neighborhood web developer.</p>
+      </div>
+    </div>
+    
     <div class="ctrl flex--row--cent">
       <button @click="handleWork" class="ctrl__btn ctrl__btn__work">Work</button>
       <button @click="handlePlay" class="ctrl__btn ctrl__btn__play">Play</button>
@@ -83,8 +97,7 @@ onMounted(async () => {
   originalHeight.value = page.value.offsetHeight;
 });
 
-// const emit = defineEmits(['accordionClick']);
-
+// Responding to emit
 const accordionClick = () => {
   setTimeout(() => {
     const cardHeights = [
@@ -94,8 +107,9 @@ const accordionClick = () => {
       right.value.firstChild.offsetHeight
     ];
     const maxHeight = Math.max(...cardHeights);
-    const multiplier = maxHeight < 1000 ? 2 : 1.5
-    page.value.style.height = (maxHeight + 200) > originalHeight.value ? `${maxHeight * multiplier}px` : `${originalHeight.value}px`;
+    const headroom = 900 + maxHeight;
+    const newHeight = headroom > page.value.offsetHeight ? `${headroom}px` : `${originalHeight.value}px`;
+    page.value.style.height = newHeight;
     }, 750);
 };
 
@@ -160,15 +174,67 @@ const handlePortfolio = (e) => {
 <style lang="scss" scoped>
 .main {
  min-height: 100vh;
+//  @include md {
+//   // height: 100vh;
+//  }
 }
 
-.part-wrapper {
-  width: 95%;
-  margin: 3rem auto auto;
+.intro {
+  padding: 0.1rem 0.5rem;
+  @include sm {
+    padding: 0.1rem 1rem;
+  }
+  .avatar-wrapper {
+    padding: 1rem 2rem;
+    margin-top: 0;
+    @include sm {
+      padding: 2.3rem 3.5rem;
+    }
+    @include lg {
+      margin-left: auto;
+    }
+    .avatar-frame {
+    width: 100px;
+    margin: 1rem auto;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    .avatar-mat {
+      position: relative;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 110%;
+        background: linear-gradient(to bottom, $color-bg-dk-glass-thin, $color-bg-dk-glass-thinner, $color-bg-dk-glass);
+      }
+    }
+    .avatar {
+      margin: -15px auto 8px;
+      transform: scale(1.5);
+    }
+  }
+  }
+  .greeting-wrapper {
+    padding: 0.25rem 1rem 1rem;
+    @include sm {
+      padding: 0.25rem 3rem 1.5rem;
+    }
+    @include lg {
+      margin-left: auto;
+      background: #fff;
+    }
+  }
 }
-
 .ctrl {
   padding: 0 0.7rem 0 0.1rem;
+  margin: 2rem auto;
+  @include sm {
+    justify-content: space-around;
+    max-width: 720px;
+  }
   &__btn {
     width: 100px;
     font-size: 1.1rem;
@@ -227,68 +293,42 @@ const handlePortfolio = (e) => {
     }
   }
 }
+.part-wrapper {
+  width: 95%;
+  margin: 3rem auto 1rem;
+}
 .container {
   position: relative;
   perspective: 3000px;
   width: 100%;
   margin-top: 75px;
-}
-.cube {
-  width: 720px;
-  height: 400px;
-  margin: auto;
-  transition: 0.75s ease-out;
-  transform-style: preserve-3d;
-  animation: cube-rotate-md 10s infinite; 
-  /* animation: cube-dance 10s infinite; */
-  // animation: cube-rotate 10s infinite;
-  
-  // @include sm {
-  //   width: calc(100vw - 4rem);
-  // }
-  // @include sm-md-mid {
-  //   width: calc(100vw - 8rem);
-  // }
-  // @include md {
-  //   width: 720px;
-  //   animation: cube-rotate-md 10s infinite; 
-  //   /* animation: cube-dance 10s infinite; */
-  // }
-  .side {
-    display: block;
-    position: absolute;
+  .cube {
     width: 720px;
-    height: 210px;
-    text-align: center;
-    background-image: 
-    linear-gradient(to top, $color-bg-dk-glass-thick, $color-bg-dk-glass-thin),
-      conic-gradient(at 0% 0%, transparent 0deg, transparent 90deg, $color-bg-lt-glass-thin, transparent 180deg), 
-      conic-gradient(at 100% 0%, transparent 0deg, transparent 180deg, $color-bg-lt-glass-thin, transparent 270deg);
-    border-radius: 0.75rem;
-    border: none;
-    // @include sm {
-    //   width: calc(100vw - 4rem);
-    // }
-    // @include sm-md-mid {
-    //   width: calc(100vw - 8rem);
-    // }
-    // @include md {
-    //   width: 720px;
-    //   height: 210px;
-    // }
-    @include lg {
+    height: 400px;
+    margin: auto;
+    transition: 0.75s ease-out;
+    transform-style: preserve-3d;
+    animation: cube-rotate-md 10s infinite; 
+    .side {
+      display: block;
+      position: absolute;
       width: 720px;
-      height: 247px;
+      height: 210px;
+      text-align: center;
+      background-image: 
+      linear-gradient(to top, $color-bg-dk-glass-thick, $color-bg-dk-glass-thin),
+        conic-gradient(at 0% 0%, transparent 0deg, transparent 90deg, $color-bg-lt-glass-thin, transparent 180deg), 
+        conic-gradient(at 100% 0%, transparent 0deg, transparent 180deg, $color-bg-lt-glass-thin, transparent 270deg);
+      border-radius: 0.75rem;
+      border: none;
+      @include lg {
+        width: 720px;
+        height: 247px;
+      }
     }
   }
 }
-// @keyframes cube-rotate {
-//   0% { transform: rotateY(0deg); }
-//   25% { transform: rotateY(90deg); }
-//   50% { transform: rotateY(180deg); }
-//   75% { transform: rotateY(270deg); }
-//   100% { transform: rotateY(360deg); }
-// }
+
 @keyframes cube-rotate-md {
   0% { transform: rotateY(0deg) translateZ( -300px ); }
   25% { transform: rotateY(90deg) translateX( 300px ); }
@@ -304,49 +344,21 @@ const handlePortfolio = (e) => {
 //   100% { transform: rotateX(360deg) rotateY(0deg) rotateZ(270deg); }
 // }
 .cube .front  {
-  // transform: rotateY( 0deg ) translateZ( calc(50vw - 1rem) );
-  // @include sm {
-  //   transform: rotateY( 0deg ) translateZ( calc(50vw - 2rem) );
-  // }
-  // @include sm-md-mid {
-  //   transform: rotateY( 0deg ) translateZ( calc(50vw - 4rem) );
-  // }
   @include md {
     transform: rotateY( 0deg ) translateZ( 360px );
   }
 }
 .cube .back {
-  // transform: rotateY( 180deg ) translateZ( calc(50vw - 1rem) );
-  // @include sm {
-  //   transform: rotateY( 180deg ) translateZ( calc(50vw - 2rem) );
-  // }
-  // @include sm-md-mid {
-  //   transform: rotateY( 180deg ) translateZ( calc(50vw - 4rem) );
-  // }
   @include md {
     transform: rotateY( 180deg ) translateZ( 360px );
   }
 }
 .cube .right  {
-  // transform: rotateY(  90deg ) translateZ( calc(50vw - 1rem) );
-  // @include sm {
-  //   transform: rotateY( 90deg ) translateZ( calc(50vw - 2rem) );
-  // }
-  // @include sm-md-mid {
-  //   transform: rotateY( 90deg ) translateZ( calc(50vw - 4rem) );
-  // }
   @include md {
     transform: rotateY( 90deg ) translateZ( 360px );
   }
 }
 .cube .left   {
-  // transform: rotateY( -90deg ) translateZ( calc(50vw - 1rem) );
-  // @include sm {
-  //   transform: rotateY( -90deg ) translateZ( calc(50vw - 2rem) );
-  // }
-  // @include sm-md-mid {
-  //   transform: rotateY( -90deg ) translateZ( calc(50vw - 4rem) );
-  // }
   @include md {
     transform: rotateY( -90deg ) translateZ( 360px );
   }

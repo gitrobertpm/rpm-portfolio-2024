@@ -97,6 +97,11 @@ import IconStyleguide from './icons/IconStyleguide.vue';
           outline-offset: -2px;
         }
 
+        &:focus,
+        &:focus-visible {
+          outline: 1px solid $color-text-lt;
+        }
+
         &:hover {
           box-shadow: 1px 0 3px $color-bg-lt-glass-thinner inset, -1px 0 3px $color-bg-dk-glass-thinner inset;
           &::before {
