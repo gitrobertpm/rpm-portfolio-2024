@@ -2,14 +2,27 @@
 body {
   color: $color-text-dk;
   background: #000;
-  background-image: url('../img/bgs/deconstructed-yin-yang.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-image: url('../img/bgs/deconstructed-yin-yang-mobile.svg');
+  background-size: 100vw auto;
+  background-repeat: repeat-y;
   transition:
     color 0.5s,
     background-color 0.5s;
+
+  @include md {
+    // background-image: url('../img/bgs/deconstructed-yin-yang-tablet.svg');
+  }
+
+  @include lg {
+    background-image: url('../img/bgs/deconstructed-yin-yang.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  
+  
 }
 #app {
   position: relative;

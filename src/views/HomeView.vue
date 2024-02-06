@@ -1,5 +1,13 @@
 <template>
   <main class="main main__home">
+    <div class="logo-box">
+      <a href="https://github.com/gitrobertpm" target="_blank" class="social-link">
+        <img src="@/assets/img/logos/rasters/gh.png" alt="GitHub" class="logo github">
+      </a>
+      <a href="https://www.linkedin.com/in/robertpm/"  target="_blank" class="social-link">
+        <img src="@/assets/img/logos/rasters/li.png" alt="LinkedIn" class="logo linkedin">
+      </a>
+    </div>
     <div class="name-title-container">
       <div class="name" lang="en">
 
@@ -39,15 +47,6 @@
         <h1 class="title oper__e">e</h1>
         <h1 class="title oper__r">r</h1>
 
-        <div class="logo-box">
-          <a href="https://github.com/gitrobertpm" target="_blank" class="social-link">
-            <img src="@/assets/img/logos/rasters/gh.png" alt="GitHub" class="logo github">
-          </a>
-          <a href="https://www.linkedin.com/in/robertpm/"  target="_blank" class="social-link">
-            <img src="@/assets/img/logos/rasters/li.png" alt="LinkedIn" class="logo linkedin">
-          </a>
-        </div>
-
       </div>
     </div>
   </main>
@@ -60,17 +59,47 @@
   overflow: hidden;
   height: 100vh;
 }
+// SOCIAL MEDIA LINKS --------------------------------------------------------------------------------
+.logo-box {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 80px;
+  height: 42px;
+  perspective: 250px;
+  // opacity: 0;
+  // animation: fade-in 1s ease 5.5s forwards;
+  // @include md {
+  //   top: -155px;
+  // }
+  // @include lg {
+  //   right: -20px;
+  // }
+  .logo {
+    width: 30px;
+    transform-style: preserve-3d;
+  }
+  // .github {
+  //   animation: rotate 15s linear 6s infinite;
+  // }
+  // .linkedin {
+  //   animation: rotate 15s linear 7s infinite;
+  // }
+}
 .name-title-container {
   width: 100%;
   min-width: 320px;
   max-width: 320px;
   margin: 125px auto;
+  animation: scale-and-slide 1s ease-in-out 6s forwards;
   @include md {
     max-width: 350px;
     margin: 150px auto;
   }
 }
-
 // NAME --------------------------------------------------------------------------------------------------
 .name {
   position: relative;
@@ -103,12 +132,12 @@
   }
   &__first {
     left: calc(30% - 40px);
-    animation: position-first 1.5s ease-in-out 1s forwards, position-first-final 0.5s ease-out 5s forwards;
+    animation: fname-position-uno 1.5s ease-in-out 1s forwards, fname-position-dos 0.5s ease-out 5s forwards, fname-position-tres 1s ease-in-out 6.5s forwards;
     @include md {
-      animation: position-first 1.5s ease-in-out 1s forwards, position-first-final-md 0.5s ease-out 5s forwards;
+      animation: fname-position-uno 1.5s ease-in-out 1s forwards, fname-position-dos-md 0.5s ease-out 5s forwards;
     }
     @include lg {
-      animation: position-first 1.5s ease-in-out 1s forwards, position-first-final-lg 0.5s ease-out 5s forwards;
+      animation: fname-position-uno 1.5s ease-in-out 1s forwards, fname-position-dos-lg 0.5s ease-out 5s forwards;
     }
     &__initial {
       animation: fade-in 1s ease-in-out forwards;
@@ -116,17 +145,17 @@
   }
   &__middle {
     left: calc(55% - 40px);
-    animation: position-middle 1.5s ease-in-out 1s forwards;
+    animation: mname-position-uno 1.5s ease-in-out 1s forwards;
     @include md {
       left: calc(57% - 40px);
-      animation: position-middle-md 1.5s ease-in-out 1s forwards;
+      animation: mname-position-uno-md 1.5s ease-in-out 1s forwards;
     }
     @include lg {
       left: calc(59% - 40px);
-      animation: position-middle-lg 1.5s ease-in-out 1s forwards;
+      animation: mname-position-uno-lg 1.5s ease-in-out 1s forwards;
     }
     &__initial {
-      animation: fade-in 1s ease-in-out 0.05s forwards, fade-out 1.25s ease-in-out 2.75s forwards;
+      animation: fade-in 1s ease-in-out 0.05s forwards, fade-out 1.25s ease-in-out 4.75s forwards;
     }
     &__remainder {
       visibility: hidden;
@@ -135,14 +164,14 @@
   &__last {
     left: calc(75% - 40px);
     white-space: nowrap;
-    animation: position-last 1.5s ease-in-out 1s forwards;
+    animation: lname-position-uno 1.5s ease-in-out 1s forwards, lname-position-dos 1s ease-in-out 6.5s forwards;
     @include md {
       left: calc(80% - 40px);
-      animation: position-last-md 1.5s ease-in-out 1s forwards;
+      animation: lname-position-uno-md 1.5s ease-in-out 1s forwards;
     }
     @include lg {
       left: calc(85% - 40px);
-      animation: position-last-lg 1.5s ease-in-out 1s forwards;
+      animation: lname-position-uno-lg 1.5s ease-in-out 1s forwards;
     }
     &__initial {
       animation: fade-in 1s ease-in-out 0.10s forwards;
@@ -330,37 +359,6 @@
   }
 }
 
-// SOCIAL MEDIA LINKS --------------------------------------------------------------------------------
-.logo-box {
-  position: absolute;
-  top: -135px;
-  right: 10px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  width: 120px;
-  height: 42px;
-  perspective: 250px;
-  opacity: 0;
-  animation: fade-in 1s ease 5.5s forwards;
-  @include md {
-    top: -155px;
-  }
-  @include lg {
-    right: -20px;
-  }
-  .logo {
-    width: 30px;
-    transform-style: preserve-3d;
-  }
-  .github {
-    animation: rotate 15s linear 6s infinite;
-  }
-  .linkedin {
-    animation: rotate 15s linear 7s infinite;
-  }
-}
-
 // PROFILE PIC --------------------------------------------------------------------------------------------
 .avatar-frame {
   position: absolute;
@@ -400,7 +398,15 @@
 }
 
 // ANIMATIONS -----------------------------------------------------------------------------------------------
-@keyframes position-first {
+@keyframes scale-and-slide {
+  from {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+  to {
+    transform: scale(0.5) translateX(227px) translateY(-50px);
+  }
+}
+@keyframes fname-position-uno {
   from {
     left: calc(30% - 40px);
   }
@@ -408,7 +414,7 @@
     left: 1.5rem;
   }
 }
-@keyframes position-first-final {
+@keyframes fname-position-dos {
   from {
     translate: 0 0;
   }
@@ -416,7 +422,7 @@
     translate: 3px 97px;
   }
 }
-@keyframes position-first-final-md {
+@keyframes fname-position-dos-md {
   from {
     translate: 0 0;
   }
@@ -424,7 +430,7 @@
     translate: 2px 98px;
   }
 }
-@keyframes position-first-final-lg {
+@keyframes fname-position-dos-lg {
   from {
     translate: 0 0;
   }
@@ -432,7 +438,15 @@
     translate: -1px 109px;
   }
 }
-@keyframes position-middle {
+@keyframes fname-position-tres {
+  from {
+    translate: 3px 97px;
+  }
+  to {
+    translate: -300px -100px;
+  }
+}
+@keyframes mname-position-uno {
   from {
     left: calc(55% - 40px);
     translate: 0 0;
@@ -442,7 +456,7 @@
     translate: 0 100px;
   }
 }
-@keyframes position-middle-md {
+@keyframes mname-position-uno-md {
   from {
     left: calc(57% - 40px);
     translate: 0 0;
@@ -452,7 +466,7 @@
     translate: 0 115px;
   }
 }
-@keyframes position-middle-lg {
+@keyframes mname-position-uno-lg {
   from {
     left: calc(59% - 40px);
     translate: 0 0;
@@ -462,7 +476,7 @@
     translate: 0 120px;
   }
 }
-@keyframes position-last {
+@keyframes lname-position-uno {
   from {
     left: calc(75% - 40px);
     translate: 0 0;
@@ -472,7 +486,7 @@
     translate: 0 200px;
   }
 }
-@keyframes position-last-md {
+@keyframes lname-position-uno-md {
   from {
     left: calc(80% - 40px);
     translate: 0 0;
@@ -482,7 +496,7 @@
     translate: 0 215px;
   }
 }
-@keyframes position-last-lg {
+@keyframes lname-position-uno-lg {
   from {
     left: calc(85% - 40px);
     translate: 0 0;
@@ -490,6 +504,16 @@
   to {
     left: 0.7rem;
     translate: 0 230px;
+  }
+}
+@keyframes lname-position-dos {
+  from {
+    left: 0.7rem;
+    translate: 0 200px;
+  }
+  to {
+    left: 0.7rem;
+    translate: -290px -10px;
   }
 }
 @keyframes fade-in {
