@@ -72,7 +72,11 @@ import IconStyleguide from './icons/IconStyleguide.vue';
   width: 111px;
   height: 100vh;
   background: $color-text-dk;
-  background: $gradient-radial-nav;
+  // background-image: $gradient-radial-nav;
+  background-image: 
+      linear-gradient(to top, $color-bg-dk-glass-thick, $color-bg-dk-glass-thinner),
+      conic-gradient(at 0% 0%, transparent 0deg, transparent 130deg, $color-bg-lt-glass-thinner, transparent 200deg), 
+      conic-gradient(at 100% 0%, transparent 0deg, transparent 160deg, $color-bg-lt-glass-thinner, transparent 230deg);
   backdrop-filter: blur(5px);
   z-index: 9;
 

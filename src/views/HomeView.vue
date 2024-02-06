@@ -49,55 +49,67 @@
 
       </div>
     </div>
+    <div class="greeting-wrapper">
+      <HomeGreetingPart />
+    </div>
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
+</script>
 
 <style lang="scss" scoped>
 .main {
   overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
+}
+.greeting-wrapper {
+  margin-top: 275px;
+  opacity: 0;
+  animation: fade-in 2s ease-out 5s forwards;
+  @include md {
+    margin-top: 245px;
+  }
+  @include lg {
+    margin-top: 265px;
+  }
 }
 // SOCIAL MEDIA LINKS --------------------------------------------------------------------------------
 .logo-box {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 19px;
+  right: 19px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   width: 80px;
   height: 42px;
   perspective: 250px;
-  // opacity: 0;
-  // animation: fade-in 1s ease 5.5s forwards;
-  // @include md {
-  //   top: -155px;
-  // }
-  // @include lg {
-  //   right: -20px;
-  // }
+  @include lg {
+    width: 90px;
+    top: 30px;
+    right: 35px;
+  }
   .logo {
     width: 30px;
     transform-style: preserve-3d;
   }
-  // .github {
-  //   animation: rotate 15s linear 6s infinite;
-  // }
-  // .linkedin {
-  //   animation: rotate 15s linear 7s infinite;
-  // }
 }
+// NAME TITLE ---------------------------------------------------------------------------------------
 .name-title-container {
   width: 100%;
   min-width: 320px;
   max-width: 320px;
   margin: 125px auto;
-  animation: scale-and-slide 1s ease-in-out 6s forwards;
+  animation: scale-and-slide 4s ease-in-out 3s forwards;
   @include md {
     max-width: 350px;
     margin: 150px auto;
+    animation: scale-and-slide-md 4s ease-in-out 3s forwards;
+  }
+  @include lg {
+    animation: scale-and-slide-lg 4s ease-in-out 3s forwards;
   }
 }
 // NAME --------------------------------------------------------------------------------------------------
@@ -132,12 +144,12 @@
   }
   &__first {
     left: calc(30% - 40px);
-    animation: fname-position-uno 1.5s ease-in-out 1s forwards, fname-position-dos 0.5s ease-out 5s forwards, fname-position-tres 1s ease-in-out 6.5s forwards;
+    animation: fname-position-uno 1.5s ease-in-out 1s forwards, fname-position-dos 1s ease-out 3s forwards, fname-position-tres 3s ease-in-out 4s forwards;
     @include md {
-      animation: fname-position-uno 1.5s ease-in-out 1s forwards, fname-position-dos-md 0.5s ease-out 5s forwards;
+      animation: fname-position-uno 1.5s ease-in-out 1s forwards, fname-position-dos-md 1s ease-out 3s forwards, fname-position-tres-md 3s ease-in-out 4s forwards;
     }
     @include lg {
-      animation: fname-position-uno 1.5s ease-in-out 1s forwards, fname-position-dos-lg 0.5s ease-out 5s forwards;
+      animation: fname-position-uno 1.5s ease-in-out 1s forwards, fname-position-dos-lg 1s ease-out 3s forwards, fname-position-tres-lg 3s ease-in-out 4s forwards;
     }
     &__initial {
       animation: fade-in 1s ease-in-out forwards;
@@ -155,7 +167,7 @@
       animation: mname-position-uno-lg 1.5s ease-in-out 1s forwards;
     }
     &__initial {
-      animation: fade-in 1s ease-in-out 0.05s forwards, fade-out 1.25s ease-in-out 4.75s forwards;
+      animation: fade-in 1s ease-in-out 0.05s forwards, fade-out 0.75s ease-in-out 3s forwards;
     }
     &__remainder {
       visibility: hidden;
@@ -164,21 +176,20 @@
   &__last {
     left: calc(75% - 40px);
     white-space: nowrap;
-    animation: lname-position-uno 1.5s ease-in-out 1s forwards, lname-position-dos 1s ease-in-out 6.5s forwards;
+    animation: lname-position-uno 1.5s ease-in-out 1s forwards, lname-position-dos 3s ease-in-out 4s forwards;
     @include md {
       left: calc(80% - 40px);
-      animation: lname-position-uno-md 1.5s ease-in-out 1s forwards;
+      animation: lname-position-uno-md 1.5s ease-in-out 1s forwards, lname-position-dos-md 3s ease-in-out 4s forwards;
     }
     @include lg {
       left: calc(85% - 40px);
-      animation: lname-position-uno-lg 1.5s ease-in-out 1s forwards;
+      animation: lname-position-uno-lg 1.5s ease-in-out 1s forwards, lname-position-dos-lg 3s ease-in-out 4s forwards;
     }
     &__initial {
       animation: fade-in 1s ease-in-out 0.10s forwards;
     }
   }
 }
-
 // TITLE ---------------------------------------------------------------------------------------------------
 .title {
   position: absolute;
@@ -195,7 +206,7 @@
   &.Web {
     &__W {
       text-shadow: 0 1px 0 $color-bg-dk-glass;
-      animation: fade-in 1s ease-in-out 3.5s forwards;
+      animation: fade-in 1s ease-in-out 3.5s forwards, boot 0.5s ease-out 8s forwards;
       top: -99px;
       left: 110px;
       @include md {
@@ -210,7 +221,7 @@
     }
     &__e {
       text-shadow: 0 1px 0 $color-bg-dk-glass;
-      animation: fade-in 1s ease-in-out 3.5s forwards;
+      animation: fade-in 1s ease-in-out 3.5s forwards, boot 0.5s ease-out 8s forwards;
       top: -57px;
       left: 125px;
       @include md {
@@ -225,10 +236,9 @@
     }
     &__b {
       text-shadow: 0 1px 0 $color-bg-dk-glass;
-      animation: fade-in 1s ease-in-out 3.5s forwards;
+      animation: fade-in 1s ease-in-out 3.5s forwards, boot 0.5s ease-out 8s forwards;
       top: 2px;
       left: 124px;
-      // z-index: 9;
       @include md {
         top: 3px;
         left: 132px;
@@ -358,7 +368,6 @@
     }
   }
 }
-
 // PROFILE PIC --------------------------------------------------------------------------------------------
 .avatar-frame {
   position: absolute;
@@ -396,14 +405,50 @@
     transform: scale(1.5);
   }
 }
-
 // ANIMATIONS -----------------------------------------------------------------------------------------------
+@keyframes boot {
+  0% {
+    filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9));
+  }
+  80% {
+    filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 1px $color-text-lt);
+  }
+  85% {
+    filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9));
+  }
+  90% {
+    filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 1px $color-text-lt);
+  }
+  95% {
+    filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9));
+  }
+  100% {
+    filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 0 $color-text-lt);
+    color: black;
+  }
+}
 @keyframes scale-and-slide {
   from {
     transform: scale(1) translateX(0) translateY(0);
   }
   to {
-    transform: scale(0.5) translateX(227px) translateY(-50px);
+    transform: scale(0.6) translateX(205px) translateY(0);
+  }
+}
+@keyframes scale-and-slide-md {
+  from {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+  to {
+    transform: scale(0.7) translateX(400px) translateY(0px);
+  }
+}
+@keyframes scale-and-slide-lg {
+  from {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+  to {
+    transform: scale(0.8) translateX(400px) translateY(0px);
   }
 }
 @keyframes fname-position-uno {
@@ -443,7 +488,23 @@
     translate: 3px 97px;
   }
   to {
-    translate: -300px -100px;
+    translate: -300px 0px;
+  }
+}
+@keyframes fname-position-tres-md {
+  from {
+    translate: 3px 97px;
+  }
+  to {
+    translate: -700px -110px;
+  }
+}
+@keyframes fname-position-tres-lg {
+  from {
+    translate: 3px 97px;
+  }
+  to {
+    translate: -700px -110px;
   }
 }
 @keyframes mname-position-uno {
@@ -513,7 +574,27 @@
   }
   to {
     left: 0.7rem;
-    translate: -290px -10px;
+    translate: -235px 100px;
+  }
+}
+@keyframes lname-position-dos-md {
+  from {
+    left: 0.7rem;
+    translate: 0 200px;
+  }
+  to {
+    left: 0.7rem;
+    translate: -685px -5px;
+  }
+}
+@keyframes lname-position-dos-lg {
+  from {
+    left: 0.7rem;
+    translate: 0 200px;
+  }
+  to {
+    left: 0.7rem;
+    translate: -685px -5px;
   }
 }
 @keyframes fade-in {

@@ -266,7 +266,7 @@
   @include cutout;
   background: $color-wht;
   @include md {
-    background: linear-gradient(to left, $color-wht 85%, transparent 90%);
+    background: linear-gradient(to left, $color-wht);
   }
   @include lg {
     text-align: left;
@@ -315,7 +315,7 @@
   color: $color-text-lt;
   background: $color-blk;
   @include md {
-    background: linear-gradient(to right, $color-blk 75%, transparent);
+    background: linear-gradient(to right, $color-blk);
   }
   @include lg {
     text-align: left;

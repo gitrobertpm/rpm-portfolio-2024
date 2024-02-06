@@ -70,19 +70,23 @@ const pole = props.light ? 'lt' : 'dk';
 @mixin section {
   width: 100%;
   margin: 2rem auto;
-  padding: 0 0.5rem 0.5rem;
+  padding: 0.1rem 0.5rem 0.5rem;
   border-top: 1px solid $color-bg-dk-glass-thinner;
   box-shadow: 0 -1px 0 $color-bg-lt-glass-thinner;
   transition: 0.7s ease-out;
   @include sm {
-    padding: 0 1rem 1rem;
+    padding: 0.5rem 1rem 1rem;
   }
   @include md {
     margin: 2rem auto 5rem;
+    padding: 0.5rem 2rem 1rem;
     background: linear-gradient(to bottom left, $color-bg-lt-glass-thinner, transparent 20%, transparent 90%, $color-bg-dk-glass-thinner);
     border-radius: 1.75rem;
     border: 1px solid $color-bg-dk-glass-thinner;
     box-shadow: 0 1px 3px $color-bg-lt-glass-thinner, 0 -1px 3px $color-bg-lt-glass-thinner;
+  }
+  @include lg {
+    padding: 0.5rem 3rem 1rem;
   }
 }
 @mixin section-main {
