@@ -35,8 +35,8 @@ import { BREAKPOINTS } from '@/util/constants.js';
 
 // Screen width
 const { globalState } = useWindowResize();
-const { md } = BREAKPOINTS;
-const isMobile = () => globalState.width < md;
+const { lg } = BREAKPOINTS;
+const isMobile = () => globalState.width < lg;
 
 const emit = defineEmits(['accordionClick']);
 

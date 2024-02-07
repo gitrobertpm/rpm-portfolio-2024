@@ -11,12 +11,6 @@
     <div class="name-title-container">
       <div class="name" lang="en">
 
-        <!-- <div class="avatar-frame">
-          <div class="avatar-mat">
-            <img alt="Me" class="avatar" src="@/assets/img/pics/me-jan-2024.jpg" />
-          </div>
-        </div> -->
-
         <h1 class="title Web__W">W</h1>
         <h1 class="title Web__e">e</h1>
         <h1 class="title Web__b">b</h1>

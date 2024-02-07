@@ -66,7 +66,7 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import PlayPart from '@/components/partials/PlayPart.vue';
 import BioPart from '@/components/partials/BioPart.vue';
 import PortfolioPart from '@/components/partials/PortfolioPart.vue';
@@ -76,8 +76,8 @@ import { BREAKPOINTS } from '@/util/constants.js';
 
 // Screen width
 const { globalState } = useWindowResize();
-const { md } = BREAKPOINTS;
-const isMobile = () => globalState.width < md;
+const { lg } = BREAKPOINTS;
+const isMobile = () => globalState.width < lg;
 
 // Scroll to top when mounted
 const initialize = () => window.scrollTo(0,0);
@@ -92,8 +92,7 @@ const back = ref(null);
 const right = ref(null);
 const originalHeight = ref(0);
 
-onMounted(async () => {
-  await nextTick();
+onMounted(() => {
   originalHeight.value = page.value.offsetHeight;
 });
 
@@ -107,10 +106,10 @@ const accordionClick = () => {
       right.value.firstChild.offsetHeight
     ];
     const maxHeight = Math.max(...cardHeights);
-    const headroom = 900 + maxHeight;
-    const newHeight = headroom > page.value.offsetHeight ? `${headroom}px` : `${originalHeight.value}px`;
-    page.value.style.height = newHeight;
-    }, 750);
+    const headroom = 1000 + maxHeight;
+    const newHeight = headroom > originalHeight.value ? headroom : originalHeight.value;
+    page.value.style.height = `${newHeight}px`;
+    }, 636);
 };
 
 // DISPLAY SELECTION - MOBILE
@@ -185,13 +184,20 @@ const handlePortfolio = (e) => {
     padding: 0.1rem 1rem;
   }
   .avatar-wrapper {
-    padding: 1rem 2rem;
+    padding: 1rem 5rem 1rem 2rem;
     margin-top: 0;
+    margin-left: calc(50% - 5rem);
     @include sm {
-      padding: 2.3rem 3.5rem;
+      padding: 2.3rem 10rem 2.3rem 3.5rem;
+      margin-left: calc(50% - 6.5rem);
+    }
+    @include sm {
+      padding: 2.3rem 14rem 2.3rem 3.5rem;
+      margin-left: calc(50% - 6.5rem);
     }
     @include lg {
-      margin-left: auto;
+      padding: 2.3rem3.5rem;
+      margin-left: calc(50% - 6rem);
     }
     .avatar-frame {
     width: 100px;
