@@ -65,14 +65,15 @@ import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
   min-height: 100vh;
 }
 .greeting-wrapper {
-  margin-top: 275px;
+  margin-top: 250px;
   opacity: 0;
   animation: fade-in 2s ease-out 5s forwards;
   @include md {
-    margin-top: 245px;
+    margin-top: -80px;
+    animation: fade-in 1.5s ease-out 4s forwards;
   }
   @include lg {
-    margin-top: 265px;
+    margin-top: -75px;
   }
 }
 // SOCIAL MEDIA LINKS --------------------------------------------------------------------------------
@@ -128,19 +129,20 @@ import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
       letter-spacing: 0.25rem;
       padding: 0;
       margin: 0;
+      // background-size: 120%;
       @include lg {
         letter-spacing: 0.35rem;
       }
     }
   }
   .initial {
-    background-size: 75%;
+    background-size: 150%;
     opacity: 0;
   }
   .remainder {
-    background-size: 30%;
+    background-size: 100%;
     opacity: 0;
-    animation: fade-in 1s ease-in-out 2.5s forwards;
+    animation: fade-in 1s ease-in-out 2.5s forwards, bg-gradient-slide 100s ease-in-out alternate infinite;
   }
   &__first {
     left: calc(30% - 40px);
@@ -152,7 +154,7 @@ import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
       animation: fname-position-uno 1.5s ease-in-out 1s forwards, fname-position-dos-lg 1s ease-out 3s forwards, fname-position-tres-lg 3s ease-in-out 4s forwards;
     }
     &__initial {
-      animation: fade-in 1s ease-in-out forwards;
+      animation: fade-in 1s ease-in-out forwards, bg-gradient-slide 100s ease-in-out alternate infinite;
     }
   }
   &__middle {
@@ -186,7 +188,7 @@ import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
       animation: lname-position-uno-lg 1.5s ease-in-out 1s forwards, lname-position-dos-lg 3s ease-in-out 4s forwards;
     }
     &__initial {
-      animation: fade-in 1s ease-in-out 0.10s forwards;
+      animation: fade-in 1s ease-in-out 0.10s forwards, bg-gradient-slide 100s ease-in-out alternate infinite;
     }
   }
 }
@@ -266,7 +268,6 @@ import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
     &__e {
       top: 3px;
       left: 170px;
-      // z-index: 9;
       @include md {
         top: 4px;
         left: 180px;
@@ -293,7 +294,6 @@ import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
     &__e {
       top: 99px;
       left: 173px;
-      z-index: -9;
       @include md {
         top: 101px;
         left: 182px;
@@ -320,7 +320,6 @@ import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
     &__o {
       top: 201px;
       left: 172px;
-      z-index: -9;
       @include md {
         top: 218px;
         left: 183px;
@@ -440,7 +439,7 @@ import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
     transform: scale(1) translateX(0) translateY(0);
   }
   to {
-    transform: scale(0.7) translateX(400px) translateY(0px);
+    transform: scale(0.7) translateX(435px) translateY(0px);
   }
 }
 @keyframes scale-and-slide-lg {
@@ -448,7 +447,7 @@ import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
     transform: scale(1) translateX(0) translateY(0);
   }
   to {
-    transform: scale(0.8) translateX(400px) translateY(0px);
+    transform: scale(0.8) translateX(455px) translateY(0px);
   }
 }
 @keyframes fname-position-uno {
@@ -488,23 +487,23 @@ import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
     translate: 3px 97px;
   }
   to {
-    translate: -300px 0px;
+    translate: -315px 0px;
   }
 }
 @keyframes fname-position-tres-md {
   from {
-    translate: 3px 97px;
+    translate: 3px 98px;
   }
   to {
-    translate: -700px -110px;
+    translate: -715px -110px;
   }
 }
 @keyframes fname-position-tres-lg {
   from {
-    translate: 3px 97px;
+    translate: 3px 109px;
   }
   to {
-    translate: -700px -110px;
+    translate: -790px -110px;
   }
 }
 @keyframes mname-position-uno {
@@ -574,27 +573,27 @@ import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
   }
   to {
     left: 0.7rem;
-    translate: -235px 100px;
+    translate: -230px 95px;
   }
 }
 @keyframes lname-position-dos-md {
   from {
     left: 0.7rem;
-    translate: 0 200px;
+    translate: 0 215px;
   }
   to {
     left: 0.7rem;
-    translate: -685px -5px;
+    translate: -700px -5px;
   }
 }
 @keyframes lname-position-dos-lg {
   from {
     left: 0.7rem;
-    translate: 0 200px;
+    translate: 0 230px;
   }
   to {
     left: 0.7rem;
-    translate: -685px -5px;
+    translate: -775px -5px;
   }
 }
 @keyframes fade-in {
@@ -611,6 +610,15 @@ import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
   }
   to {
     opacity: 0;
+  }
+}
+// Animates background gradients for headings and primary buttons
+@keyframes bg-gradient-slide {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
   }
 }
 @keyframes rotate {

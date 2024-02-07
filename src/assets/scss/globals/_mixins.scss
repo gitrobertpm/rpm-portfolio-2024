@@ -25,11 +25,11 @@
 @mixin heading-candy {
   color: transparent;
   background: $gradient-linear-text;
-  background-size: 20%;
+  background-size: 30%;
   background-clip: text;
   background-position: left;
   filter: drop-shadow(0 -1px 0 $color-text-lt) drop-shadow(0 2px 0 $color-text-dk);
-  animation: bg-gradient-slide 187s ease-in-out alternate infinite;
+  animation: bg-gradient-slide 100s ease-in-out alternate infinite;
   // @include lg {
   //   background-size: 10%;
   // }
@@ -41,9 +41,18 @@
   background-clip: text;
   background-position: left;
   filter: drop-shadow(0 -1px 0 $color-text-lt) drop-shadow(0 2px 0 $color-text-dk);
-  animation: bg-gradient-slide 187s ease-in-out infinite;
+  animation: bg-gradient-slide 100s ease-in-out infinite;
   @include lg {
     background-size: 10%;
+  }
+}
+// Animates background gradients for headings and primary buttons
+@keyframes bg-gradient-slide {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
   }
 }
 @mixin copy {

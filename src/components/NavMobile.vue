@@ -123,8 +123,11 @@ function toggleNav() {
   height: 48px;
   padding: 5px;
   margin: 10px 0 0 10px;
+  // background: linear-gradient(to bottom, $color-bg-lt-glass-thinner, $color-bg-dk-glass-thinner);
   border-radius: 5px;
-  filter: drop-shadow(0 -1px 0 $color-bg-lt-glass-thin);
+  // border-top: 1px solid $color-bg-lt-glass-thinner;
+  // border-bottom: 1px solid $color-bg-dk-glass-thinner;
+  filter: drop-shadow(0 -2px 0 $color-bg-lt-glass-thick);
   z-index: 999;
 }
 
