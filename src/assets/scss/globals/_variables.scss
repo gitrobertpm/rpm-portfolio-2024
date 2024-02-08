@@ -80,7 +80,7 @@ $color-bg-dk-glass-thicker: rgba(var(--blk-r-g-b), 0.95);
 // Gradients
 $gradient-radial-card-lt: radial-gradient(ellipse at bottom, $color-wht, $color-bg-lt-glass-thick);
 $gradient-radial-card-dk: radial-gradient(ellipse at bottom, $color-blk, $color-bg-dk-glass-thick);
-$gradient-radial-nav: radial-gradient(circle at bottom, $color-bg-dk, $color-bg-dk-glass);
+$gradient-radial-nav: radial-gradient(circle at bottom, $color-bg-dk, $color-bg-dk-glass-thick);
 $gradient-linear-text: linear-gradient(to right, $color-dodger 5%, $color-blue 20%, $color-special-dk 35%, $color-alert 50%, $color-warning 60%, $color-alert 70%, $color-special-dk 80%, $color-dodger 95%);
 $gradient-linear-primary-btn: linear-gradient(to right, $color-midnight, $color-blue 10%, $color-special-dk 50%, $color-blue 90%, $color-midnight 100%);
 $gradient-linear-reflection: linear-gradient(to bottom, $color-bg-lt-glass-thin, transparent 75%);

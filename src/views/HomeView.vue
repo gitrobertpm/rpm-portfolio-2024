@@ -46,11 +46,31 @@
     <div class="greeting-wrapper">
       <HomeGreetingPart />
     </div>
+    <AModal :display="disclaimerOpen" @modalClose="closeModal">
+      <template #content>
+        <h3>FWIW</h3>
+        <p>This portfolio is a <code>WIP</code>. I'm still experimenting, making adjustments and trying out different techniques on a variety of devices and screen sizes. So if something is glitchy, that's why.<span class="emoji" role="img" aria-label="Happy emoji">😊</span></p>
+      </template>
+    </AModal>
   </main>
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
 import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
+import AModal from '@/components/reusables/AModal.vue';
+
+const disclaimerOpen = ref(false);
+
+onMounted(() => {
+  setTimeout(() => {
+    disclaimerOpen.value = true;
+  }, 5000);
+});
+
+const closeModal = () => {
+  disclaimerOpen.value = false;
+};
 </script>
 
 <style lang="scss" scoped>
