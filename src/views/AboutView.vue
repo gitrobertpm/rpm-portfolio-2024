@@ -19,51 +19,50 @@
     <div class="ctrl flex--row--cent" role="tablist" aria-labelledby="tab-heading">
       <button 
         id="tab-work"
-        class="ctrl__btn ctrl__btn__work"
-        @click="handleWork"  
+        class="ctrl__btn ctrl__btn__work" 
+        ref="workBtn"
         role="tab"
         aria-selected="true"
         aria-controls="tabpanel-work"
-      >
-        Work
-      </button>
+        @click="handleTab" 
+      >Work</button>
       <button 
         id="tab-play"
-        @click="handlePlay" 
         class="ctrl__btn ctrl__btn__play" 
+        ref="playBtn"
         role="tab"
         aria-selected="false"
         aria-controls="tabpanel-play"
-      >
-        Play
-      </button>
+        tabindex="-1"
+        @click="handleTab" 
+      >Play</button>
       <button 
         id="tab-bio"
-        @click="handleBio" 
         class="ctrl__btn ctrl__btn__bio" 
+        ref="bioBtn"
         role="tab"
         aria-selected="false"
         aria-controls="tabpanel-bio"
-      >
-        Bio
-      </button>
+        tabindex="-1"
+        @click="handleTab" 
+      >Bio</button>
       <button 
         id="tab-this"
-        @click="handlePortfolio" 
         class="ctrl__btn ctrl__btn__port" 
+        ref="thisBtn"
         role="tab"
         aria-selected="false"
         aria-controls="tabpanel-this"
-      >
-        This
-      </button>
+        tabindex="-1"
+        @click="handleTab" 
+      >This</button>
     </div>
 
     <div v-if="isMobile()" class="mobile-container"
     >
       <Transition name="fade" mode="out-in">
         <div 
-          v-show="showPart === 'Work'" 
+          v-show="showPart === 'work'" 
           id="tabpanel-work"
           class="part-wrapper"
           role="tabpanel" 
@@ -74,7 +73,7 @@
       </Transition>
       <Transition name="fade" mode="out-in">
         <div 
-          v-show="showPart === 'Play'" 
+          v-show="showPart === 'play'" 
           id="tabpanel-play"
           class="part-wrapper"
           role="tabpanel" 
@@ -85,7 +84,7 @@
       </Transition>
       <Transition name="fade" mode="out-in">
         <div 
-          v-show="showPart === 'This'" 
+          v-show="showPart === 'this'" 
           id="tabpanel-this"
           class="part-wrapper"
           role="tabpanel" 
@@ -96,7 +95,7 @@
       </Transition>
       <Transition name="fade" mode="out-in">
         <div 
-          v-show="showPart === 'Bio'" 
+          v-show="showPart === 'bio'" 
           id="tabpanel-bio"
           class="part-wrapper"
           role="tabpanel" 
@@ -164,24 +163,24 @@ const { globalState } = useWindowResize();
 const { lg } = BREAKPOINTS;
 const isMobile = () => globalState.width < lg;
 
-// Scroll to top when mounted
-const initialize = () => window.scrollTo(0,0);
-onMounted(initialize);
-
-// Listen for outer accordion opening/closing 
-// and adjust page height to compensate for absolute positioned content
+// Page height and top scroll
 const page = ref(null);
+const originalHeight = ref(0);
+const scrollToTop = () => window.scrollTo(0,0);
+
+onMounted(() => {
+  scrollToTop();
+  originalHeight.value = page.value.offsetHeight;
+});
+
+// Cube sides - DESKTOP
+const cube = ref(null);
 const front = ref(null);
 const left = ref(null);
 const back = ref(null);
 const right = ref(null);
-const originalHeight = ref(0);
 
-onMounted(() => {
-  originalHeight.value = page.value.offsetHeight;
-});
-
-// Responding to emit
+// Responding to accordion emit to handle page size for absolute positioned content - Desktop only
 const accordionClick = () => {
   setTimeout(() => {
     const cardHeights = [
@@ -196,12 +195,6 @@ const accordionClick = () => {
     page.value.style.height = `${newHeight}px`;
     }, 636);
 };
-
-// DISPLAY SELECTION - MOBILE
-const showPart = ref('Work');
-
-// CUBE STUFF - DESKTOP
-const cube = ref(null);
 
 // Get cube position
 const getTransformVal = () => {
@@ -218,51 +211,46 @@ const animateSelection = (transformString) => {
   cube.value.style.transform = transformString;
 };
 
-// FRONT
-const handleWork = (e) => {
-  if (isMobile()) {
-    showPart.value = e.target.textContent;
-  } else {
-    animateSelection('rotateY(360deg) translateZ(-300px)');
-  }
+const cubeTransforms = {
+  work: 'rotateY(360deg) translateZ(-300px)',
+  bio: 'rotateY(90deg) translateX(300px)',
+  play: 'rotateY(180deg) translateZ(300px)',
+  this: 'rotateY(270deg) translateX(-300px)'
 };
 
-// LEFT
-const handleBio = (e) => {
-  if (isMobile()) {
-    showPart.value = e.target.textContent;
-  } else {
-    animateSelection('rotateY(90deg) translateX(300px)');
-  }
-};
+// DISPLAY SELECTION - MOBILE
+const showPart = ref('work');
 
-// BACK
-const handlePlay = (e) => {
-  if (isMobile()) {
-    showPart.value = e.target.textContent;
-  } else {
-    animateSelection('rotateY(180deg) translateZ(300px)');
-  }
-};
+const workBtn = ref(null);
+const bioBtn = ref(null);
+const playBtn = ref(null);
+const thisBtn = ref(null);
 
-// RIGHT
-const handlePortfolio = (e) => {
+const tabs = [workBtn, bioBtn, playBtn, thisBtn];
+
+const handleTab = (e) => {
+  const tabName = e.target.textContent.toLowerCase();
+  tabs.forEach(tab => {
+    if (tabName === tab.value.textContent.toLowerCase()) {
+      tab.value.removeAttribute('tabindex');
+      tab.value.setAttribute('aria-selected', 'true');
+    } else {
+      tab.value.setAttribute('aria-selected', 'false');
+      tab.value.setAttribute('tabindex', '-1');
+    }
+  });
   if (isMobile()) {
-    showPart.value = e.target.textContent;
+    showPart.value = tabName;
   } else {
-    animateSelection('rotateY(270deg) translateX(-300px)');
+    animateSelection(cubeTransforms[tabName]);
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
 .main {
  min-height: 100vh;
-//  @include md {
-//   // height: 100vh;
-//  }
 }
-
 .intro {
   padding: 0.1rem 0.5rem;
   @include sm {
