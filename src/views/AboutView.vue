@@ -1,6 +1,6 @@
 <template>
   <main class="main main__about" ref="page">
-    <h1>ABOUT</h1>
+    <h1 id="tab-heading">ABOUT</h1>
 
     <div class="intro">
       <div class="cutout--dk--fat avatar-wrapper">
@@ -16,31 +16,92 @@
       </div>
     </div>
     
-    <div class="ctrl flex--row--cent">
-      <button @click="handleWork" class="ctrl__btn ctrl__btn__work">Work</button>
-      <button @click="handlePlay" class="ctrl__btn ctrl__btn__play">Play</button>
-      <button @click="handleBio" class="ctrl__btn ctrl__btn__bio">Bio</button>
-      <button @click="handlePortfolio" class="ctrl__btn ctrl__btn__port">This</button>
+    <div class="ctrl flex--row--cent" role="tablist" aria-labelledby="tab-heading">
+      <button 
+        id="tab-work"
+        class="ctrl__btn ctrl__btn__work"
+        @click="handleWork"  
+        role="tab"
+        aria-selected="true"
+        aria-controls="tabpanel-work"
+      >
+        Work
+      </button>
+      <button 
+        id="tab-play"
+        @click="handlePlay" 
+        class="ctrl__btn ctrl__btn__play" 
+        role="tab"
+        aria-selected="false"
+        aria-controls="tabpanel-play"
+      >
+        Play
+      </button>
+      <button 
+        id="tab-bio"
+        @click="handleBio" 
+        class="ctrl__btn ctrl__btn__bio" 
+        role="tab"
+        aria-selected="false"
+        aria-controls="tabpanel-bio"
+      >
+        Bio
+      </button>
+      <button 
+        id="tab-this"
+        @click="handlePortfolio" 
+        class="ctrl__btn ctrl__btn__port" 
+        role="tab"
+        aria-selected="false"
+        aria-controls="tabpanel-this"
+      >
+        This
+      </button>
     </div>
 
-    <div v-if="isMobile()" class="mobile-container">
+    <div v-if="isMobile()" class="mobile-container"
+    >
       <Transition name="fade" mode="out-in">
-        <div v-show="showPart === 'Work'" class="part-wrapper">
+        <div 
+          v-show="showPart === 'Work'" 
+          id="tabpanel-work"
+          class="part-wrapper"
+          role="tabpanel" 
+          aria-labelledby="tab-work"
+        >
           <WorkPart />
         </div>
       </Transition>
       <Transition name="fade" mode="out-in">
-        <div v-show="showPart === 'Play'" class="part-wrapper">
+        <div 
+          v-show="showPart === 'Play'" 
+          id="tabpanel-play"
+          class="part-wrapper"
+          role="tabpanel" 
+          aria-labelledby="tab-play"
+        >
           <PlayPart />
         </div>
       </Transition>
       <Transition name="fade" mode="out-in">
-        <div v-show="showPart === 'This'" class="part-wrapper">
+        <div 
+          v-show="showPart === 'This'" 
+          id="tabpanel-this"
+          class="part-wrapper"
+          role="tabpanel" 
+          aria-labelledby="tab-this"
+        >
           <PortfolioPart />
         </div>
       </Transition>
       <Transition name="fade" mode="out-in">
-        <div v-show="showPart === 'Bio'" class="part-wrapper">
+        <div 
+          v-show="showPart === 'Bio'" 
+          id="tabpanel-bio"
+          class="part-wrapper"
+          role="tabpanel" 
+          aria-labelledby="tab-bio"
+        >
           <BioPart />
         </div>
       </Transition>
@@ -48,16 +109,40 @@
 
     <div v-if="!isMobile()" class="container flex--column--stretch">
       <div class="cube" ref="cube">
-        <div class="side front" ref="front">
+        <div 
+          id="tabpanel-work" 
+          class="side front" 
+          ref="front"
+          role="tabpanel" 
+          aria-labelledby="tab-work"
+        >
           <WorkPart @accordionClick="accordionClick" />
         </div>
-        <div class="side back" ref="back">
+        <div 
+          id="tabpanel-play" 
+          class="side back" 
+          ref="back"
+          role="tabpanel" 
+          aria-labelledby="tab-play"
+        >
           <PlayPart @accordionClick="accordionClick" />
         </div>
-        <div class="side right" ref="right">
+        <div 
+          id="tabpanel-this" 
+          class="side right" 
+          ref="right"
+          role="tabpanel" 
+          aria-labelledby="tab-this"
+        >
           <PortfolioPart @accordionClick="accordionClick" />
         </div>
-        <div class="side left" ref="left">
+        <div 
+          id="tabpanel-bio" 
+          class="side left" 
+          ref="left"
+          role="tabpanel" 
+          aria-labelledby="tab-bio"
+        >
           <BioPart @accordionClick="accordionClick" />
         </div>
       </div>
@@ -184,20 +269,12 @@ const handlePortfolio = (e) => {
     padding: 0.1rem 1rem;
   }
   .avatar-wrapper {
-    padding: 1rem 5rem 1rem 2rem;
-    margin-top: 0;
-    margin-left: calc(50% - 5rem);
-    @include sm {
-      padding: 2.3rem 10rem 2.3rem 3.5rem;
-      margin-left: calc(50% - 6.5rem);
-    }
-    @include sm {
-      padding: 2.3rem 14rem 2.3rem 3.5rem;
-      margin-left: calc(50% - 6.5rem);
-    }
+    width: 100%;
+    max-width: 717px;
+    padding: 1rem 2rem;
+    margin: 0 auto auto;
     @include lg {
-      padding: 2.3rem3.5rem;
-      margin-left: calc(50% - 6rem);
+      max-width: 759px;
     }
     .avatar-frame {
     width: 100px;

@@ -46,10 +46,15 @@
     <div class="greeting-wrapper">
       <HomeGreetingPart />
     </div>
-    <AModal :display="disclaimerOpen" @modalClose="closeModal">
+    <AModal 
+      :display="disclaimerOpen"
+      :delay="modalDelay"
+      btn-text="CONTINUE" 
+      heading-text="WIP" 
+      @modalClose="closeModal"
+    >
       <template #content>
-        <h3>FWIW</h3>
-        <p>This portfolio is a <code>WIP</code>. I'm still experimenting, making adjustments and trying out different techniques on a variety of devices and screen sizes. So if something is glitchy, that's why.<span class="emoji" role="img" aria-label="Happy emoji">😊</span></p>
+        <p>This is a new portfolio. I'm still experimenting, making adjustments, adding features, and trying out different techniques on a variety of devices and screen sizes. So if something is missing or glitchy, it's a <code>WIP</code> thing and a solution is being formulated.<span class="emoji" role="img" aria-label="Happy emoji">😊</span></p>
       </template>
     </AModal>
   </main>
@@ -60,12 +65,17 @@ import { ref, onMounted } from 'vue';
 import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
 import AModal from '@/components/reusables/AModal.vue';
 
+// Scroll to top when mounted
+const initialize = () => window.scrollTo(0,0);
+onMounted(initialize);
+
 const disclaimerOpen = ref(false);
+const modalDelay = 5000;
 
 onMounted(() => {
   setTimeout(() => {
     disclaimerOpen.value = true;
-  }, 5000);
+  }, modalDelay);
 });
 
 const closeModal = () => {

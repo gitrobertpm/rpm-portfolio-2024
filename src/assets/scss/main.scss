@@ -11,14 +11,15 @@ body {
 
   @include md {
     // background-image: url('../img/bgs/deconstructed-yin-yang-tablet.svg');
+    background-image: url('../img/bgs/deconstructed-yin-yang.svg');
   }
 
   @include lg {
     background-image: url('../img/bgs/deconstructed-yin-yang.svg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-attachment: fixed;
   }
   
   

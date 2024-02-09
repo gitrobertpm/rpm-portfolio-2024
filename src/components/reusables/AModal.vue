@@ -1,6 +1,13 @@
 <template>
   <Transition name="fade" mode="out-in">
-    <div v-show="display" class="modal">
+    <div 
+      v-show="display"
+      class="modal" 
+      ref="trapRef"
+      role="dialog" 
+      aria-labelledby="modal-label" 
+      aria-modal="true"
+    >
       <div class="modal__box">
         <div class="btn-box flex--row--right">
           <button 
@@ -12,15 +19,17 @@
         </div>
 
         <div class="content-box">
+          <h1 id="modal-label" class="modal-heading">{{ headingText }}</h1>
           <slot name="content"></slot>
         </div>
         
         <div class="btn-box flex--row--cent--cent">
           <button 
             class="btn--primary close-btn"
+            ref="close"
             @click="closeModal"
             >
-              Close
+              {{ btnText }}
             </button>
           </div>
         </div>
@@ -29,14 +38,38 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
 import IconClose from '@/components/icons/IconClose.vue';
+import useFocusTrap from '@/composables/useFocusTrap.js';
 
-defineProps({
+const props = defineProps({
   display: {
     type: Boolean,
     required: true,
     default: false
+  },
+  btnText: {
+    type: String,
+    default: "CLOSE"
+  },
+  headingText: {
+    type: String,
+    default: 'Modal Dialog'
+  },
+  delay: {
+    type: Number,
+    default: 0
   }
+});
+
+const { trapRef } = useFocusTrap();
+const close = ref(null);
+
+// Focus on modal's main close button 100 milliseconds after any delay prop passed
+onMounted(() => {
+  setTimeout(() => {
+    close.value.focus();
+  }, props.delay + 100);
 });
 
 const emit = defineEmits(['modalClose']);
@@ -73,6 +106,9 @@ const closeModal = () => {
     .content-box {
       margin: 0 auto 2rem;
       padding: 0 0 1rem;
+      .modal-heading {
+        margin-top: 0;
+      }
     }
     .btn-close {
       // SVG styles in source icon vue file
@@ -84,8 +120,14 @@ const closeModal = () => {
       &:focus,
       &:focus-visible {
         border-radius: 15px;
-        outline: 2px solid $color-dodger;
-        outline-offset: -5px;
+        border: 1px solid $color-bg-lt-glass;
+        outline: 2px solid $color-text-lt;
+      }
+      &:hover {
+        color: $color-text-lt;
+        border: 1px solid $color-bg-lt-glass;
+        filter: drop-shadow(0 5px 15px $color-bg-lt-glass-thinner);
+        box-shadow: 0.5rem 12px 0 $color-bg-lt-glass-thinner inset, -0.5rem -10px 0 $color-bg-lt-glass-thinner inset;
       }
       &::after {
         content: "";
@@ -102,6 +144,19 @@ const closeModal = () => {
     .close-btn {
       max-width: 350px;
       margin: auto;
+      &:focus,
+      &:focus-visible {
+        color: $color-text-lt;
+        border-radius: 15px;
+        border: 1px solid $color-bg-lt-glass;
+        outline: 2px solid $color-text-lt;
+      }
+      &:hover {
+        color: $color-text-lt;
+        border: 1px solid $color-bg-lt-glass;
+        filter: drop-shadow(0 5px 15px $color-bg-lt-glass-thinner);
+        box-shadow: 0.5rem 12px 0 $color-bg-lt-glass-thinner inset, -0.5rem -10px 0 $color-bg-lt-glass-thinner inset;
+      }
     }
   }
 }

@@ -4,6 +4,7 @@
     - [Section](#section)
     - [Card](#card)
     - [Accordion](#accordion)
+    - [Modal Dialog](#modal-dialog)
   - [Utility classes](#utility-classes)
     - [Flex](#flex)
     - [Grid](#grid)
@@ -81,6 +82,18 @@ Child props:
 * 'footer' - `BOOLEAN`
 
 File name: `AnAccordion.vue`
+
+### Modal Dialog
+Reusable responsive element that traps focus and requires user interaction.
+
+Behavior props: 
+* 'display' - `BOOLEAN`
+
+Text props: 
+* 'heading-text' - `STRING`
+* 'btn-text' - `STRING`
+
+File name: `AModal.vue`
 
 ## Utility classes
 

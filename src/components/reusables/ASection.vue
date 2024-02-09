@@ -80,7 +80,7 @@ const pole = props.light ? 'lt' : 'dk';
   @include md {
     margin: 2rem auto 5rem;
     padding: 0.5rem 2rem 1rem;
-    background: linear-gradient(to bottom left, $color-bg-lt-glass-thinner, transparent 20%, transparent 90%, $color-bg-dk-glass-thinner);
+    background: linear-gradient(to bottom left, $color-bg-lt-glass-thinner, transparent 10%, transparent 90%, $color-bg-dk-glass-thinner);
     border-radius: 1.75rem;
     border: 1px solid $color-bg-dk-glass-thinner;
     box-shadow: 0 1px 3px $color-bg-lt-glass-thinner, 0 -1px 3px $color-bg-lt-glass-thinner;

@@ -12,6 +12,7 @@
       <nav 
         v-show="navOpen"
         class="nav"
+        ref="trapRef"
       >
 
         <div class="btn-box flex--row--right">
@@ -28,6 +29,7 @@
             <RouterLink 
               to="/"
               class="nav__list__item__link"
+              ref="home"
               @click="toggleNav"
             >
               <IconHome class="nav__list__item__link__icon" />
@@ -94,29 +96,22 @@ import IconAbout from './icons/IconAbout.vue';
 import IconContact from './icons/IconContact.vue';
 import IconStyleguide from './icons/IconStyleguide.vue';
 import IconClose from './icons/IconClose.vue';
+import useFocusTrap from '@/composables/useFocusTrap.js';
+
+const { trapRef } = useFocusTrap();
+const home = ref(null);
 
 const navOpen = ref(false);
 
-function toggleNav() {
+async function toggleNav() {
   navOpen.value = !navOpen.value;
 }
 </script>
 
 <style lang="scss" scoped>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-
 .nav-wrapper {
   position: relative;
 }
-
 .nav-toggle-btn {
   position: fixed;
   width: 48px;
@@ -127,7 +122,6 @@ function toggleNav() {
   filter: drop-shadow(0 -2px 0 $color-bg-lt-glass-thick);
   z-index: 999;
 }
-
 .nav {
   position: fixed;
   width: 100%;
@@ -136,11 +130,9 @@ function toggleNav() {
   background: $gradient-radial-nav;
   backdrop-filter: blur(5px);
   z-index: 99;
-
   .btn-box {
     height: 0;
   }
-
   .btn-close {
     // SVG styles in source icon vue file
     position: relative;
@@ -148,14 +140,12 @@ function toggleNav() {
     height: 50px;
     margin: 15px 15px 0 0;
     z-index: 999;
-
     &:focus,
     &:focus-visible {
       border-radius: 15px;
       outline: 2px solid $color-dodger;
       outline-offset: -5px;
     }
-
     &::after {
       content: "";
       pointer-events: none;
@@ -168,44 +158,44 @@ function toggleNav() {
       border-radius: 5px;
     }
   }
-
   &__list {
     position: relative;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
     padding: 75px 25px;
-
     @include md {
       padding: 100px;
     }
-
     &__item {
       text-align: center;
       width: 35%;
       height: 120px;
       padding: 35px 0;
       margin: auto 5% 50px;
-
       @include md {
         width: 20%;
         margin: auto 5% 50px;
       }
-
       &__link {
         color: $color-text-lt;
-
+        width: 100px;
+        padding: 0.5rem 1rem;
         &__icon {
           width: 42px;
           height: 42px;
           margin: auto auto 10px;
         }
-
-        &__text {
-          white-space: nowrap;
-        }
       }
     }
   }
+}
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
