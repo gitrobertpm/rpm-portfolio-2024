@@ -10,19 +10,21 @@
     </div>
 
     <div class="home-copy-wrapper">
+      <h5>My <code class="quotes">&ldquo;</code>Elevator<code class="quotes">&rdquo;</code> Pitch...</h5>
+
       <p>I've worked on a number of production applications with some amazing, diverse and remote teams in <code>Agile</code>-like, <code>CI/CD</code> environments. Some of those projects live on web apps for <code>XBOX</code>, <code>Hydro Flask</code> and <code>Leatherman</code>, among others.</p>
 
       <p>Most of my experience is building things with <code>JavaScript</code> FE libraries, <code>React</code> and <code>Vue</code>, and styling them with <code>CSS</code>/<code>Ssas</code>. But I have worked with Backend and database technologies as well.</p>
       <p>My contributions have included:</p>
       <ul>
-        <li>new features</li>
-        <li>bug fixes</li>
-        <li>style refactors</li>
-        <li>accessibility updates</li>
-        <li>dependency and version updates</li>
-        <li>unit tests</li>
-        <li>internationalization</li>
-        <li>documentation</li>
+        <li>New features</li>
+        <li>Bug fixes</li>
+        <li>Style refactors</li>
+        <li>Accessibility updates</li>
+        <li>Dependency and version updates</li>
+        <li>Unit tests</li>
+        <li>Internationalization</li>
+        <li>Documentation</li>
       </ul>
 
       <p>But perhaps the most valuable asset I bring is an optimistic and encouraging attitude. What fuels this positive temperament? I'm a bit of a people-pleaser. I dislike conflict and when others feel bad. And a friendly smile and good cheer tend to get <code>better results</code> than the alternative.</p>
@@ -77,6 +79,11 @@
       padding: 2rem 3rem;
       margin: 2rem auto;
       background: linear-gradient(to right, #000 75%, transparent);
+    }
+    .quotes {
+      display: inline-block;
+      font-size: 1em;
+      transform: translateY(-5px);
     }
     p {
       padding-left: 0.25rem;

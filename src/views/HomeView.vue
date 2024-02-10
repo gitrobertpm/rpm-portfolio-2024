@@ -8,45 +8,46 @@
         <img src="@/assets/img/logos/rasters/li.png" alt="LinkedIn" class="logo linkedin">
       </a>
     </div>
-    <div class="name-title-container">
+    <div :style="store.wasAnimated && nameTitleContNoAniStyles" class="name-title-container">
       <div class="name" lang="en">
 
-        <h1 class="title Web__W">W</h1>
-        <h1 class="title Web__e">e</h1>
-        <h1 class="title Web__b">b</h1>
+        <h1 :style="store.wasAnimated && webNoAniStyles" class="title Web__W">W</h1>
+        <h1 :style="store.wasAnimated && webNoAniStyles" class="title Web__e">e</h1>
+        <h1 :style="store.wasAnimated && webNoAniStyles" class="title Web__b">b</h1>
 
-        <h1 class="title De__D">D</h1>
-        <h1 class="title De__e">e</h1>
+        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title De__D">D</h1>
+        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title De__e">e</h1>
 
-        <div class="name-box name__first">
-          <h1 class="initial name__first__initial">R</h1>
-          <h1 class="remainder name__first__remainder">obert</h1>
+        <div :style="store.wasAnimated && fnameNoAniStyles" class="name-box name__first">
+          <h1 :style="store.wasAnimated && opacNoAniStyles" class="initial name__first__initial">R</h1>
+          <h1 :style="store.wasAnimated && opacNoAniStyles" class="remainder name__first__remainder">obert</h1>
         </div>
 
-        <h1 class="title vel__v">v</h1>
-        <h1 class="title vel__e">e</h1>
-        <h1 class="title vel__l">l</h1>
+        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title vel__v">v</h1>
+        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title vel__e">e</h1>
+        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title vel__l">l</h1>
 
-        <div class="name-box name__middle">
+        <div :style="store.wasAnimated && {'animation': 'none', 'opacity': 0}" class="name-box name__middle">
           <h1 class="initial name__middle__initial">P</h1>
         </div>
 
-        <div class="name-box name__last">
-          <h1 class="initial name__last__initial">M</h1>
-          <h1 class="remainder name__last__remainder">anolis</h1>
+        <div :style="store.wasAnimated && lnameNoAniStyles" class="name-box name__last">
+          <h1 :style="store.wasAnimated && opacNoAniStyles" class="initial name__last__initial">M</h1>
+          <h1 :style="store.wasAnimated && opacNoAniStyles" class="remainder name__last__remainder">anolis</h1>
         </div>
 
-        <h1 class="title oper__o">o</h1>
-        <h1 class="title oper__p">p</h1>
-        <h1 class="title oper__e">e</h1>
-        <h1 class="title oper__r">r</h1>
+        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title oper__o">o</h1>
+        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title oper__p">p</h1>
+        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title oper__e">e</h1>
+        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title oper__r">r</h1>
 
       </div>
     </div>
-    <div class="greeting-wrapper">
+    <div :style="store.wasAnimated && opacNoAniStyles" class="greeting-wrapper">
       <HomeGreetingPart />
     </div>
     <AModal 
+      v-if="!store.viewedDisclaimer"
       :display="disclaimerOpen"
       :delay="modalDelay"
       btn-text="CONTINUE" 
@@ -61,26 +62,94 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
+import { useStore } from '@/stores/store.js';
 import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
 import AModal from '@/components/reusables/AModal.vue';
+import useWindowResize from '@/composables/useWindowResize.js';
+import { BREAKPOINTS } from '@/util/constants.js';
+
+const store = useStore();
+const { globalState } = useWindowResize();
+const { md, lg } = BREAKPOINTS;
+
+const isMobile = () => globalState.width < md;
+const isTablet = () => globalState.width >= md && globalState.width < lg;
+
+// var showText = function (target, msg, i, interval) {   
+//   if (i < msg.length) {
+//     $(target).append(msg[i++]);
+//     setTimeout(showText, interval, target, msg, i, interval)
+//   }
+// }
 
 // Scroll to top when mounted
-const initialize = () => window.scrollTo(0,0);
-onMounted(initialize);
+const scrollToTop = () => window.scrollTo(0,0);
 
 const disclaimerOpen = ref(false);
-const modalDelay = 5000;
+const modalDelay = 7000;
 
+// Handle opening disclaimer, scroll to top on load, and turn off initial animations
 onMounted(() => {
+  scrollToTop();
   setTimeout(() => {
     disclaimerOpen.value = true;
+    store.hasBeenAnimated();
   }, modalDelay);
 });
 
 const closeModal = () => {
   disclaimerOpen.value = false;
+  store.hasViewedDisclaimer();
 };
+
+// Position styles so elements don't reanimate on page resize or revisit
+const nameTitleContNoAniStyles = computed(() => {
+  return { 
+    animation: 'none',
+    opacity: 1,
+    transform: isMobile() ? 'scale(0.6) translateX(205px) translateY(0)' : 
+              isTablet() ? 'scale(0.7) translateX(435px) translateY(0px)' : 
+                            'scale(0.8) translateX(455px) translateY(0px)'
+  };
+});
+
+const fnameNoAniStyles = computed(() => {
+  return { 
+    animation: 'none',
+    left: '1.5rem',
+    opacity: 1,
+    translate: isMobile() ? '-315px 0px' : 
+              isTablet() ? '-715px -110px' : '-790px -110px'
+  };
+});
+
+const lnameNoAniStyles = computed(() => {
+  return { 
+    animation: 'none',
+    left: '0.7rem',
+    opacity: 1,
+    translate: isMobile() ? '-230px 95px' : 
+              isTablet() ? '-700px -5px' : '-775px -5px'
+  };
+});
+
+const opacNoAniStyles = computed(() => {
+  return {
+    animation: 'none',
+    opacity: 1,
+  };
+});
+
+const webNoAniStyles = computed(() => {
+  return {
+    animation: 'none',
+    opacity: 1,
+    filter: 'drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 0 $color-text-lt)',
+    color: 'black',
+    'text-shadow': '0 1px 0 $color-bg-dk-glass-thick'
+  };
+});
 </script>
 
 <style lang="scss" scoped>
@@ -153,7 +222,6 @@ const closeModal = () => {
       letter-spacing: 0.25rem;
       padding: 0;
       margin: 0;
-      // background-size: 120%;
       @include lg {
         letter-spacing: 0.35rem;
       }

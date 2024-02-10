@@ -1,11 +1,21 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
-export const useStore = defineStore('counter', () => {
-  const width = ref(0);
-  function updateWidth(w) {
-    width.value = w;
-  }
+export const useStore = defineStore('eventChecks', () => {
+  // const width = ref(0);
+  // function updateWidth(w) {
+  //   width.value = w;
+  // }
 
-  return { width, updateWidth};
+  const viewedDisclaimer = ref(false);
+  function hasViewedDisclaimer() {
+    viewedDisclaimer.value = true;
+  };
+
+  const wasAnimated = ref(false);
+  function hasBeenAnimated() {
+    wasAnimated.value = true;
+  };
+
+  return { viewedDisclaimer, hasViewedDisclaimer, wasAnimated, hasBeenAnimated };
 });

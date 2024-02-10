@@ -16,7 +16,7 @@
       <template #text>
         <p>I think my new portfolio is far enough along to share while I finish building the new Projects section and put on the finishing touches.</p>
         <p>In the meantime, you can checkout the projects page of my previous portfolio <a href="https://robertpm.netlify.app/projects/my-portfolio" target="_blank">here</a>.</p>
-        <p v-if="isMobile">Also, the mouse position is at: <code>{{ x }}</code>, <code>{{ y }}</code>.</p>
+        <p v-if="!isMobile()">Also, the mouse position is at: <code>{{ x }}</code>, <code>{{ y }}</code>.</p>
       </template>
       <template #footer>
         <p>Thanks for stopping by.<span class="emoji" role="img" aria-label="Vulcan salute emoji">🖖</span></p>
