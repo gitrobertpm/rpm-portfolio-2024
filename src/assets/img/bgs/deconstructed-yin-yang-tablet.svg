@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 384 1201" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g id="Artboard3" transform="matrix(0.659085,0,0,0.969731,789.343,28.347)">
-        <rect x="-1197.63" y="-29.232" width="581.817" height="1238.23" style="fill:none;"/>
-        <clipPath id="_clip1">
-            <rect x="-1197.63" y="-29.232" width="581.817" height="1238.23"/>
-        </clipPath>
-        <g clip-path="url(#_clip1)">
-            <g transform="matrix(1.77424,0,0,1.59996,-1844.34,-41.0263)">
-                <path d="M0.188,-2.605L701.57,-0.764C698.179,273.371 698.677,537.837 701.57,796.345L0.188,798.185L0.188,-2.605Z" style="fill:white;"/>
+<svg width="100%" height="100%" viewBox="0 0 1024 2560" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-3832.69,1651)">
+        <g transform="matrix(2.56,-3.1351e-16,-3.1351e-16,-2.56,-5395.41,1678.13)">
+            <g transform="matrix(1.00547,0,0,1.00047,-19.7246,-0.14106)">
+                <rect x="4001.57" y="300.442" width="0.983" height="999.531" style="fill:white;"/>
             </g>
-            <g transform="matrix(1.65045,0.0410933,-0.0449486,1.96484,-1023.17,-183.996)">
-                <path d="M55.832,71.77L701.57,-0.764L701.57,796.345L76.052,717.721C-48.32,643.861 -53.65,474.184 65.528,394.358C182.349,316.111 177.625,144.78 55.832,71.77Z"/>
+            <g transform="matrix(1.00547,0,0,1.00047,-19.7246,-0.14106)">
+                <path d="M3802.66,300.442L3604.73,300.442L3604.73,1299.97L3802.66,1299.97C3934.83,1138.7 3935.18,972.018 3802.66,799.887C3671.53,629.329 3671.78,462.855 3802.66,300.442Z" style="fill:white;"/>
+            </g>
+            <g transform="matrix(0.502736,0,0,1.00047,1991.51,-0.14106)">
+                <path d="M4002.55,300.442L3604.73,300.442C3342.98,462.855 3342.47,629.329 3604.73,799.887C3869.78,972.018 3869.07,1138.7 3604.73,1299.97L4002.55,1299.97L4002.55,300.442Z"/>
             </g>
         </g>
     </g>
