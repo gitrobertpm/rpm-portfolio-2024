@@ -278,13 +278,10 @@ const opacNoAniStyles = computed(() => {
   opacity: 0;
   filter: drop-shadow(0 1px 0 $color-bg-dk-glass-thick) drop-shadow(0 -1px 0 $color-bg-dk-glass-thick);
   animation: fade-in 1s ease-in-out 4s forwards;
-  // @include lg {
-  //   text-shadow: 0 1px 0 $color-bg-lt-glass-thick;
-  // }
   &.Web {
     &__W {
       text-shadow: 0 1px 0 $color-bg-dk-glass-thicker;
-      filter: drop-shadow(0 1px 0 $color-bg-lt-glass) drop-shadow(0 -1px 0 $color-bg-lt-glass);
+      filter: drop-shadow(-1px -1px 1px $color-bg-lt-glass-thick) drop-shadow(1px 1px 1px $color-bg-lt-glass-thick);
       animation: fade-in 1s ease-in-out 3.5s forwards;
       top: -99px;
       left: 110px;
@@ -299,7 +296,7 @@ const opacNoAniStyles = computed(() => {
     }
     &__e {
       text-shadow: 0 1px 0 $color-bg-dk-glass-thicker;
-      filter: drop-shadow(0 1px 0 $color-bg-lt-glass) drop-shadow(0 -1px 0 $color-bg-lt-glass);
+      filter: drop-shadow(-1px -1px 1px $color-bg-lt-glass-thick) drop-shadow(1px 1px 1px $color-bg-lt-glass-thick);
       animation: fade-in 1s ease-in-out 3.5s forwards;
       top: -57px;
       left: 125px;
@@ -314,7 +311,7 @@ const opacNoAniStyles = computed(() => {
     }
     &__b {
       text-shadow: 0 1px 0 $color-bg-dk-glass-thicker;
-      filter: drop-shadow(0 1px 0 $color-bg-lt-glass) drop-shadow(0 -1px 0 $color-bg-lt-glass);
+      filter: drop-shadow(-1px -1px 1px $color-bg-lt-glass-thick) drop-shadow(1px 1px 1px $color-bg-lt-glass-thick);
       animation: fade-in 1s ease-in-out 3.5s forwards;
       top: 2px;
       left: 124px;
@@ -481,27 +478,6 @@ const opacNoAniStyles = computed(() => {
   }
 }
 // ANIMATIONS -----------------------------------------------------------------------------------------------
-// @keyframes boot {
-//   0% {
-//     filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9));
-//   }
-//   80% {
-//     filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 1px $color-text-lt);
-//   }
-//   85% {
-//     filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9));
-//   }
-//   90% {
-//     filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 1px $color-text-lt);
-//   }
-//   95% {
-//     filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9));
-//   }
-//   100% {
-//     filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 0 $color-text-lt);
-//     color: black;
-//   }
-// }
 @keyframes scale-and-slide {
   from {
     transform: scale(1) translateX(0) translateY(0);
@@ -526,6 +502,7 @@ const opacNoAniStyles = computed(() => {
     transform: scale(0.8) translateX(455px) translateY(0px);
   }
 }
+// FIRST NAME --------------------------------------------------------------------------------------------
 @keyframes fname-position-uno {
   from {
     left: calc(30% - 40px);
@@ -582,6 +559,7 @@ const opacNoAniStyles = computed(() => {
     translate: -790px -110px;
   }
 }
+// MIDDLE NAME -------------------------------------------------------------------------------------
 @keyframes mname-position-uno {
   from {
     left: calc(55% - 40px);
@@ -612,6 +590,7 @@ const opacNoAniStyles = computed(() => {
     translate: 0 120px;
   }
 }
+// LAST NAME --------------------------------------------------------------------------------------
 @keyframes lname-position-uno {
   from {
     left: calc(75% - 40px);
@@ -672,6 +651,7 @@ const opacNoAniStyles = computed(() => {
     translate: -775px -5px;
   }
 }
+// END NAMES ---------------------------------------------------------------------------------------
 @keyframes fade-in {
   from {
     opacity: 0;
