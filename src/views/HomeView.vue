@@ -76,13 +76,6 @@ const { md, lg } = BREAKPOINTS;
 const isMobile = () => globalState.width < md;
 const isTablet = () => globalState.width >= md && globalState.width < lg;
 
-// var showText = function (target, msg, i, interval) {   
-//   if (i < msg.length) {
-//     $(target).append(msg[i++]);
-//     setTimeout(showText, interval, target, msg, i, interval)
-//   }
-// }
-
 // Scroll to top when mounted
 const scrollToTop = () => window.scrollTo(0,0);
 
@@ -119,7 +112,7 @@ const fnameNoAniStyles = computed(() => {
     animation: 'none',
     left: '1.5rem',
     opacity: 1,
-    translate: isMobile() ? '-315px 0px' : 
+    translate: isMobile() ? '-315px -100px' : 
               isTablet() ? '-715px -110px' : '-790px -110px'
   };
 });
@@ -129,7 +122,7 @@ const lnameNoAniStyles = computed(() => {
     animation: 'none',
     left: '0.7rem',
     opacity: 1,
-    translate: isMobile() ? '-230px 95px' : 
+    translate: isMobile() ? '-230px -5px' : 
               isTablet() ? '-700px -5px' : '-775px -5px'
   };
 });
@@ -158,15 +151,15 @@ const webNoAniStyles = computed(() => {
   min-height: 100vh;
 }
 .greeting-wrapper {
-  margin-top: 250px;
+  margin-top: 220px;
   opacity: 0;
   animation: fade-in 2s ease-out 5s forwards;
   @include md {
-    margin-top: -80px;
+    margin-top: 275px;
     animation: fade-in 1.5s ease-out 4s forwards;
   }
   @include lg {
-    margin-top: -75px;
+    margin-top: 225px;
   }
 }
 // SOCIAL MEDIA LINKS --------------------------------------------------------------------------------
@@ -579,7 +572,7 @@ const webNoAniStyles = computed(() => {
     translate: 3px 97px;
   }
   to {
-    translate: -315px 0px;
+    translate: -315px -100px;
   }
 }
 @keyframes fname-position-tres-md {
@@ -665,7 +658,7 @@ const webNoAniStyles = computed(() => {
   }
   to {
     left: 0.7rem;
-    translate: -230px 95px;
+    translate: -230px -5px;
   }
 }
 @keyframes lname-position-dos-md {

@@ -28,9 +28,9 @@ const router = createRouter({
       component: () => import('../views/ProjectsView.vue')
     },
     {
-      path: '/experience',
-      name: 'experience',
-      component: () => import('../views/ExperienceView.vue')
+      path: '/experiments',
+      name: 'experiments',
+      component: () => import('../views/ExperimentsView.vue')
     },
     {
       path: '/style-guide',
