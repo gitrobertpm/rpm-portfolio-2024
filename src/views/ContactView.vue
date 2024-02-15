@@ -9,7 +9,7 @@
       footer
     >
       <template #hero>
-        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-fill-sunset.png" alt="My Logo">
+        <img src="@/assets/img/logos/rpm-logos/vectors/rpm-logo-fill-sunset.svg" width="130px" alt="My Logo">
       </template>
       <template #heading>
         <h2>Greetings!</h2>
@@ -17,7 +17,7 @@
       <template #text>
         <p>I'd love to hear from you.</p>
         <p>Hit me up anytime at <code>grobertpm@gmail.com</code>.</p>
-        <p>Or check me out at <code>GitHub</code> or <code>LinkedIn</code> links below.</p>
+        <p>Or check me out at the <code>GitHub</code> or <code>LinkedIn</code> links below.</p>
         <ul class="contact-list">
           <li class="contact-list__item">
             <a href="https://github.com/gitrobertpm" target="_blank" class="contact-list__item__link">
@@ -66,7 +66,7 @@ import ASection from '@/components/reusables/ASection.vue';
       overflow: hidden;
       &__logo {
         padding: 0.6rem;
-        background: black;
+        background: #000;
       }
     }
   }

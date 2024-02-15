@@ -16,48 +16,51 @@
       </div>
     </div>
     
-    <div class="ctrl flex--row--cent" role="tablist" aria-labelledby="tab-heading">
-      <button 
-        id="tab-work"
-        class="ctrl__btn ctrl__btn__work" 
-        ref="workBtn"
-        role="tab"
-        aria-selected="true"
-        aria-controls="tabpanel-work"
-        @click="handleTab" 
-      >Work</button>
-      <button 
-        id="tab-play"
-        class="ctrl__btn ctrl__btn__play" 
-        ref="playBtn"
-        role="tab"
-        aria-selected="false"
-        aria-controls="tabpanel-play"
-        tabindex="-1"
-        @click="handleTab" 
-      >Play</button>
-      <button 
-        id="tab-bio"
-        class="ctrl__btn ctrl__btn__bio" 
-        ref="bioBtn"
-        role="tab"
-        aria-selected="false"
-        aria-controls="tabpanel-bio"
-        tabindex="-1"
-        @click="handleTab" 
-      >Bio</button>
-      <button 
-        id="tab-this"
-        class="ctrl__btn ctrl__btn__port" 
-        ref="thisBtn"
-        role="tab"
-        aria-selected="false"
-        aria-controls="tabpanel-this"
-        tabindex="-1"
-        @click="handleTab" 
-      >This</button>
+    <div class="ctrl">
+      <div class="tab-list-wrapper cutout--dk">
+        <div class="tab-list  flex--row--cent" role="tablist" aria-labelledby="tab-heading">
+          <button 
+            id="tab-work"
+            class="ctrl__btn ctrl__btn__work" 
+            ref="workBtn"
+            role="tab"
+            aria-selected="true"
+            aria-controls="tabpanel-work"
+            @click="handleTab" 
+          >Work</button>
+          <button 
+            id="tab-play"
+            class="ctrl__btn ctrl__btn__play" 
+            ref="playBtn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tabpanel-play"
+            tabindex="-1"
+            @click="handleTab" 
+          >Play</button>
+          <button 
+            id="tab-bio"
+            class="ctrl__btn ctrl__btn__bio" 
+            ref="bioBtn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tabpanel-bio"
+            tabindex="-1"
+            @click="handleTab" 
+          >Bio</button>
+          <button 
+            id="tab-this"
+            class="ctrl__btn ctrl__btn__port" 
+            ref="thisBtn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tabpanel-this"
+            tabindex="-1"
+            @click="handleTab" 
+          >This</button>
+        </div>
+      </div>
     </div>
-
     <div v-if="isMobile()" class="mobile-container"
     >
       <Transition name="fade" mode="out-in">
@@ -252,18 +255,13 @@ const handleTab = (e) => {
  min-height: 100vh;
 }
 .intro {
-  padding: 0.1rem 0.5rem;
+  padding: 0 0.5rem;
   @include sm {
-    padding: 0.1rem 1rem;
+    padding: 0 1rem;
   }
   .avatar-wrapper {
-    width: 100%;
-    max-width: 717px;
     padding: 1rem 2rem;
-    margin: 0 auto auto;
-    @include lg {
-      max-width: 759px;
-    }
+    margin: 0 auto;
     .avatar-frame {
     width: 100px;
     margin: 1rem auto;
@@ -289,6 +287,7 @@ const handleTab = (e) => {
   }
   }
   .greeting-wrapper {
+    margin: 0 auto auto;
     padding: 0.25rem 1rem 1rem;
     @include sm {
       padding: 0.25rem 3rem 1.5rem;
@@ -297,20 +296,39 @@ const handleTab = (e) => {
       margin-left: auto;
       background: #fff;
     }
+    h3 {
+      text-align: center;
+    }
+    p {
+      @include lg {
+        text-align: center;
+        margin: auto;
+      }
+    }
   }
 }
 .ctrl {
-  padding: 0 0.7rem 0 0.1rem;
-  margin: 2rem auto;
+  padding: 0 0.5rem;
   @include sm {
+    padding: 0 1rem;
+  }
+  .tab-list-wrapper {
+    margin: 0 auto;
+  }
+  .tab-list {
     justify-content: space-around;
-    max-width: 720px;
+    max-width: 850px;
+    padding: 0.5rem 0.7rem 2rem 0.1rem;
+    margin: 0 auto;
+    @include md {
+      padding: 1rem 0.7rem 2.5rem 0.1rem;
+    }
   }
   &__btn {
     width: 100px;
     font-size: 1.1rem;
     font-weight: bold;
-    margin: auto 0.3rem;
+    margin: 1rem 0.3rem;
     padding: 0.5rem 0.1rem 0.1rem;
     border-radius: 0;
     transform: rotate(-45deg);
@@ -366,16 +384,16 @@ const handleTab = (e) => {
 }
 .part-wrapper {
   width: 95%;
-  margin: 3rem auto 1rem;
+  margin: 1rem auto 1rem;
 }
 .container {
   position: relative;
   perspective: 3000px;
   width: 100%;
-  margin-top: 75px;
+  margin-top: 25px;
   .cube {
     width: 720px;
-    height: 400px;
+    height: 300px;
     margin: auto;
     transition: 0.75s ease-out;
     transform-style: preserve-3d;
@@ -384,7 +402,7 @@ const handleTab = (e) => {
       display: block;
       position: absolute;
       width: 720px;
-      height: 210px;
+      height: 222px;
       text-align: center;
       background-image: 
       linear-gradient(to top, $color-bg-dk-glass-thick, $color-bg-dk-glass-thin),
@@ -392,10 +410,6 @@ const handleTab = (e) => {
         conic-gradient(at 100% 0%, transparent 0deg, transparent 180deg, $color-bg-lt-glass-thin, transparent 270deg);
       border-radius: 0.75rem;
       border: none;
-      @include lg {
-        width: 720px;
-        height: 247px;
-      }
     }
   }
 }

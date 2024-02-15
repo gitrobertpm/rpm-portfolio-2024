@@ -8,13 +8,13 @@
       footer
     >
       <template #hero>
-        <img src="@/assets/img/logos/rpm-logos/rasters/rpm-logo-stroke-sunset.png" alt="My Logo">
+        <img src="@/assets/img/logos/rpm-logos/vectors/rpm-logo-stroke-sunset.svg" width="130px" alt="My Logo">
       </template>
       <template #heading>
-        <h3>Page Under Construction</h3>
+        <h3 class="heading"><span class="emoji" role="img" aria-label="Saw emoji">🪚</span>Under Construction<span class="emoji" role="img" aria-label="Screwdriver emoji">🪛</span></h3>
       </template>
       <template #text>
-        <p>I think my new portfolio is far enough along to share while I finish building the new Projects section and put on the finishing touches.</p>
+        <p>This portfolio is far enough along to share while the new Projects section is being developed.</p>
         <p>In the meantime, you can checkout the projects page of my previous portfolio <a href="https://robertpm.netlify.app/projects/my-portfolio" target="_blank">here</a>.</p>
         <p v-if="!isMobile()">Also, the mouse position is at: <code>{{ x }}</code>, <code>{{ y }}</code>.</p>
       </template>
@@ -39,5 +39,16 @@ const isMobile = () => globalState.width < lg;
 </script>
 
 <style lang="scss" scoped>
-
+.heading {
+  font-size: 1.1rem;
+  @include sm {
+    font-size: 1.5rem;    
+  }
+  @include md {
+    font-size: 1.75rem;    
+  }
+  @include lg {
+    font-size: 2rem;    
+  }
+}
 </style>

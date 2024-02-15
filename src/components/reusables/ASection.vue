@@ -24,7 +24,7 @@
       <!-- BODY -->
       <div class="section__main__body">
         <!-- h2 -->
-        <div v-if="heading" :class="`cutout--${ pole }`">
+        <div v-if="heading" :class="`section__main__body__heading section__main__body__heading--${ pole } cutout--${ pole }`">
           <slot name="heading"></slot>
         </div>
 
@@ -39,7 +39,7 @@
         </div>
 
         <!-- FOOTER -->
-        <div class="section__main__footer">
+        <div :class="`section__main__body__footer section__main__body__footer--${ pole }`">
           <div v-if="footer" :class="`cutout--${ pole }--chubby`">
             <slot name="footer"></slot>
           </div>
@@ -71,8 +71,6 @@ const pole = props.light ? 'lt' : 'dk';
   width: 100%;
   margin: 2rem auto;
   padding: 0.1rem 0.5rem 0.5rem;
-  border-top: 1px solid $color-bg-dk-glass-thinner;
-  box-shadow: 0 -1px 0 $color-bg-lt-glass-thinner;
   transition: 0.7s ease-out;
   @include sm {
     padding: 0.5rem 1rem 1rem;
@@ -82,8 +80,9 @@ const pole = props.light ? 'lt' : 'dk';
     padding: 0.5rem 2rem 1rem;
     background: linear-gradient(to bottom left, $color-bg-lt-glass-thinner, transparent 10%, transparent 90%, $color-bg-dk-glass-thinner);
     border-radius: 1.75rem;
-    border: 1px solid $color-bg-dk-glass-thinner;
-    box-shadow: 0 1px 3px $color-bg-lt-glass-thinner, 0 -1px 3px $color-bg-lt-glass-thinner;
+    border-top: 1px solid $color-bg-lt-glass-thinner;
+    border-bottom: 1px solid $color-bg-dk-glass-thinner;
+    box-shadow: 1px 1px 0 $color-bg-lt-glass-thinner, -1px -1px 0 $color-bg-dk-glass-thinner;
   }
   @include lg {
     padding: 0.5rem 3rem 1rem;
@@ -103,11 +102,26 @@ const pole = props.light ? 'lt' : 'dk';
     width: 30%;
   }
 }
+@mixin section-heading {
+  @include md {
+    width: 140%;
+  }
+}
 @mixin section-body {
   margin: 2rem auto;
   @include md {
     width: 70%;
     margin: 0 auto 1rem;
+  }
+}
+@mixin section-footer {
+  @include md {
+    width: 140%;
+  }
+}
+@mixin hd-ft-dk {
+  @include md {
+    margin-left: -40%;
   }
 }
 @mixin section-supplemental {
@@ -128,6 +142,18 @@ const pole = props.light ? 'lt' : 'dk';
     }
     &__body {
       @include section-body;
+      &__heading {
+        @include section-heading;
+        &--dk {
+          @include hd-ft-dk;
+        }
+      }
+      &__footer {
+        @include section-footer;
+        &--dk {
+          @include hd-ft-dk;
+        }
+      }
     }
   }
   &__supplemental {

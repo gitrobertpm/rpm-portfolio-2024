@@ -14,8 +14,8 @@
   position: relative;
   font-family: $font-heading;
   font-weight: bold;
-  margin-top: 1em;
-  margin-bottom: 0.75em;
+  margin-top: 0.7em;
+  margin-bottom: 0.6em;
   padding: 0 0.5rem;
   @include lg {
     text-align: unset;
@@ -30,9 +30,6 @@
   background-position: left;
   filter: drop-shadow(0 -1px 0 $color-text-lt) drop-shadow(0 2px 0 $color-text-dk);
   animation: bg-gradient-slide 100s ease-in-out alternate infinite;
-  // @include lg {
-  //   background-size: 10%;
-  // }
 }
 @mixin heading-soothe {
   color: transparent;
@@ -74,7 +71,6 @@
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -262,16 +258,15 @@
 
 // Cutout ------------------------------------------------------------------------------------------------------------
 @mixin cutout {
-  width: fit-content;
   margin: 1rem auto;
-  padding: 0 0.5rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 0.75rem;
   @include sm {
-    padding: 0 1rem;
+    padding: 0.1rem 1rem;
     border-radius: 4rem;
   }
   @include md {
-    padding: 0 1.5rem;
+    padding: 0.1rem 1.5rem;
   }
 }
 @mixin cutout-lt {
@@ -282,11 +277,12 @@
   }
   @include lg {
     text-align: left;
-    padding: 0 3rem;
+    padding: 0.1rem 3rem;
     margin-left: 0;
   }
 }
 @mixin cutout-lt-img {
+  width: fit-content;
   @include cutout-lt;
   padding: 1rem;
   border-radius: 5rem;
@@ -332,10 +328,11 @@
   @include lg {
     text-align: left;
     margin-left: 0;
-    padding: 0 3rem;
+    padding: 0.1rem 3rem;
   }
 }
 @mixin cutout-dk-img {
+  width: fit-content;
   @include cutout-dk;
   padding: 1rem;
   border-radius: 5rem;
