@@ -1,0 +1,1 @@
+import{_ as e,o as s,f as t,b as n}from"./index-FnyMxMJm.js";const o={},c={class:"main main__experiments"},_=n("h1",null,"My Experiments",-1),a=[_];function r(i,m){return s(),t("main",c,a)}const f=e(o,[["render",r]]);export{f as default};
