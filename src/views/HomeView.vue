@@ -11,9 +11,9 @@
     <div :style="store.wasAnimated && nameTitleContNoAniStyles" class="name-title-container">
       <div class="name" lang="en">
 
-        <h1 :style="store.wasAnimated && webNoAniStyles" class="title Web__W">W</h1>
-        <h1 :style="store.wasAnimated && webNoAniStyles" class="title Web__e">e</h1>
-        <h1 :style="store.wasAnimated && webNoAniStyles" class="title Web__b">b</h1>
+        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title Web__W">W</h1>
+        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title Web__e">e</h1>
+        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title Web__b">b</h1>
 
         <h1 :style="store.wasAnimated && opacNoAniStyles" class="title De__D">D</h1>
         <h1 :style="store.wasAnimated && opacNoAniStyles" class="title De__e">e</h1>
@@ -131,16 +131,6 @@ const opacNoAniStyles = computed(() => {
   return {
     animation: 'none',
     opacity: 1,
-  };
-});
-
-const webNoAniStyles = computed(() => {
-  return {
-    animation: 'none',
-    opacity: 1,
-    filter: 'drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 0 $color-text-lt)',
-    color: 'black',
-    'text-shadow': '0 1px 0 $color-bg-dk-glass-thick'
   };
 });
 </script>
@@ -281,19 +271,21 @@ const webNoAniStyles = computed(() => {
 .title {
   position: absolute;
   font-size: 3.75rem;
-  text-shadow: 0 1px 0 $color-bg-lt-glass;
+  text-shadow: 0 1px 0 $color-bg-lt-glass-thick;
   padding: 0;
   margin:  0;
   background: none;
   opacity: 0;
+  filter: drop-shadow(0 1px 0 $color-bg-dk-glass-thick) drop-shadow(0 -1px 0 $color-bg-dk-glass-thick);
   animation: fade-in 1s ease-in-out 4s forwards;
-  @include lg {
-    text-shadow: 0 1px 0 $color-bg-lt-glass-thick;
-  }
+  // @include lg {
+  //   text-shadow: 0 1px 0 $color-bg-lt-glass-thick;
+  // }
   &.Web {
     &__W {
-      text-shadow: 0 1px 0 $color-bg-dk-glass;
-      animation: fade-in 1s ease-in-out 3.5s forwards, boot 0.5s ease-out 8s forwards;
+      text-shadow: 0 1px 0 $color-bg-dk-glass-thicker;
+      filter: drop-shadow(0 1px 0 $color-bg-lt-glass) drop-shadow(0 -1px 0 $color-bg-lt-glass);
+      animation: fade-in 1s ease-in-out 3.5s forwards;
       top: -99px;
       left: 110px;
       @include md {
@@ -301,14 +293,14 @@ const webNoAniStyles = computed(() => {
         left: 115px;
       }
       @include lg {
-        text-shadow: 0 1px 0 $color-bg-dk-glass-thick;
         top: -120px;
         left: 124px;
       }
     }
     &__e {
-      text-shadow: 0 1px 0 $color-bg-dk-glass;
-      animation: fade-in 1s ease-in-out 3.5s forwards, boot 0.5s ease-out 8s forwards;
+      text-shadow: 0 1px 0 $color-bg-dk-glass-thicker;
+      filter: drop-shadow(0 1px 0 $color-bg-lt-glass) drop-shadow(0 -1px 0 $color-bg-lt-glass);
+      animation: fade-in 1s ease-in-out 3.5s forwards;
       top: -57px;
       left: 125px;
       @include md {
@@ -316,14 +308,14 @@ const webNoAniStyles = computed(() => {
         left: 130px;
       }
       @include lg {
-        text-shadow: 0 1px 0 $color-bg-dk-glass-thick;
         top: -67px;
         left: 142px;
       }
     }
     &__b {
-      text-shadow: 0 1px 0 $color-bg-dk-glass;
-      animation: fade-in 1s ease-in-out 3.5s forwards, boot 0.5s ease-out 8s forwards;
+      text-shadow: 0 1px 0 $color-bg-dk-glass-thicker;
+      filter: drop-shadow(0 1px 0 $color-bg-lt-glass) drop-shadow(0 -1px 0 $color-bg-lt-glass);
+      animation: fade-in 1s ease-in-out 3.5s forwards;
       top: 2px;
       left: 124px;
       @include md {
@@ -331,7 +323,6 @@ const webNoAniStyles = computed(() => {
         left: 132px;
       }
       @include lg {
-        text-shadow: 0 1px 0 $color-bg-dk-glass-thick;
         top: 2px;
         left: 145px;
       }
@@ -490,27 +481,27 @@ const webNoAniStyles = computed(() => {
   }
 }
 // ANIMATIONS -----------------------------------------------------------------------------------------------
-@keyframes boot {
-  0% {
-    filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9));
-  }
-  80% {
-    filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 1px $color-text-lt);
-  }
-  85% {
-    filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9));
-  }
-  90% {
-    filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 1px $color-text-lt);
-  }
-  95% {
-    filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9));
-  }
-  100% {
-    filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 0 $color-text-lt);
-    color: black;
-  }
-}
+// @keyframes boot {
+//   0% {
+//     filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9));
+//   }
+//   80% {
+//     filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 1px $color-text-lt);
+//   }
+//   85% {
+//     filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9));
+//   }
+//   90% {
+//     filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 1px $color-text-lt);
+//   }
+//   95% {
+//     filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9));
+//   }
+//   100% {
+//     filter: drop-shadow(0 -1px 0 rgba(248, 248, 248, 0.9)) drop-shadow(0 2px 0 rgba(24, 24, 24, 0.9)) drop-shadow(1px 0 0 $color-text-lt);
+//     color: black;
+//   }
+// }
 @keyframes scale-and-slide {
   from {
     transform: scale(1) translateX(0) translateY(0);

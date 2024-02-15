@@ -101,11 +101,12 @@
     border-radius: 0.5rem;
     @include md {
       width: 575px;
-      margin: 2rem auto 0;
+      margin: 2.5rem auto 0;
       border-radius: 4rem;
     }
     @include lg {
       width: 700px;
+      margin: 2.75rem auto 0;
     }
   }
   .home-copy-wrapper {
