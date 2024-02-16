@@ -61,11 +61,10 @@
         </div>
       </div>
     </div>
-    <div v-if="isMobile()" class="mobile-container"
-    >
+    <div v-if="isMobile()" class="mobile-container">
       <Transition name="fade" mode="out-in">
         <div 
-          v-show="showPart === 'work'" 
+          v-show="showPart === 'work' || showPart === 'showAll'" 
           id="tabpanel-work"
           class="part-wrapper"
           role="tabpanel" 
@@ -76,7 +75,7 @@
       </Transition>
       <Transition name="fade" mode="out-in">
         <div 
-          v-show="showPart === 'play'" 
+          v-show="showPart === 'play' || showPart === 'showAll'" 
           id="tabpanel-play"
           class="part-wrapper"
           role="tabpanel" 
@@ -87,7 +86,7 @@
       </Transition>
       <Transition name="fade" mode="out-in">
         <div 
-          v-show="showPart === 'this'" 
+          v-show="showPart === 'this' || showPart === 'showAll'" 
           id="tabpanel-this"
           class="part-wrapper"
           role="tabpanel" 
@@ -98,7 +97,7 @@
       </Transition>
       <Transition name="fade" mode="out-in">
         <div 
-          v-show="showPart === 'bio'" 
+          v-show="showPart === 'bio' || showPart === 'showAll'" 
           id="tabpanel-bio"
           class="part-wrapper"
           role="tabpanel" 
@@ -118,7 +117,7 @@
           role="tabpanel" 
           aria-labelledby="tab-work"
         >
-          <WorkPart @accordionClick="accordionClick" />
+          <WorkPart />
         </div>
         <div 
           id="tabpanel-play" 
@@ -127,7 +126,7 @@
           role="tabpanel" 
           aria-labelledby="tab-play"
         >
-          <PlayPart @accordionClick="accordionClick" />
+          <PlayPart />
         </div>
         <div 
           id="tabpanel-this" 
@@ -136,7 +135,7 @@
           role="tabpanel" 
           aria-labelledby="tab-this"
         >
-          <PortfolioPart @accordionClick="accordionClick" />
+          <PortfolioPart />
         </div>
         <div 
           id="tabpanel-bio" 
@@ -145,7 +144,7 @@
           role="tabpanel" 
           aria-labelledby="tab-bio"
         >
-          <BioPart @accordionClick="accordionClick" />
+          <BioPart />
         </div>
       </div>
     </div>
@@ -153,7 +152,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, nextTick } from 'vue';
 import PlayPart from '@/components/partials/PlayPart.vue';
 import BioPart from '@/components/partials/BioPart.vue';
 import PortfolioPart from '@/components/partials/PortfolioPart.vue';
@@ -166,38 +165,46 @@ const { globalState } = useWindowResize();
 const { lg } = BREAKPOINTS;
 const isMobile = () => globalState.width < lg;
 
-// Page height and top scroll
+// Element refs
 const page = ref(null);
-const originalHeight = ref(0);
+const cube = ref(null);
+const workBtn = ref(null);
+const bioBtn = ref(null);
+const playBtn = ref(null);
+const thisBtn = ref(null);
+
+// Mobile display
+const showPart = ref('showAll');
+
 const scrollToTop = () => window.scrollTo(0,0);
 
-onMounted(() => {
+onMounted(async() => {
   scrollToTop();
-  originalHeight.value = page.value.offsetHeight;
+  await nextTick();
+  showPart.value = 'work';
 });
 
 // Cube sides - DESKTOP
-const cube = ref(null);
-const front = ref(null);
-const left = ref(null);
-const back = ref(null);
-const right = ref(null);
+// const front = ref(null);
+// const left = ref(null);
+// const back = ref(null);
+// const right = ref(null);
 
 // Responding to accordion emit to handle page size for absolute positioned content - Desktop only
-const accordionClick = () => {
-  setTimeout(() => {
-    const cardHeights = [
-      front.value.firstChild.offsetHeight,
-      left.value.firstChild.offsetHeight,
-      back.value.firstChild.offsetHeight,
-      right.value.firstChild.offsetHeight
-    ];
-    const maxHeight = Math.max(...cardHeights);
-    const headroom = 1000 + maxHeight;
-    const newHeight = headroom > originalHeight.value ? headroom : originalHeight.value;
-    page.value.style.height = `${newHeight}px`;
-    }, 636);
-};
+// const accordionClick = () => {
+//   setTimeout(() => {
+//     const cardHeights = [
+//       front.value.firstChild.offsetHeight,
+//       left.value.firstChild.offsetHeight,
+//       back.value.firstChild.offsetHeight,
+//       right.value.firstChild.offsetHeight
+//     ];
+//     const maxHeight = Math.max(...cardHeights);
+//     const headroom = 1000 + maxHeight;
+//     const newHeight = headroom > originalHeight.value ? headroom : originalHeight.value;
+//     page.value.style.height = `${newHeight}px`;
+//     }, 636);
+// };
 
 // Get cube position
 const getTransformVal = () => {
@@ -220,14 +227,6 @@ const cubeTransforms = {
   play: 'rotateY(180deg) translateZ(300px)',
   this: 'rotateY(270deg) translateX(-300px)'
 };
-
-// DISPLAY SELECTION - MOBILE
-const showPart = ref('work');
-
-const workBtn = ref(null);
-const bioBtn = ref(null);
-const playBtn = ref(null);
-const thisBtn = ref(null);
 
 const tabs = [workBtn, bioBtn, playBtn, thisBtn];
 
@@ -253,6 +252,9 @@ const handleTab = (e) => {
 <style lang="scss" scoped>
 .main {
  min-height: 100vh;
+ @include lg {
+  min-height: 4000px;
+ }
 }
 .intro {
   padding: 0 0.5rem;
@@ -322,6 +324,9 @@ const handleTab = (e) => {
     margin: 0 auto;
     @include md {
       padding: 1rem 0.7rem 2.5rem 0.1rem;
+    }
+    @include lg {
+      padding: 1rem 0.5rem 2.5rem;
     }
   }
   &__btn {
@@ -402,7 +407,7 @@ const handleTab = (e) => {
       display: block;
       position: absolute;
       width: 720px;
-      height: 222px;
+      height: 160px;
       text-align: center;
       background-image: 
       linear-gradient(to top, $color-bg-dk-glass-thick, $color-bg-dk-glass-thin),

@@ -3,6 +3,7 @@
   - [Reusable components](#reusable-components)
     - [Section](#section)
     - [Card](#card)
+    - [Drawer](#drawer)
     - [Accordion](#accordion)
     - [Modal Dialog](#modal-dialog)
   - [Utility classes](#utility-classes)
@@ -58,6 +59,17 @@ Child props:
 * 'drawer' - `BOOLEAN`
 
 File name: `ACard.vue`
+
+### Drawer
+Better responsive reusable expanding component to contain click-through/supplemental content in a section or a card.
+
+`theme` props:
+Defaults to 'clr'
+* 'clr' - `STRING`
+* 'lt' - `STRING`
+* 'dk' - `STRING`
+
+File name: `ADrawer.vue`
 
 ### Accordion
 Responsive reusable expanding component to contain click-through/supplemental content in a section or a card.

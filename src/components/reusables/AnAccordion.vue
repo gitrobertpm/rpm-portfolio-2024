@@ -7,6 +7,7 @@
       { 'borderless' : borderless }
     ]">
     <!-- 
+      !NOTE! - Consider using `ADrawer` element instead for improved functionality
       Flexible, responsive, animated accordion component to hold click-through-content
       Props used to determine theme: 'clr', 'lt', 'dk' - ALL STRINGS - defaults to 'clr'
       Props used to determine button theme: 'lt', 'dk' - STING - defaults to ''

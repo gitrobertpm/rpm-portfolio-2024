@@ -4,18 +4,20 @@
       <h2>This</h2>
     </template>
     <template #drawer>
-      <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
-        <div class="port-wrapper">
-          <h3>Portfolio Details</h3>
-          <p class="pad-x--15">Here's a brief breakdown of what's going into this project.</p>
-          <div class="flex--row--cent">
-            <p><span class="emoji" role="img" aria-label="Artist palette emoji">🎨</span></p>
-          </div>
-          <ACard theme="yellow" drawer>
-            <template #drawer>
-              <div class="pad-x--10">
-                <h3>Accessibility</h3>
-                <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
+      <div class="port-wrapper">
+        <h3>Portfolio Details</h3>
+        <p class="pad-x--15">Here's a brief breakdown of what's going into this project.</p>
+        <div class="flex--row--cent">
+          <p><span class="emoji" role="img" aria-label="Artist palette emoji">🎨</span></p>
+        </div>
+        <ACard theme="yellow" drawer>
+          <template #drawer>
+            <ADrawer>
+              <template #heading>
+                <h4 class="this__heading">Accessibility</h4>
+              </template>
+              <template #content>
+                <div class="this__details">
                   <p>Considerations:</p>
                   <ul class="port-list">
                     <li>Aria roles</li>
@@ -23,19 +25,30 @@
                     <li>Resizable layout with relative units</li>
                     <li>Deliberate focus-visible styles</li>
                     <li>Focus trapped modals</li>
+                    <li>Tab group roles and focus control</li>
                   </ul>
-                </AnAccordion>
-              </div>
-            </template>
-          </ACard>
-          <br>
-          <ACard theme="yellow" drawer>
-            <template #drawer>
-              <div class="pad-x--10">
-                <h3>Style</h3>
-                <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
-                  <p>The direction of this portfolio was inspired by the simplicity of the Yin Yang, the joy of color, the reassurance of strong shapes and clean lines, and the x-ray vision of translucency.</p>
-                  <p>Powered by: </p>
+                </div>
+              </template>
+            </ADrawer>
+          </template>
+        </ACard>
+        <br>
+        <ACard theme="yellow" drawer>
+          <template #drawer>
+            <ADrawer>
+              <template #heading>
+                <h4 class="this__heading">Style</h4>
+              </template>
+              <template #content>
+                <div class="this__details">
+                  <p>The direction of this portfolio was inspired by the:</p>
+                  <ul class="port-list">
+                    <li>Elegance of the Yin Yang</li>
+                    <li>Joy of color</li>
+                    <li>Reassurance of strong shapes and clean lines</li>
+                    <li>Vision of translucency</li>
+                  </ul>
+                  <p>Styles powered by: </p>
                   <ul class="port-list">
                     <li>Imported Sass partials and scoped single-file component styles</li>
                     <li>BEM selectors</li>
@@ -43,16 +56,20 @@
                     <li>Sass variables and mixins</li>
                     <li>Original SVGs</li>
                   </ul>
-                </AnAccordion>
-              </div>
-            </template>
-          </ACard>
-          <br>
-          <ACard theme="yellow" drawer>
-            <template #drawer>
-              <div class="pad-x--10">
-                <h3>Composition</h3>
-                <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
+                </div>
+              </template>
+            </ADrawer>
+          </template>
+        </ACard>
+        <br>
+        <ACard theme="yellow" drawer>
+          <template #drawer>
+            <ADrawer>
+              <template #heading>
+                <h4 class="this__heading">Composition</h4>
+              </template>
+              <template #content>
+                <div class="this__details">
                   <p>Here's a high level view of the app architecture:</p>
                   <ul class="port-list">
                     <li>Root</li>
@@ -85,47 +102,59 @@
                       </ul>
                     </ul>
                   </ul>
-                </AnAccordion>
-              </div>
-            </template>
-          </ACard>
-          <br>
-          <ACard theme="yellow" drawer>
-            <template #drawer>
-              <div class="pad-x--10">
-                <h3>State & Routing</h3>
-                <AnAccordion theme="clr" btnTheme="lt" borderless @accordionClick="accordionClick">
+                </div>
+              </template>
+            </ADrawer>
+          </template>
+        </ACard>
+        <br>
+        <ACard theme="yellow" drawer>
+          <template #drawer>
+            <ADrawer>
+              <template #heading>
+                <h4 class="this__heading">State & Routing</h4>
+              </template>
+              <template #content>
+                <div class="this__details">
                   <ul class="port-list">
                     <li>Catch all route and custom NotFound component for handling 404s</li>
                     <li>Pinia and composables for state</li>
                   </ul>
-                </AnAccordion>
-              </div>
-            </template>
-          </ACard>
-          <br>
-        </div>
-      </AnAccordion> 
+                </div>
+              </template>
+            </ADrawer>
+          </template>
+        </ACard>
+        <br>
+        <ACard theme="yellow" drawer>
+          <template #drawer>
+            <ADrawer>
+              <template #heading>
+                <h4 class="this__heading">Dev Ops</h4>
+              </template>
+              <template #content>
+                <div class="this__details">
+                  <p>Build and deploy details:</p>
+                  <ul class="port-list">
+                    <li>Vue 3 Composition API</li>
+                    <li>Vite dev server</li>
+                    <li>Build hosted on gh-pages</li>
+                    <li>Gh-pages configured for custom domain</li>
+                    <li>Single command accomplishes build and deploy pipeline</li>
+                  </ul>
+                </div>
+              </template>
+            </ADrawer>
+          </template>
+        </ACard>
+      </div>
     </template>
   </ACard>
 </template>
 
 <script setup>
 import ACard from '@/components/reusables/ACard.vue';
-import AnAccordion from '@/components/reusables/AnAccordion.vue';
-import useWindowResize from '@/composables/useWindowResize.js';
-import { BREAKPOINTS } from '@/util/constants.js';
-
-// Screen width
-const { globalState } = useWindowResize();
-const { lg } = BREAKPOINTS;
-const isMobile = () => globalState.width < lg;
-
-const emit = defineEmits(['accordionClick']);
-
-const accordionClick = ()=> {
-  emit('accordionClick');
-};
+import ADrawer from '../reusables/ADrawer.vue';
 </script>
 
 <style lang="scss" scoped>
@@ -140,30 +169,36 @@ const accordionClick = ()=> {
   }
   .port-wrapper {
     height: 100%;
-    margin-top: 0.71rem;
     padding: 0.5rem;
-    border-radius: 0.75rem;
+    border-radius: 0 0 0.75rem 0.75rem;
     color: $color-text-lt;
     background: $color-text-dk;
     @include md {
       padding: 1rem;
     }
-    @include lg {
-      margin-top: 0.62rem;
+    .this {
+      &__heading {
+        @include lg {
+          font-size: 1.5rem;
+        }
+      }
+      &__details {
+        padding: 0 1rem 1rem;
+      }
     }
-  }
-  .port-list {
-    list-style: disc;
-    padding-left: 1rem;
-    @include md {
-      padding-left: 2rem;
+    .port-list {
+      list-style: disc;
+      padding-left: 1rem;
+      @include md {
+        padding-left: 2rem;
+      }
     }
-  }
-  .sub-ul {
-    margin-bottom: 0.5rem;
-  }
-  .emoji {
-    font-size: 1.2rem;
+    .sub-ul {
+      margin-bottom: 0.5rem;
+    }
+    .emoji {
+      font-size: 1.2rem;
+    }
   }
 }
 </style>

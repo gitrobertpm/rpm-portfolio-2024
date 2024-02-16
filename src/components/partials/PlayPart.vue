@@ -4,45 +4,36 @@
       <h2>Play</h2>
     </template>
     <template #drawer>
-      <AnAccordion theme="clr" :btnTheme="isMobile() ? 'dk' : 'lt'" borderless @accordionClick="accordionClick">
-        <div class="play-wrapper">
-          <ACard theme="red" drawer>
-            <template #drawer>
-              <div class="pad-x--10">
-                <h5 class="intro">When I'm not working,</h5>
-                <p>I love watching movies and playing video games with my kids.</p>
-                <p>My hobbies include writing, playing guitar, drawing, and of course building cool things with code.</p>
-                <p>I have a deep appreciation for nature and a good book, but don't get to either as much as I should.</p>
-                <p>I'm a big fan of Pink Floyd, Stephen King, and Star Wars. But not necessarily in that order.</p>
-                <p>And my passions pursue an understanding of the universe, the meaning of life, the nature of reality, the essence of truth, the mystery of consciousness, and the clockworks of the human condition.</p>
-                <div class="flex--row--cent">
-                  <p><span class="emoji" role="img" aria-label="Smiling face with sunglasses emoji">😎</span></p>
+      <div class="play-wrapper">
+        <ACard theme="red" drawer>
+          <template #drawer>
+            <ADrawer>
+              <template #heading>
+                <h6 class="heading">When I'm not working...</h6>
+              </template>
+              <template #content>
+                <div class="details">
+                  <p>I love watching movies and playing video games with my kids.</p>
+                  <p>My hobbies include writing, playing guitar, drawing, and of course building cool things with code.</p>
+                  <p>I have a deep appreciation for nature and a good book, but don't get to either as much as I should.</p>
+                  <p>I'm a big fan of Pink Floyd, Stephen King, and Star Wars. But not necessarily in that order.</p>
+                  <p>And my passions pursue an understanding of the universe, the meaning of life, the nature of reality, the essence of truth, the mystery of consciousness, and the clockworks of the human condition.</p>
+                  <div class="flex--row--cent">
+                    <p><span class="emoji" role="img" aria-label="Smiling face with sunglasses emoji">😎</span></p>
+                  </div>
                 </div>
-              </div>
-            </template>
-          </ACard>
-        </div>
-      </AnAccordion> 
+              </template>
+            </ADrawer>
+          </template>
+        </ACard>
+      </div>
     </template>
   </ACard>
 </template>
 
 <script setup>
 import ACard from '@/components/reusables/ACard.vue';
-import AnAccordion from '@/components/reusables/AnAccordion.vue';
-import useWindowResize from '@/composables/useWindowResize.js';
-import { BREAKPOINTS } from '@/util/constants.js';
-
-// Screen width
-const { globalState } = useWindowResize();
-const { lg } = BREAKPOINTS;
-const isMobile = () => globalState.width < lg;
-
-const emit = defineEmits(['accordionClick']);
-
-const accordionClick = ()=> {
-  emit('accordionClick');
-};
+import ADrawer from '../reusables/ADrawer.vue';
 </script>
 
 <style lang="scss" scoped>
@@ -57,20 +48,20 @@ const accordionClick = ()=> {
   }
   .play-wrapper {
     height: 100%;
-    margin-top: 0.71rem;
+    margin-top: 0;
     padding: 0.5rem;
-    border-radius: 0.75rem;
+    border-radius: 0 0 0.75rem 0.75rem;
     color: $color-text-lt;
     background: $color-text-dk;
     @include md {
       padding: 1rem;
     }
-    @include lg {
-      margin-top: 0.62rem;
+    .heading {
+      margin: 2rem auto;
     }
-  }
-  .intro {
-    margin: 3rem auto 2rem;
+    .details {
+      padding: 0 1rem 1rem;
+    }
   }
   .emoji {
     font-size: 1.2rem;
