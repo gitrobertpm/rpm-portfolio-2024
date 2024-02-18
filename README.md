@@ -1,9 +1,13 @@
 # Web Dev Portfolio — 2024
 
+<br />
+
 <div align="center">
   <img src="src/assets/img/logos/rpm-logos/vectors/rpm-logo-fill-sunset.svg" width="200px" height="200px" style="margin: 32px 16px 32px auto;" />
   <img src="src/assets/img/logos/rpm-logos/vectors/rpm-logo-stroke-sunset.svg" width="200px" height="200px" style="margin: 32px auto 32px 16px;" />
 </div>
+
+<br />
 
 **Priorities: responsive, mobile-first, modular, accessible, maintainable, scalable, and custom**
 
@@ -25,7 +29,6 @@ Powered by:
 
 ---
 
-<br />
 <br />
 
 # Developer Reference
@@ -55,7 +58,6 @@ The following is a brief guide to some of the resources in this app. It is meant
 
 ---
 
-<br />
 <br />
 
 ## Reusable Components
@@ -240,7 +242,7 @@ light and dark theme colors follow the convention of using 'lt' for light and 'd
 
 Translucent colors use the term 'glass'. The level of opacity is marked by the following terms from lightest to darkest: thinner, thin, no-term-form-mid-level-opacity, thick, and thicker.
 
-Primary - <span style="color: rgb(0, 191, 255)">deep sky</span>, <span style="color: rgb(30, 144, 255)">dodger</span>, <span style="color: rgb(7, 7, 219)">blue</span>, <span style="color: rgb(2, 2, 36)">midnight</span>
+Primary - <span style="color: #00bfff">deep sky</span>, <span style="color: #1e90ff">dodger</span>, <span style="color: #0707db">blue</span>, <span style="color: #020224">midnight</span>
 
 Warning - <span style="color: rgb(255, 255, 125)">yellow</span>, <span style="color: rgb(255, 215, 0)">gold</span>, <span style="color: rgb(255, 165, 0)">orange</span>
 
