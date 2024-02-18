@@ -16,6 +16,7 @@
       </button>
       <div :style="contentStyles" :class="`drawer__content drawer__content--${ theme }`" ref="drawerContent">
         <slot name="content"></slot>
+        <br />
       </div>
     </div>
   </div>
@@ -25,7 +26,10 @@
 import { ref, computed, onMounted, nextTick } from 'vue';
 import IconArrowHead from '@/components/icons/IconArrowHead.vue';
 
-defineProps({
+const props = defineProps({
+  grounded: Boolean,
+  hasDrawerKids: Boolean,
+  hasDrawerKidsHeight: Number,
   theme: {
     type: String,
     default: "clr"
@@ -48,9 +52,11 @@ onMounted( async() => {
 const newContentHeight = () => {
   if (!haveCapturedHeight.value) {
     return 'auto';
-  } else {
-    return isExpanded.value ? `${originalContentHeight.value}px` : '0px';
+  } 
+  if (props.hasDrawerKids) {
+    return isExpanded.value ? `${props.hasDrawerKidsHeight}px` : '0px';
   }
+  return isExpanded.value ? `${originalContentHeight.value}px` : '0px';
 };
 
 const contentStyles = computed(() => {
@@ -65,9 +71,18 @@ const arrowStyles = computed(() => {
   };
 });
 
-const handleDrawerBtn = () => {
-  isExpanded.value = !isExpanded.value;
+const emit = defineEmits(['drawerClick']);
+
+const handleDrawerBtn = (e) => {
+  if (!props.grounded) {
+    isExpanded.value = !isExpanded.value;
+  }
+  emit('drawerClick', e, originalContentHeight.value);
 };
+
+defineExpose({
+  isExpanded
+});
 </script>
 
 <style lang="scss" scoped>
@@ -107,7 +122,7 @@ const handleDrawerBtn = () => {
       &--lt {
         perspective-origin: left;
         color: $color-text-dk;
-        padding-left: 75px;
+        padding-left: 50px;
         border-radius: 0 0.75rem 0.75rem 0;
         @include md {
           border-radius: 0 4rem 4rem 0;
@@ -116,6 +131,7 @@ const handleDrawerBtn = () => {
       &--dk {
         perspective-origin: right;
         color: $color-text-lt;
+        padding-right: 50px;
         border-radius: 0.75rem 0 0 0.75rem;
         @include md {
           border-radius: 4rem 0 0 4rem;
@@ -156,7 +172,6 @@ const handleDrawerBtn = () => {
           top: calc(50% - 17px);
           right: 1rem;
           color: $color-text-lt;
-          // filter: drop-shadow(0 1px 0 $color-bg-dk-glass-thinner);
         }
       }
     }
@@ -165,7 +180,7 @@ const handleDrawerBtn = () => {
       transition: 0.7s ease;
       overflow: hidden;
       @include md {
-        padding: 0 3rem 1rem;
+        padding: 0 3rem;
       }
       &--clr {
         padding: 0;

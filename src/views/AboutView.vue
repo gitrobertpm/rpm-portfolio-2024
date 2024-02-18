@@ -24,7 +24,7 @@
             class="ctrl__btn ctrl__btn__work" 
             ref="workBtn"
             role="tab"
-            aria-selected="true"
+            :aria-selected="isMobile() ? true : false"
             aria-controls="tabpanel-work"
             @click="handleTab" 
           >Work</button>
@@ -61,6 +61,7 @@
         </div>
       </div>
     </div>
+
     <div v-if="isMobile()" class="mobile-container">
       <Transition name="fade" mode="out-in">
         <div 
@@ -253,7 +254,7 @@ const handleTab = (e) => {
 .main {
  min-height: 100vh;
  @include lg {
-  min-height: 4000px;
+  min-height: 2700px;
  }
 }
 .intro {

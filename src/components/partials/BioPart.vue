@@ -70,9 +70,9 @@ import ADrawer from '../reusables/ADrawer.vue';
     .details {
       padding: 0 1rem 1rem;
     }
-  }
-  .emoji {
-    font-size: 1.5rem;
+    .emoji {
+      font-size: 2rem;
+    }
   }
 }
 </style>

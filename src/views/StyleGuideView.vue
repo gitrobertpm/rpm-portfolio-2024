@@ -33,7 +33,7 @@
 
       <template #supplemental>
         <div class="flex--row--right">
-          <AnAccordion theme="lt" heading text footer>
+          <OldAccordion theme="lt" heading text footer>
           <template #heading>
             <h3>Light Accordion</h3>
           </template>
@@ -58,7 +58,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -70,7 +70,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
 
@@ -88,7 +88,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -100,7 +100,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
 
@@ -118,7 +118,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -130,7 +130,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
 
@@ -148,7 +148,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -160,7 +160,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
 
@@ -178,7 +178,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -190,7 +190,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
 
@@ -208,7 +208,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -220,7 +220,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>            
 
@@ -238,7 +238,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -250,7 +250,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
           </div>
@@ -258,7 +258,7 @@
           <template #footer>
             <p>This is a footer</p>
           </template>
-        </AnAccordion>
+        </OldAccordion>
         </div>
       </template>
     </ASection>
@@ -292,7 +292,7 @@
       </template>
 
       <template #supplemental>
-        <AnAccordion theme="dk" heading text footer>
+        <OldAccordion theme="dk" heading text footer>
           <template #heading>
             <h3>Dark Accordion</h3>
           </template>
@@ -317,7 +317,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -329,7 +329,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
 
@@ -347,7 +347,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -359,7 +359,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
 
@@ -377,7 +377,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -389,7 +389,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
 
@@ -407,7 +407,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -419,7 +419,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
 
@@ -437,7 +437,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -449,7 +449,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
 
@@ -467,7 +467,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -479,7 +479,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
 
@@ -497,7 +497,7 @@
               </template>
 
               <template #drawer>
-                <AnAccordion borderless heading text footer>
+                <OldAccordion borderless heading text footer>
                   <template #heading>
                     <h5>Clear Borderless Accordion</h5>
                   </template>
@@ -509,7 +509,7 @@
                   <template #footer>
                     <p>Footer</p>
                   </template>
-                </AnAccordion>
+                </OldAccordion>
               </template>
             </ACard>
           </div>
@@ -517,7 +517,7 @@
           <template #footer>
             <p>Footer</p>
           </template>
-        </AnAccordion>
+        </OldAccordion>
       </template>
     </ASection>
 
@@ -528,7 +528,7 @@
 
     
     <div class="flex--row--left">
-      <AnAccordion heading text footer>
+      <OldAccordion heading text footer>
         <template #heading>
           <h5>Clear Accordion</h5>
         </template>
@@ -551,7 +551,7 @@
         </template>
 
         <template #drawer>
-          <AnAccordion borderless heading text footer>
+          <OldAccordion borderless heading text footer>
             <template #heading>
               <h5>Clear Borderless Accordion</h5>
             </template>
@@ -563,7 +563,7 @@
             <template #footer>
               <p>Footer</p>
             </template>
-          </AnAccordion>
+          </OldAccordion>
         </template>
       </ACard>
 
@@ -581,7 +581,7 @@
         </template>
 
         <template #drawer>
-          <AnAccordion borderless heading text footer>
+          <OldAccordion borderless heading text footer>
             <template #heading>
               <h5>Clear Borderless Accordion</h5>
             </template>
@@ -593,7 +593,7 @@
             <template #footer>
               <p>Footer</p>
             </template>
-          </AnAccordion>
+          </OldAccordion>
         </template>
       </ACard>
 
@@ -611,7 +611,7 @@
         </template>
 
         <template #drawer>
-          <AnAccordion borderless heading text footer>
+          <OldAccordion borderless heading text footer>
             <template #heading>
               <h5>Clear Borderless Accordion</h5>
             </template>
@@ -623,7 +623,7 @@
             <template #footer>
               <p>Footer</p>
             </template>
-          </AnAccordion>
+          </OldAccordion>
         </template>
       </ACard>
     </div>
@@ -642,7 +642,7 @@
         </template>
 
         <template #drawer>
-          <AnAccordion borderless heading text footer>
+          <OldAccordion borderless heading text footer>
             <template #heading>
               <h5>Clear Borderless Accordion</h5>
             </template>
@@ -654,7 +654,7 @@
             <template #footer>
               <p>Footer</p>
             </template>
-          </AnAccordion>
+          </OldAccordion>
         </template>
       </ACard>
 
@@ -672,7 +672,7 @@
         </template>
 
         <template #drawer>
-          <AnAccordion borderless heading text footer>
+          <OldAccordion borderless heading text footer>
             <template #heading>
               <h5>Clear Borderless Accordion</h5>
             </template>
@@ -684,7 +684,7 @@
             <template #footer>
               <p>Footer</p>
             </template>
-          </AnAccordion>
+          </OldAccordion>
         </template>
       </ACard>
 
@@ -702,7 +702,7 @@
         </template>
 
         <template #drawer>
-          <AnAccordion borderless heading text footer>
+          <OldAccordion borderless heading text footer>
             <template #heading>
               <h5>Clear Borderless Accordion</h5>
             </template>
@@ -714,7 +714,7 @@
             <template #footer>
               <p>Footer</p>
             </template>
-          </AnAccordion>
+          </OldAccordion>
         </template>
       </ACard>
     </div>
@@ -733,7 +733,7 @@
         </template>
 
         <template #drawer>
-          <AnAccordion borderless heading text footer>
+          <OldAccordion borderless heading text footer>
             <template #heading>
               <h5>Clear Borderless Accordion</h5>
             </template>
@@ -745,7 +745,7 @@
             <template #footer>
               <p>Footer</p>
             </template>
-          </AnAccordion>
+          </OldAccordion>
         </template>
       </ACard>
     </div>
@@ -764,7 +764,7 @@
         </template>
 
         <template #drawer>
-          <AnAccordion borderless heading text footer>
+          <OldAccordion borderless heading text footer>
             <template #heading>
               <h5>Clear Borderless Accordion</h5>
             </template>
@@ -776,7 +776,7 @@
             <template #footer>
               <p>Footer</p>
             </template>
-          </AnAccordion>
+          </OldAccordion>
         </template>
       </ACard>
     </div>
@@ -795,7 +795,7 @@
         </template>
 
         <template #drawer>
-          <AnAccordion borderless heading text footer>
+          <OldAccordion borderless heading text footer>
             <template #heading>
               <h5>Clear Borderless Accordion</h5>
             </template>
@@ -807,14 +807,14 @@
             <template #footer>
               <p>Footer</p>
             </template>
-          </AnAccordion>
+          </OldAccordion>
         </template>
       </ACard>
     </div>
         <template #footer>
           <p>Footer</p>
         </template>
-      </AnAccordion>
+      </OldAccordion>
     </div>
 
     <br>
@@ -840,7 +840,7 @@
 
       <template #supplemental>
         <div class="flex--row--right">
-          <AnAccordion theme="lt" heading text footer>
+          <OldAccordion theme="lt" heading text footer>
             <template #heading>
               <h3>Light Accordion</h3>
             </template>
@@ -872,7 +872,7 @@
             <template #footer>
               <p>This is a footer.</p>
             </template>
-          </AnAccordion>
+          </OldAccordion>
         </div>
       </template>
     </ASection>
@@ -895,7 +895,7 @@
       </template>
 
       <template #supplemental>
-        <AnAccordion theme="dk" heading text footer>
+        <OldAccordion theme="dk" heading text footer>
           <template #heading>
             <h3>Dark Accordion</h3>
           </template>
@@ -926,7 +926,7 @@
           <template #footer>
             <p>Footer.</p>
           </template>
-        </AnAccordion>
+        </OldAccordion>
       </template>
     </ASection>
 
@@ -1070,7 +1070,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import ASection from '@/components/reusables/ASection.vue';
-import AnAccordion from '@/components/reusables/AnAccordion.vue';
+import OldAccordion from '@/components/reusables/OldAccordion.vue';
 import ACard from '@/components/reusables/ACard.vue';
 // import IconHamburger from '@/components/icons/IconHamburger.vue';
 // import IconHome from '@/components/icons/IconHome.vue';
