@@ -1,4 +1,7 @@
 @import "base";
+html {
+  background: #000;
+}
 body {
   color: $color-text-dk;
   background-image: url('../img/bgs/deconstructed-yin-yang.svg');
