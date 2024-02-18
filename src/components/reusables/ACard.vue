@@ -66,27 +66,34 @@ defineProps({
   @include md {
     width: 25%
   }
-  // @media (hover: hover) {
-  //   &:hover {
-  //     box-shadow: 3px 3px 5px $color-bg-dk-glass-thin;
-  //   }
-  // }
 }
 @mixin card-red {
-  background: linear-gradient(to top, $color-bg-error-glass, $color-bg-alert-glass);
+  background: $color-bg-alert-glass-lt;
   border: 1px solid $color-bg-error-glass;
+  @include lg {
+    background: linear-gradient(to top, $color-bg-error-glass, $color-bg-alert-glass);
+  }
 }
 @mixin card-green {
-  background: linear-gradient(to top, $color-bg-success-glass, $color-bg-warning-glass);
+  background: $color-bg-success-lt-glass-lt;
   border: 1px solid $color-bg-success-dk-glass;
+  @include lg {
+    background: linear-gradient(to top, $color-bg-success-glass, $color-bg-warning-glass);
+  }
 }
 @mixin card-blue {
-  background: linear-gradient(to top, $color-bg-blue-glass, $color-bg-dodger-glass);
+  background: $color-bg-blue-glass-lt;
   border: 1px solid $color-bg-midnight-glass;
+  @include lg {
+    background: linear-gradient(to top, $color-bg-blue-glass, $color-bg-dodger-glass);
+  }
 }
 @mixin card-yellow {
-  background: linear-gradient(to top, $color-bg-warning-dk-glass, $color-bg-warning-lt-glass);
+  background: $color-bg-warning-dk-glass;
   border: 1px solid $color-bg-dirty-glass;
+  @include lg {
+    background: linear-gradient(to top, $color-bg-warning-dk-glass, $color-bg-warning-lt-glass);
+  }
 }
 @mixin card-lt {
   color: $color-text-dk;
@@ -120,26 +127,38 @@ defineProps({
 @mixin card-heading-red {
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 -1px 0 $color-bg-alert-glass, 0 1px 0 $color-error;
-  background: linear-gradient(to right, $color-bg-error-glass, $color-bg-alert-glass);
+  background: $color-bg-error-glass;
   border-bottom: 1px solid $color-bg-error-glass;
+  @include lg {
+    background: linear-gradient(to right, $color-bg-error-glass, $color-bg-alert-glass);
+  }
 }
 @mixin card-heading-green {
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 -1px 0 $color-bg-success-glass, 0 1px 0 $color-success-dk;
-  background: linear-gradient(to right, $color-bg-success-dk-glass, $color-bg-success-glass);
+  background: $color-bg-success-dk-glass;
   border-bottom: 1px solid $color-bg-success-dk-glass;
+  @include lg {
+    background: linear-gradient(to right, $color-bg-success-dk-glass, $color-bg-success-glass);
+  }
 }
 @mixin card-heading-blue {
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 -1px 0 $color-bg-blue-glass, 0 1px 0 $color-blue;
-  background: linear-gradient(to right, $color-bg-midnight-glass, $color-bg-blue-glass);
+  background: $color-bg-blue-glass;
   border-bottom: 1px solid $color-bg-midnight-glass;
+  @include lg {
+    background: linear-gradient(to right, $color-bg-midnight-glass, $color-bg-blue-glass);
+  }
 }
 @mixin card-heading-yellow {
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 -1px 0 $color-bg-warning-glass, 0 1px 0 $color-dirty;
-  background: linear-gradient(to right, $color-bg-dirty-glass, $color-bg-warning-dk-glass);
+  background: $color-bg-warning-dk-glass;
   border-bottom: 1px solid $color-bg-dirty-glass;
+  @include lg {
+    background: linear-gradient(to right, $color-bg-dirty-glass, $color-bg-warning-dk-glass);
+  }
 }
 @mixin card-heading-lt {
   background: linear-gradient(to right, $color-bg-lt-glass-thicker, $color-bg-lt-glass-thinner);
