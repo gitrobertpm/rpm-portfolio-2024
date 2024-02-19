@@ -236,11 +236,11 @@ Syntax:
 
 Color variables start with 'color', hen two dashes ( -- ) followed by 'bg' for background colors, 'text' for typography color, or the color's name or purpose. 
 
-light and dark theme colors follow the convention of using 'lt' for light and 'dk' for dark.
+Light and dark theme colors follow the convention of using 'lt' for light and 'dk' for dark.
 
 Translucent colors use the term 'glass'. The level of opacity is marked by the following terms from lightest to darkest: thinner, thin, no-term-form-mid-level-opacity, thick, and thicker.
 
-Primary:
+**Primary:**
 
 ![#00bfff](https://placehold.co/15x15/00bfff/00bfff.png) Deep Sky
 
@@ -250,17 +250,43 @@ Primary:
 
 ![#020224](https://placehold.co/15x15/020224/020224.png) Midnight
 
-Warning - <span style="color: rgb(255, 255, 125)">yellow</span>, <span style="color: rgb(255, 215, 0)">gold</span>, <span style="color: rgb(255, 165, 0)">orange</span>
+**Warning:**
 
-Alert - <span style="color: rgb(255, 50, 14)">red-orange</span> 
+![#ffff7d](https://placehold.co/15x15/ffff7d/ffff7d.png) Yellow
 
-Error - <span style="color: rgb(199, 19, 19)">dark red</span>
+![#ffd700](https://placehold.co/15x15/ffd700/ffd700.png) Gold
 
-Success - <span style="color: rgb(0, 212, 0)">lime</span>, <span style="color: rgb(0, 187, 0)">green</span>, <span style="color: rgb(0, 77, 0)">forest</span>
+![#ffa500](https://placehold.co/15x15/ffa500/ffa500.png) Orange
 
-Special - <span style="color: rgb(255, 155, 255)">pink</span>, <span style="color: rgb(255, 0, 235)">hot-pink</span>, <span style="color: rgb(74, 6, 184)">purple</span>
+**Alert:**
 
-Disabled - <span style="color: rgb(150, 150, 150)">light grey</span> and <span style="color: rgb(29, 28, 31)">dark grey</span>
+![#ff320e](https://placehold.co/15x15/ff320e/ff320e.png) Red-orange
+
+**Error:**
+
+![#c71313](https://placehold.co/15x15/c71313/c71313.png) Dark Red
+
+**Success:**
+
+![#00d400](https://placehold.co/15x15/00d400/00d400.png) Lime
+
+![#00bb00](https://placehold.co/15x15/00bb00/00bb00.png) Green
+
+![#004d00](https://placehold.co/15x15/004d00/004d00.png) Forest
+
+**Special:**
+
+![#ff9bff](https://placehold.co/15x15/ff9bff/ff9bff.png) Pink
+
+![#ff00eb](https://placehold.co/15x15/ff00eb/ff00eb.png) Hot-pink
+
+![#4a06b8](https://placehold.co/15x15/4a06b8/4a06b8.png) Purple
+
+**Disabled:**
+
+![#969696](https://placehold.co/15x15/969696/969696.png) Light Grey
+
+![#1d1c1f](https://placehold.co/15x15/1d1c1f/1d1c1f.png) Dark Grey
 
 <div align="center">
   <img src="src/assets/img/logos/rpm-logos/vectors/rpm-logo-stroke-sunset.svg" width="200px" height="200px" style="margin: 32px auto 32px 16px;" />
