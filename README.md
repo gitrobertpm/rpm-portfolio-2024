@@ -234,15 +234,21 @@ Syntax:
 
 ## Colors
 
-Color variables start with 'color'. 
-
-Then two dashes ( -- ) followed by 'bg' for background colors, 'text' for typography color, or the color's name or purpose. 
+Color variables start with 'color', hen two dashes ( -- ) followed by 'bg' for background colors, 'text' for typography color, or the color's name or purpose. 
 
 light and dark theme colors follow the convention of using 'lt' for light and 'dk' for dark.
 
 Translucent colors use the term 'glass'. The level of opacity is marked by the following terms from lightest to darkest: thinner, thin, no-term-form-mid-level-opacity, thick, and thicker.
 
-Primary - <span style="color: #00bfff">deep sky</span>, <span style="color: #1e90ff">dodger</span>, <span style="color: #0707db">blue</span>, <span style="color: #020224">midnight</span>
+Primary:
+
+![#00bfff](https://placehold.co/15x15/00bfff/00bfff.png) Deep Sky
+
+![#1e90ff](https://placehold.co/15x15/1e90ff/1e90ff.png) Dodger
+
+![#0707db](https://placehold.co/15x15/0707db/0707db.png) Blue
+
+![#020224](https://placehold.co/15x15/020224/020224.png) Midnight
 
 Warning - <span style="color: rgb(255, 255, 125)">yellow</span>, <span style="color: rgb(255, 215, 0)">gold</span>, <span style="color: rgb(255, 165, 0)">orange</span>
 
