@@ -3,7 +3,7 @@
     <div class="footer__box">
       <span class="footer__box__note">RPM 2024</span>
       <div class="invisible__box">
-        <RouterLink to="/experiments" class="invisible__link">Ex</RouterLink>
+        <RouterLink to="/experiments" class="invisible__link" tabindex="-1">Ex</RouterLink>
       </div>
     </div>
   </footer>

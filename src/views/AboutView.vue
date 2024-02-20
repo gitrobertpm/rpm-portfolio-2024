@@ -27,6 +27,9 @@
             :aria-selected="isMobile() ? true : false"
             aria-controls="tabpanel-work"
             @click="handleTab" 
+            @focus="handleTab"
+            @keydown.left="focusPrevTab"
+            @keydown.right="focusNextTab"
           >Work</button>
           <button 
             id="tab-play"
@@ -37,6 +40,9 @@
             aria-controls="tabpanel-play"
             tabindex="-1"
             @click="handleTab" 
+            @focus="handleTab"
+            @keydown.left="focusPrevTab"
+            @keydown.right="focusNextTab"
           >Play</button>
           <button 
             id="tab-bio"
@@ -46,7 +52,10 @@
             aria-selected="false"
             aria-controls="tabpanel-bio"
             tabindex="-1"
-            @click="handleTab" 
+            @click="handleTab"
+            @focus="handleTab"
+            @keydown.left="focusPrevTab"
+            @keydown.right="focusNextTab"
           >Bio</button>
           <button 
             id="tab-this"
@@ -57,6 +66,9 @@
             aria-controls="tabpanel-this"
             tabindex="-1"
             @click="handleTab" 
+            @focus="handleTab"
+            @keydown.left="focusPrevTab"
+            @keydown.right="focusNextTab"
           >This</button>
         </div>
       </div>
@@ -68,6 +80,7 @@
           v-show="showPart === 'work' || showPart === 'showAll'" 
           id="tabpanel-work"
           class="part-wrapper"
+          ref="workPanel"
           role="tabpanel" 
           aria-labelledby="tab-work"
         >
@@ -79,6 +92,7 @@
           v-show="showPart === 'play' || showPart === 'showAll'" 
           id="tabpanel-play"
           class="part-wrapper"
+          ref="playPanel"
           role="tabpanel" 
           aria-labelledby="tab-play"
         >
@@ -90,6 +104,7 @@
           v-show="showPart === 'this' || showPart === 'showAll'" 
           id="tabpanel-this"
           class="part-wrapper"
+          ref="thisPanel"
           role="tabpanel" 
           aria-labelledby="tab-this"
         >
@@ -101,6 +116,7 @@
           v-show="showPart === 'bio' || showPart === 'showAll'" 
           id="tabpanel-bio"
           class="part-wrapper"
+          ref="bioPanel"
           role="tabpanel" 
           aria-labelledby="tab-bio"
         >
@@ -110,11 +126,11 @@
     </div>
 
     <div v-if="!isMobile()" class="container flex--column--stretch">
-      <div class="cube" ref="cube">
+      <div :class="['cube', {'cube-animation': isAnimated}]" ref="cube">
         <div 
           id="tabpanel-work" 
           class="side front" 
-          ref="front"
+          ref="workPanel"
           role="tabpanel" 
           aria-labelledby="tab-work"
         >
@@ -123,7 +139,7 @@
         <div 
           id="tabpanel-play" 
           class="side back" 
-          ref="back"
+          ref="playPanel"
           role="tabpanel" 
           aria-labelledby="tab-play"
         >
@@ -132,7 +148,7 @@
         <div 
           id="tabpanel-this" 
           class="side right" 
-          ref="right"
+          ref="thisPanel"
           role="tabpanel" 
           aria-labelledby="tab-this"
         >
@@ -141,13 +157,24 @@
         <div 
           id="tabpanel-bio" 
           class="side left" 
-          ref="left"
+          ref="bioPanel"
           role="tabpanel" 
           aria-labelledby="tab-bio"
         >
           <BioPart />
         </div>
       </div>
+      <Transition name="fade" mode="out-in">
+        <button 
+          v-if="!isMobile() && !isAnimated"
+          class="replay-btn" 
+          :disabled="isAnimated"
+          title="Reanimate"
+          @click="handleReplay"
+        >
+          <IconReplay />
+        </button>
+      </Transition>
     </div>
   </main>
 </template>
@@ -158,31 +185,60 @@ import PlayPart from '@/components/partials/PlayPart.vue';
 import BioPart from '@/components/partials/BioPart.vue';
 import PortfolioPart from '@/components/partials/PortfolioPart.vue';
 import WorkPart from '@/components/partials/WorkPart.vue';
-import useWindowResize from '@/composables/useWindowResize.js';
-import { BREAKPOINTS } from '@/util/constants.js';
+import IconReplay from '@/components/icons/IconReplay.vue';
 
 // Screen width
+import useWindowResize from '@/composables/useWindowResize.js';
+import { BREAKPOINTS } from '@/util/constants.js';
 const { globalState } = useWindowResize();
 const { lg } = BREAKPOINTS;
 const isMobile = () => globalState.width < lg;
+const scrollToTop = () => window.scrollTo(0,0);
+
+const isAnimated = ref(true);
+
+// Briefly display all parts so height values can be collected and stored
+const showPart = ref('showAll');
 
 // Element refs
 const page = ref(null);
 const cube = ref(null);
+
 const workBtn = ref(null);
 const bioBtn = ref(null);
 const playBtn = ref(null);
 const thisBtn = ref(null);
+const tabs = [workBtn, playBtn, bioBtn, thisBtn];
 
-// Mobile display
-const showPart = ref('showAll');
+const workPanel = ref(null);
+const playPanel = ref(null);
+const bioPanel = ref(null);
+const thisPanel = ref(null);
+const panels = [workPanel, playPanel, bioPanel, thisPanel];
 
-const scrollToTop = () => window.scrollTo(0,0);
+// Make active panel's children focusable
+const setPanelFocusables = (topic) => {
+  panels.forEach(panel => {
+    const panelEl = panel.value;
+    const btns = panelEl.querySelectorAll('button');
+    [...btns].forEach(btn => {
+      if (panel.value.id.includes(topic)) {
+        btn.removeAttribute('tabindex');
+      } else {
+        btn.setAttribute('tabindex', '-1');
+      }
+    });
+  });
+};
 
 onMounted(async() => {
   scrollToTop();
   await nextTick();
-  showPart.value = 'work';
+  if (isMobile()) {
+    showPart.value = 'work';
+    workBtn.value.focus();
+    setPanelFocusables('work');
+  }
 });
 
 // Cube sides - DESKTOP
@@ -207,6 +263,7 @@ onMounted(async() => {
 //     }, 636);
 // };
 
+// DESKTOP CUBE STUFF
 // Get cube position
 const getTransformVal = () => {
   const styles = window.getComputedStyle(cube.value);
@@ -216,20 +273,21 @@ const getTransformVal = () => {
 
 // Animate cube selection transition, even on first click
 const animateSelection = (transformString) => {
-  cube.value.style.animation = "none";
   const transformVal = getTransformVal();
+  isAnimated.value = false;
   cube.value.style.transform = transformVal;
-  cube.value.style.transform = transformString;
+  setTimeout(() => {
+    cube.value.style.transform = transformString;
+  }, 10);
 };
 
+// Cube positions - values need to match cube animation conclusions
 const cubeTransforms = {
   work: 'rotateY(360deg) translateZ(-300px)',
   bio: 'rotateY(90deg) translateX(300px)',
   play: 'rotateY(180deg) translateZ(300px)',
   this: 'rotateY(270deg) translateX(-300px)'
 };
-
-const tabs = [workBtn, bioBtn, playBtn, thisBtn];
 
 const handleTab = (e) => {
   const tabName = e.target.textContent.toLowerCase();
@@ -247,7 +305,31 @@ const handleTab = (e) => {
   } else {
     animateSelection(cubeTransforms[tabName]);
   }
+  setPanelFocusables(tabName);
 }
+
+const focusNextTab = (e) => {
+  const currentBtn = e.target.textContent.toLowerCase();
+  const currentIndex = tabs.findIndex(t => t.value.textContent.toLowerCase().includes(currentBtn));
+  const newIndex = currentIndex < tabs.length - 1 ? currentIndex + 1 : 0;
+  tabs[newIndex].value.focus();
+};
+
+const focusPrevTab = (e) => {
+  const currentBtn = e.target.textContent.toLowerCase();
+  const currentIndex = tabs.findIndex(t => t.value.textContent.toLowerCase().includes(currentBtn));
+  const newIndex = currentIndex > 0 ? currentIndex - 1 : tabs.length - 1;
+  tabs[newIndex].value.focus();
+};
+
+const handleReplay = () => {
+  const transformVal = getTransformVal();
+  cube.value.style.transform = transformVal;
+  cube.value.style.transform = cubeTransforms.work;
+  setTimeout(() => {
+    isAnimated.value = true;
+  }, 750);
+};
 </script>
 
 <style lang="scss" scoped>
@@ -339,6 +421,9 @@ const handleTab = (e) => {
     border-radius: 0;
     transform: rotate(-45deg);
     border: 3px solid transparent;
+    &:focus-visible {
+      outline: 3px solid $color-text-lt;
+    }
     @include sm {
       transform: rotate(0deg);
     }
@@ -403,7 +488,6 @@ const handleTab = (e) => {
     margin: auto;
     transition: 0.75s ease-out;
     transform-style: preserve-3d;
-    animation: cube-rotate-md 10s infinite; 
     .side {
       display: block;
       position: absolute;
@@ -418,9 +502,43 @@ const handleTab = (e) => {
       border: none;
     }
   }
+  .cube-animation {
+    transition: 0.75s ease-out;
+    animation: cube-rotate 10s infinite;
+  }
+  .replay-btn {
+    position: absolute;
+    top: -127px;
+    right: 1rem;
+    width: 75px;
+    height: 75px;
+    padding: 0.75rem;
+    color: $color-special-dk;
+    background: none;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    transition: 0.75s ease-out;
+    @include xl {
+      right: calc(50% - 480px);
+    }
+    &:hover,
+    &:focus {
+      color: $color-special;
+      border-color: $color-special-dk;
+      box-shadow: none;
+    }
+    &:focus-visible {
+      outline: 3px solid $color-text-lt;
+    }
+    &:disabled {
+      color: $color-disabled-lt;
+      border-color: transparent;
+      box-shadow: none;;
+    }
+  }
 }
 
-@keyframes cube-rotate-md {
+@keyframes cube-rotate {
   0% { transform: rotateY(0deg) translateZ( -300px ); }
   25% { transform: rotateY(90deg) translateX( 300px ); }
   50% { transform: rotateY(180deg) translateZ( 300px ); }
@@ -454,12 +572,10 @@ const handleTab = (e) => {
     transform: rotateY( -90deg ) translateZ( 360px );
   }
 }
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
 }
-
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;

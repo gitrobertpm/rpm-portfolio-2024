@@ -2,7 +2,11 @@
   <div :class="`drawer-wrapper drawer-wrapper--${ theme }`">
     <!-- 
       Flexible, responsive, animated accordion component to hold click-through-content
-      Props used to determine theme: 'clr', 'lt', 'dk' - ALL STRINGS - defaults to 'clr'
+      Props used to determine `theme`: 'clr', 'lt', 'dk' - ALL STRINGS - defaults to 'clr'
+      Function props:
+        * `grounded`: BOOLEAN - defines a drawer that is the child of another drawer
+        * `hasDrawerKids`: BOOLEAN - 
+        * `hasDrawerKidsHeight`: Programmatic value so parent drawer's height can adjust to opening and closing children drawers,
     -->
     <div :class="`drawer drawer--${ theme }`">
       <button 
@@ -10,6 +14,7 @@
         ref="drawerBtn"
         :aria-expanded="isExpanded"
         @click="handleDrawerBtn"
+        @focus="handleDrawerBtn"
       >
         <slot name="heading"></slot>
         <IconArrowHead :style="arrowStyles" :class="`arrow arrow--${ theme }`" ref="arrow" />
@@ -74,10 +79,23 @@ const arrowStyles = computed(() => {
 const emit = defineEmits(['drawerClick']);
 
 const handleDrawerBtn = (e) => {
-  if (!props.grounded) {
-    isExpanded.value = !isExpanded.value;
+  if (e.type === 'click') {
+    if (!props.grounded) {
+      console.log('test');
+      isExpanded.value = !isExpanded.value;
+    }
+    emit('drawerClick', e, originalContentHeight.value);
   }
-  emit('drawerClick', e, originalContentHeight.value);
+  if (e.type === 'focus') {
+    if (!props.grounded) {
+      setTimeout(() => {
+        if (!isExpanded.value) {
+          isExpanded.value = true;
+          emit('drawerClick', e, originalContentHeight.value);
+        }
+      }, 200);
+    }
+  }
 };
 
 defineExpose({
@@ -109,6 +127,7 @@ defineExpose({
       width: 100%;
       height: 100%;
       padding: 0.25rem 0.75rem;
+      transform-style: preserve-3d;
       &:hover,
       &:focus {
         border-color: transparent;
@@ -143,6 +162,12 @@ defineExpose({
         padding-right: 50px;
         text-shadow: 0 1px 0 $color-bg-lt-glass-thick;
         filter: drop-shadow(0 1px 0 $color-bg-dk-glass-thick) drop-shadow(0 -1px 0 $color-bg-dk-glass-thick);
+        &:focus-visible {
+          border-color: transparent;
+          outline-color: $color-text-lt;
+          outline-offset: -5px;
+          outline-width: 3px;
+        }
       }
       .arrow {
         display: inline-block;
