@@ -14,7 +14,6 @@
         ref="drawerBtn"
         :aria-expanded="isExpanded"
         @click="handleDrawerBtn"
-        @focus="handleDrawerBtn"
       >
         <slot name="heading"></slot>
         <IconArrowHead :style="arrowStyles" :class="`arrow arrow--${ theme }`" ref="arrow" />
@@ -86,16 +85,16 @@ const handleDrawerBtn = (e) => {
     }
     emit('drawerClick', e, originalContentHeight.value);
   }
-  if (e.type === 'focus') {
-    if (!props.grounded) {
-      setTimeout(() => {
-        if (!isExpanded.value) {
-          isExpanded.value = true;
-          emit('drawerClick', e, originalContentHeight.value);
-        }
-      }, 200);
-    }
-  }
+  // if (e.type === 'focus') {
+  //   if (!props.grounded) {
+  //     setTimeout(() => {
+  //       if (!isExpanded.value) {
+  //         isExpanded.value = true;
+  //         emit('drawerClick', e, originalContentHeight.value);
+  //       }
+  //     }, 200);
+  //   }
+  // }
 };
 
 defineExpose({
