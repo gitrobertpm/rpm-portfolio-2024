@@ -56,7 +56,7 @@ defineProps({
   box-shadow: 1px 1px 0 $color-bg-lt-glass-thinner, -1px -1px 0 $color-bg-lt-glass-thinner;
   overflow: hidden;
   transition: 0.5s;
-  backdrop-filter: blur(5px);
+  
   @include sm {
     min-width: 250px;
     width: 45%;
@@ -64,7 +64,8 @@ defineProps({
     flex-grow: 1;
   }
   @include md {
-    width: 25%
+    width: 25%;
+    backdrop-filter: blur(5px);
   }
 }
 @mixin card-red {
