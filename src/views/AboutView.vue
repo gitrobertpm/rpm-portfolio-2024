@@ -301,7 +301,12 @@ const handleTab = (e) => {
     }
   });
   if (isMobile()) {
-    showPart.value = tabName;
+    if (showPart.value !== tabName) {
+      showPart.value = 'none';
+      setTimeout(() => {
+        showPart.value = tabName;
+      }, 500);
+    }
   } else {
     animateSelection(cubeTransforms[tabName]);
   }
@@ -572,9 +577,11 @@ const handleReplay = () => {
     transform: rotateY( -90deg ) translateZ( 360px );
   }
 }
-.fade-enter-active,
+.fade-enter-active {
+  transition: 0.5s ease;
+}
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: 0.5s ease;
 }
 .fade-enter-from,
 .fade-leave-to {
