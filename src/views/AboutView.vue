@@ -234,8 +234,8 @@ const setPanelFocusables = (topic) => {
 onMounted(async() => {
   scrollToTop();
   await nextTick();
+  showPart.value = 'work';
   if (isMobile()) {
-    showPart.value = 'work';
     workBtn.value.focus();
     setPanelFocusables('work');
   }
@@ -308,6 +308,7 @@ const handleTab = (e) => {
       }, 500);
     }
   } else {
+    showPart.value = tabName;
     animateSelection(cubeTransforms[tabName]);
   }
   setPanelFocusables(tabName);
@@ -331,9 +332,11 @@ const handleReplay = () => {
   const transformVal = getTransformVal();
   cube.value.style.transform = transformVal;
   cube.value.style.transform = cubeTransforms.work;
+  console.log(showPart.value);
+  const delay = showPart.value === 'work' ? 50 : 750;
   setTimeout(() => {
     isAnimated.value = true;
-  }, 750);
+  }, delay);
 };
 </script>
 
@@ -517,7 +520,8 @@ const handleReplay = () => {
     right: 1rem;
     width: 75px;
     height: 75px;
-    padding: 0.75rem;
+    padding: 0.6rem;
+    padding-left: 0.75rem;
     color: $color-special-dk;
     background: none;
     border-radius: 50%;

@@ -2,14 +2,13 @@
   <main class="main main__contact">
     <h1>CONTACT</h1>
     <ASection 
-      light 
       hero 
       heading 
       text 
       footer
     >
       <template #hero>
-        <img src="@/assets/img/logos/rpm-logos/vectors/rpm-logo-fill-sunset.svg" width="130px" alt="My Logo">
+        <img src="@/assets/img/logos/rpm-logos/vectors/rpm-logo-stroke-sunset.svg" width="130px" alt="My Logo">
       </template>
       <template #heading>
         <h2>Greetings!</h2>
@@ -47,7 +46,7 @@ import ASection from '@/components/reusables/ASection.vue';
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  max-width: 200px;
+  max-width: 160px;
   margin-bottom: 0;
   @include lg {
     justify-content: flex-end;
