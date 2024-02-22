@@ -11,7 +11,7 @@
         <img src="@/assets/img/logos/rpm-logos/vectors/rpm-logo-stroke-sunset.svg" width="130px" alt="My Logo">
       </template>
       <template #heading>
-        <h2>Greetings!</h2>
+        <h3>Greetings!</h3>
       </template>
       <template #text>
         <p>I'd love to hear from you.</p>

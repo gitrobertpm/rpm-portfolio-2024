@@ -104,7 +104,6 @@ const pole = props.light ? 'lt' : 'dk';
   }
 }
 @mixin section-heading {
-  // width: 100%;
   @include md {
     width: 140%;
   }
@@ -117,16 +116,10 @@ const pole = props.light ? 'lt' : 'dk';
   }
 }
 @mixin section-footer {
-  // width: 100%;
   @include md {
     width: 140%;
   }
 }
-// @mixin hd-ft-dk {
-//   @include md {
-//     margin-left: -40%;
-//   }
-// }
 @mixin section-supplemental {
   position: relative;
   @include md {
@@ -137,9 +130,6 @@ const pole = props.light ? 'lt' : 'dk';
   @include section;
   &__main {
     @include section-main;
-    // &--reverse {
-      // flex-direction: row-reverse;
-    // }
     &__hero {
       @include section-hero;
     }
@@ -147,15 +137,9 @@ const pole = props.light ? 'lt' : 'dk';
       @include section-body;
       &__heading {
         @include section-heading;
-        // &--dk {
-        //   @include hd-ft-dk;
-        // }
       }
       &__footer {
         @include section-footer;
-        // &--dk {
-        //   @include hd-ft-dk;
-        // }
       }
     }
   }

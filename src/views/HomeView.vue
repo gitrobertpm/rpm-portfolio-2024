@@ -8,46 +8,46 @@
         <img src="@/assets/img/logos/rasters/li.png" alt="LinkedIn" class="logo linkedin">
       </a>
     </div>
-    <div :style="store.wasAnimated && nameTitleContNoAniStyles" class="name-title-container">
+    <div :style="checklistStore.wasAnimated && nameTitleContNoAniStyles" class="name-title-container">
       <div class="name" lang="en">
 
-        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title Web__W">W</h1>
-        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title Web__e">e</h1>
-        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title Web__b">b</h1>
+        <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="title Web__W">W</h1>
+        <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="title Web__e">e</h1>
+        <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="title Web__b">b</h1>
 
-        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title De__D">D</h1>
-        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title De__e">e</h1>
+        <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="title De__D">D</h1>
+        <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="title De__e">e</h1>
 
-        <div :style="store.wasAnimated && fnameNoAniStyles" class="name-box name__first">
-          <h1 :style="store.wasAnimated && opacNoAniStyles" class="initial name__first__initial">R</h1>
-          <h1 :style="store.wasAnimated && opacNoAniStyles" class="remainder name__first__remainder">obert</h1>
+        <div :style="checklistStore.wasAnimated && fnameNoAniStyles" class="name-box name__first">
+          <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="initial name__first__initial">R</h1>
+          <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="remainder name__first__remainder">obert</h1>
         </div>
 
-        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title vel__v">v</h1>
-        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title vel__e">e</h1>
-        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title vel__l">l</h1>
+        <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="title vel__v">v</h1>
+        <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="title vel__e">e</h1>
+        <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="title vel__l">l</h1>
 
-        <div :style="store.wasAnimated && {'animation': 'none', 'opacity': 0}" class="name-box name__middle">
+        <div :style="checklistStore.wasAnimated && {'animation': 'none', 'opacity': 0}" class="name-box name__middle">
           <h1 class="initial name__middle__initial">P</h1>
         </div>
 
-        <div :style="store.wasAnimated && lnameNoAniStyles" class="name-box name__last">
-          <h1 :style="store.wasAnimated && opacNoAniStyles" class="initial name__last__initial">M</h1>
-          <h1 :style="store.wasAnimated && opacNoAniStyles" class="remainder name__last__remainder">anolis</h1>
+        <div :style="checklistStore.wasAnimated && lnameNoAniStyles" class="name-box name__last">
+          <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="initial name__last__initial">M</h1>
+          <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="remainder name__last__remainder">anolis</h1>
         </div>
 
-        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title oper__o">o</h1>
-        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title oper__p">p</h1>
-        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title oper__e">e</h1>
-        <h1 :style="store.wasAnimated && opacNoAniStyles" class="title oper__r">r</h1>
+        <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="title oper__o">o</h1>
+        <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="title oper__p">p</h1>
+        <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="title oper__e">e</h1>
+        <h1 :style="checklistStore.wasAnimated && opacNoAniStyles" class="title oper__r">r</h1>
 
       </div>
     </div>
-    <div :style="store.wasAnimated && opacNoAniStyles" class="greeting-wrapper">
+    <div :style="checklistStore.wasAnimated && opacNoAniStyles" class="greeting-wrapper">
       <HomeGreetingPart />
     </div>
     <AModal 
-      v-if="!store.viewedDisclaimer"
+      v-if="!checklistStore.viewedDisclaimer"
       :display="disclaimerOpen"
       :delay="modalDelay"
       btn-text="CONTINUE" 
@@ -63,13 +63,13 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { useStore } from '@/stores/store.js';
+import { useChecklistStore } from '@/stores/checklistStore.js';
 import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
 import AModal from '@/components/reusables/AModal.vue';
 import useWindowResize from '@/composables/useWindowResize.js';
 import { BREAKPOINTS } from '@/util/constants.js';
 
-const store = useStore();
+const checklistStore = useChecklistStore();
 const { globalState } = useWindowResize();
 const { md, lg } = BREAKPOINTS;
 
@@ -87,13 +87,13 @@ onMounted(() => {
   scrollToTop();
   setTimeout(() => {
     disclaimerOpen.value = true;
-    store.hasBeenAnimated();
+    checklistStore.hasBeenAnimated();
   }, modalDelay);
 });
 
 const closeModal = () => {
   disclaimerOpen.value = false;
-  store.hasViewedDisclaimer();
+  checklistStore.hasViewedDisclaimer();
 };
 
 // Position styles so elements don't reanimate on page resize or revisit

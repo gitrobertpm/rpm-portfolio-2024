@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
-export const useStore = defineStore('eventChecks', () => {
+export const useChecklistStore = defineStore('checklist', () => {
   // const width = ref(0);
   // function updateWidth(w) {
   //   width.value = w;

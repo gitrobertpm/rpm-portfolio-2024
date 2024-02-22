@@ -56,7 +56,6 @@ defineProps({
   box-shadow: 1px 1px 0 $color-bg-lt-glass-thinner, -1px -1px 0 $color-bg-lt-glass-thinner;
   overflow: hidden;
   transition: 0.5s;
-  
   @include sm {
     min-width: 250px;
     width: 45%;

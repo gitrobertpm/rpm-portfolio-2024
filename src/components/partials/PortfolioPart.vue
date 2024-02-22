@@ -11,6 +11,10 @@
           </template>
           <template #content>
             <p class="pad-x--15">Here's a brief breakdown of what's going into this project.</p>
+            <p v-if="repoStore.isLoading" class="pad-x--15">Loading...</p>
+            <p v-else-if="repoStore.isError" class="pad-x--15">Error fetching commits.</p>
+            <p v-else class="pad-x--15">Number of commits so far: <code>{{ repoStore.commitsCount }}</code></p>
+            <p class="pad-x--15"><a href="https://github.com/gitrobertpm/rpm-portfolio-2024" target="_blank">GitHub repo link</a></p>
             <div class="flex--row--cent">
               <p><span class="emoji" role="img" aria-label="Artist palette emoji">🎨</span></p>
             </div>
@@ -162,10 +166,13 @@
 import { ref, onMounted } from 'vue';
 import ACard from '@/components/reusables/ACard.vue';
 import ADrawer from '../reusables/ADrawer.vue';
-import useWindowResize from '@/composables/useWindowResize.js';
-import { BREAKPOINTS } from '@/util/constants.js';
+import { useRepoStore } from '@/stores/repoStore';
+
+const repoStore = useRepoStore();
 
 // Screen width
+import useWindowResize from '@/composables/useWindowResize.js';
+import { BREAKPOINTS } from '@/util/constants.js';
 const { globalState } = useWindowResize();
 const { lg } = BREAKPOINTS;
 const isMobile = () => globalState.width < lg;
@@ -176,6 +183,7 @@ const alphaDrawerNewOpenHeight = ref(0);
 const multiplier = () => isMobile() ? 50 : 57;
 
 onMounted(() => {
+  repoStore.getCommits();
   const alphaDescendants = alphaDrawer.value.$el.firstElementChild.lastElementChild.children;
   const alphaDescendantsHeights = alphaDescendants.length * multiplier();
   alphaDrawerOriginalOpenHeight.value = alphaDescendantsHeights;
