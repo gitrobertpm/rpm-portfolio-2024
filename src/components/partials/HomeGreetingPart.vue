@@ -125,7 +125,6 @@
     @include lg {
       width: 775px;
       padding: 2rem 3rem;
-      background: linear-gradient(to right, #000 75%, transparent);
     }
     .ctrl {
       button {
