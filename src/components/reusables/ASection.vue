@@ -1,18 +1,19 @@
 <template>
-  <div class="section">
+  <div :class="[
+        'section', 
+        {
+          'section--borderless': borderless,
+        }
+      ]"
+      >
     <!-- 
       Large reusable responsive section to break up content on a page/view  
       Props used to determine theme: 'light' - BOOLEAN
+      Props to determine type
       Props used to include children: 'hero', 'heading', 'subheading', 'text', 'footer' -  - ALL BOOLEANS
     -->
     <!-- SECTION'S PRIMARY PORTION -->
-    <div :class="[
-        'section__main', 
-        {
-          'section__main--reverse': light 
-        }
-      ]"
-    >
+    <div class="section__main">
 
       <!-- HERO -->
       <div class="section__main__hero">
@@ -57,6 +58,7 @@
 <script setup>
 const props = defineProps({
   light: Boolean,
+  borderless: Boolean,
   hero: Boolean,
   heading: Boolean,
   subheading: Boolean,
@@ -145,6 +147,11 @@ const pole = props.light ? 'lt' : 'dk';
   }
   &__supplemental {
     @include section-supplemental;
+  }
+  &--borderless {
+    border: none;
+    box-shadow: none;
+    background: none;
   }
 }
 </style>

@@ -41,7 +41,7 @@ import { RouterLink } from 'vue-router';
       font-size: 0.75rem;
       font-weight: bold;
       color: transparent;
-      background: linear-gradient(to right, $color-disabled-lt, $color-disabled-dk);
+      background: linear-gradient(to bottom, $color-text-lt, $color-disabled-lt 5%, $color-disabled-dk 95%, $color-text-dk);
       background-clip: text;
     }
     .invisible {

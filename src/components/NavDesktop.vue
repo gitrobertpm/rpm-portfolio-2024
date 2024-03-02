@@ -72,24 +72,20 @@ import IconStyleguide from './icons/IconStyleguide.vue';
   width: 111px;
   height: 100vh;
   background: $color-text-dk;
-  // background-image: $gradient-radial-nav;
   background-image: 
       linear-gradient(to top, $color-bg-dk-glass-thick, $color-bg-dk-glass-thinner),
       conic-gradient(at 0% 0%, transparent 0deg, transparent 130deg, $color-bg-lt-glass-thinner, transparent 200deg), 
       conic-gradient(at 100% 0%, transparent 0deg, transparent 160deg, $color-bg-lt-glass-thinner, transparent 230deg);
   backdrop-filter: blur(5px);
   z-index: 9;
-
   &__list {
     display: flex;
     flex-flow: column nowrap;
     justify-content: start;
-
     &__item {
       text-align: center;
       width: 100px;
       height: auto;
-
       &__link {
         display: flex;
         flex-flow: column nowrap;
@@ -100,29 +96,27 @@ import IconStyleguide from './icons/IconStyleguide.vue';
         &#{&} {
           outline-offset: -2px;
         }
-
         &:focus,
         &:focus-visible {
           outline: 1px solid $color-text-lt;
         }
-
         &:hover {
-          box-shadow: 1px 0 3px $color-bg-lt-glass-thinner inset, -1px 0 3px $color-bg-dk-glass-thinner inset;
-          &::before {
-            background-image: 
-              conic-gradient(at 0% 0%, transparent 0deg, transparent 90deg, $color-bg-lt-glass-thinner, transparent 180deg), 
-              conic-gradient(at 100% 0%, transparent 0deg, transparent 180deg, $color-bg-lt-glass-thinner, transparent 270deg),
-              linear-gradient(to top, $color-bg-dk-glass-thin, transparent);
-          }
+          box-shadow: 0 0.5px 0 $color-bg-lt-glass-thinner inset, 0 -0.5px 0 $color-bg-dk-glass-thinner inset;
+          // &::before {
+            // width: 100% !important;
+            // margin-left: 0;
+            // background-image: 
+            //   conic-gradient(at 0% 0%, transparent 0deg, transparent 90deg, $color-bg-lt-glass-thinner, transparent 180deg), 
+            //   conic-gradient(at 100% 0%, transparent 0deg, transparent 180deg, $color-bg-lt-glass-thinner, transparent 270deg),
+            //   linear-gradient(to top, $color-bg-dk-glass-thin, transparent);
+            // opacity: 1 !important;
+          // }
         }
-        
-
         &__icon {
           width: 42px;
           height: 42px;
           margin: auto auto 10px;
         }
-
         &__text {
           text-align: center;
           white-space: nowrap;

@@ -80,7 +80,6 @@ const emit = defineEmits(['drawerClick']);
 const handleDrawerBtn = (e) => {
   if (e.type === 'click') {
     if (!props.grounded) {
-      console.log('test');
       isExpanded.value = !isExpanded.value;
     }
     emit('drawerClick', e, originalContentHeight.value);

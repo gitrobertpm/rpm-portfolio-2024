@@ -2,8 +2,13 @@
   <main class="main main__style-guide">
     <h1>STYLE GUIDE</h1>
 
+    <div class="cutout--dk--fat">
+      <p style="margin: 1rem auto">For now, this style guide is mostly a staging area where I can experiment with new features and styles. Eventually, this section will serve as an example of the final styles and reusable features in this portfolio. Which I hope will serve as a something of a template for Bootstrapping future projects.</p>
+    </div>
+
     <ASection 
-      light 
+      light
+      borderless 
       hero 
       heading 
       subheading 
@@ -265,6 +270,7 @@
 
     <ASection
       hero 
+      borderless
       heading 
       subheading 
       text 

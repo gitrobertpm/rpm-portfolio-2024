@@ -1,15 +1,5 @@
 @import "variables";
-// Style
-// @mixin bipolar-brk-top {
-//   border-top: 1px solid $color-bg-dk-glass-thick;
-//   box-shadow: 0 -1px 0 $color-bg-lt-glass-thick;
-// }
-
-// @mixin bipolar-brk-bottom {
-//   border-bottom: 1px solid $color-bg-dk-glass-thick;
-//   box-shadow: 0 1px 0 $color-bg-lt-glass-thick;
-// }
-// Typography --------------------------------------------------------------------------------------------------------------------------
+// Typography --------------------------------------------------------------------------------------------------------
 @mixin heading {
   position: relative;
   font-family: $font-heading;
@@ -59,11 +49,18 @@
 }
 // LINKS -------------------------------------------------------------------------------------------------------------------
 @mixin link-hover {
-  box-shadow: 1px 0 3px $color-bg-deep-sky-glass-lt inset, -1px 0 3px $color-bg-alert-glass-lt inset;
+  // box-shadow: 1px 0 3px $color-bg-deep-sky-glass-lt inset, -1px 0 3px $color-bg-alert-glass-lt inset;
+  // color: transparent;
+  // background: linear-gradient(to right, $color-dodger, $color-alert);
+  // background-clip: text;
+  // filter: none;
   &::before {
+    width: calc(100% + 0.5rem) !important;
+    margin-left: -0.25rem;
     background-image: 
-    conic-gradient(at 0% 0%, transparent 0deg, transparent 90deg, $color-bg-dodger-glass, transparent 180deg), 
-    conic-gradient(at 100% 0%, transparent 0deg, transparent 180deg, $color-bg-alert-glass-lt, transparent 270deg);
+    conic-gradient(at 0% 0%, transparent 0deg, transparent 90deg, currentColor, transparent 180deg), 
+    conic-gradient(at 100% 0%, transparent 0deg, transparent 180deg, currentColor, transparent 270deg);
+    opacity: 0.1 !important;
     animation: lights-on 0.3s ease-out forwards;
   }
 }
@@ -104,10 +101,21 @@
 }
 @mixin link {
   display: inline-block;
+  // padding-right: 0.25rem;
+  // padding-left: 0.25rem;
   position: relative;
   font-family: $font-copy;
-  color: $color-text-link;
-  text-shadow: 0 -0.75px 0 $color-bg-lt-glass-thin, 0 1px 0 $color-bg-dk-glass;
+  font-weight: 500;
+  color: currentColor;
+  // text-shadow: 0 0 0 $color-bg-lt-glass-thinner, 0 0 0 $color-bg-dk-glass-thinner;
+  // text-shadow: 0 0 0 $color-bg-dodger-glass, 0 0 0 $color-bg-alert-glass;
+  // filter: drop-shadow(0 0 0 $color-dodger) drop-shadow(0 0 0 $color-alert);
+  // text-shadow: 0 1px 0 $color-dodger, 0 -1px 0 $color-alert;
+  // background: $gradient-linear-text;
+  // background: linear-gradient(to right, $color-dodger, $color-alert);
+  // background: linear-gradient(to bottom, $color-text-lt, $color-disabled-lt 10%, $color-disabled-dk 90%, $color-text-dk);
+  // background-size: 75%;
+  // background-clip: text;
   border-radius: 0.5rem;
   border-color: transparent;
   outline-offset: 3px;

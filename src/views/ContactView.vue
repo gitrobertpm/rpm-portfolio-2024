@@ -2,6 +2,7 @@
   <main class="main main__contact">
     <h1>CONTACT</h1>
     <ASection 
+      borderless
       hero 
       heading 
       text 

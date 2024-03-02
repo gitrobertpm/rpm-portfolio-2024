@@ -17,7 +17,7 @@ export const useRepoStore = defineStore('repoStore', {
         let response;
         do {
           response = await fetch(`https://api.github.com/repos/gitrobertpm/rpm-portfolio-2024/commits?page=${page}&per_page=100`);
-          console.log('response: ', response);
+          // console.log('response: ', response);
           const data = await response.json();
           const trimmedData = data.map(c => {
             return {
@@ -28,7 +28,7 @@ export const useRepoStore = defineStore('repoStore', {
               }
             };
           })
-          console.log('trimmedData: ', trimmedData);
+          // console.log('trimmedData: ', trimmedData);
           commits = commits.concat(trimmedData);
           page++;
         } while (response.headers.get('Link')?.includes('rel="next"'));
