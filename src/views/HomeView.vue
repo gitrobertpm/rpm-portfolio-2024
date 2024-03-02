@@ -46,7 +46,7 @@
     <div :style="checklistStore.wasAnimated && opacNoAniStyles" class="greeting-wrapper">
       <HomeGreetingPart />
     </div>
-    <AModal 
+    <!-- <AModal 
       v-if="!checklistStore.viewedDisclaimer"
       :display="disclaimerOpen"
       :delay="modalDelay"
@@ -57,7 +57,7 @@
       <template #content>
         <p>This is a new portfolio. I'm still experimenting, making adjustments, adding features, and trying out different techniques on a variety of devices and screen sizes. So if something is missing or glitchy, it's a <code>WIP</code> thing and a solution is being formulated.<span class="emoji" role="img" aria-label="Happy emoji">😊</span></p>
       </template>
-    </AModal>
+    </AModal> -->
   </main>
 </template>
 
@@ -65,7 +65,7 @@
 import { ref, onMounted, computed } from 'vue';
 import { useChecklistStore } from '@/stores/checklistStore.js';
 import HomeGreetingPart from '@/components/partials/HomeGreetingPart.vue';
-import AModal from '@/components/reusables/AModal.vue';
+// import AModal from '@/components/reusables/AModal.vue';
 import useWindowResize from '@/composables/useWindowResize.js';
 import { BREAKPOINTS } from '@/util/constants.js';
 
@@ -91,10 +91,10 @@ onMounted(() => {
   }, modalDelay);
 });
 
-const closeModal = () => {
-  disclaimerOpen.value = false;
-  checklistStore.hasViewedDisclaimer();
-};
+// const closeModal = () => {
+//   disclaimerOpen.value = false;
+//   checklistStore.hasViewedDisclaimer();
+// };
 
 // Position styles so elements don't reanimate on page resize or revisit
 const nameTitleContNoAniStyles = computed(() => {
@@ -143,10 +143,10 @@ const opacNoAniStyles = computed(() => {
 .greeting-wrapper {
   margin-top: 220px;
   opacity: 0;
-  animation: fade-in 2s ease-out 5s forwards;
+  animation: fade-in 2s ease-out 5.5s forwards;
   @include md {
     margin-top: 275px;
-    animation: fade-in 1.5s ease-out 4s forwards;
+    animation: fade-in 1.5s ease-out 6s forwards;
   }
   @include lg {
     margin-top: 225px;

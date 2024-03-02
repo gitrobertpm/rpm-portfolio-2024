@@ -99,6 +99,7 @@
     margin: 3rem auto 0;
     background: #fff;
     border-radius: 0.5rem;
+    animation: slide-in-left 2s ease 6s forwards;
     @include md {
       width: 575px;
       margin: 2.5rem auto 0;
@@ -116,6 +117,7 @@
     margin: 0 auto;
     background: #000;
     border-radius: 0.75rem;
+    animation: slide-in-right 2s ease 6s forwards;
     @include md {
       width: 615px;
       padding: 1rem 3rem;
@@ -126,32 +128,40 @@
       width: 775px;
       padding: 2rem 3rem;
     }
-    .ctrl {
-      button {
-        color: $color-text-lt;
-        margin: 0.5rem auto;
-        max-width: 300px;
-      }
-    }
-    .quotes {
-      display: inline-block;
-      font-size: 1em;
-      transform: translateY(-5px);
-    }
+    // .ctrl {
+    //   button {
+    //     color: $color-text-lt;
+    //     margin: 0.5rem auto;
+    //     max-width: 300px;
+    //   }
+    // }
+    // .quotes {
+    //   display: inline-block;
+    //   font-size: 1em;
+    //   transform: translateY(-5px);
+    // }
     p {
       text-align: center;
       padding-left: 0.25rem;
       margin: 1.5rem auto;
     }
-    ul {
-      list-style: disc;
-      padding-left: 2rem;
-    }
-    li {
-      &::marker {
-        color: $color-success-lt;
-      }
-    }
+    // ul {
+    //   list-style: disc;
+    //   padding-left: 2rem;
+    // }
+    // li {
+    //   &::marker {
+    //     color: $color-success-lt;
+    //   }
+    // }
   }
+}
+@keyframes slide-in-left {
+  from { translate: -3000px 0 }
+  to { translate: 0 0 }
+}
+@keyframes slide-in-right {
+  from { translate: 3000px 0 }
+  to { translate: 0 0 }
 }
 </style>
