@@ -99,6 +99,7 @@
     margin: 3rem auto 0;
     background: #fff;
     border-radius: 0.5rem;
+    translate: -3000px 0;
     animation: slide-in-left 2s ease 6s forwards;
     @include md {
       width: 575px;
@@ -117,6 +118,7 @@
     margin: 0 auto;
     background: #000;
     border-radius: 0.75rem;
+    translate: 3000px 0;
     animation: slide-in-right 2s ease 6s forwards;
     @include md {
       width: 615px;
