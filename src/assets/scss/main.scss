@@ -4,20 +4,23 @@ html {
 }
 body {
   color: $color-text-dk;
-  background-image: url('../img/bgs/deconstructed-yin-yang.svg'), linear-gradient(to right, #fff 49.8%, #000 49.9%);
+  background-image: url('../img/bgs/yy.svg'), linear-gradient(to right, #fff 49.8%, #000 49.9%);
   background-size: 101% auto, auto;
   background-position: center top, center;
   background-repeat: no-repeat, repeat-y;
   transition:
     color 0.5s,
     background-color 0.5s;
+  @include md {
+    background-image: url('../img/bgs/yy-lg.svg'), linear-gradient(to right, #fff 49.8%, #000 49.9%);
+  }
 }
 #app {
   position: relative;
   min-height: 100vh;
   @include lg {
     // Offsetting center to account for desktop view sidebar
-    padding-left: 111px;
+    padding-left: 119px;
   }
 }
 main {

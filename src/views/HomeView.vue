@@ -44,12 +44,12 @@
       </div>
     </div>
     <div :style="checklistStore.wasAnimated && opacNoAniStyles" class="greeting-wrapper">
-      <HomeGreetingPart />
+      <HomeGreetingPart :hasBeenAnimated="checklistStore.wasAnimated" />
     </div>
     <!-- <AModal 
       v-if="!checklistStore.viewedDisclaimer"
       :display="disclaimerOpen"
-      :delay="modalDelay"
+      :delay="aniCancelDelay"
       btn-text="CONTINUE" 
       heading-text="WIP" 
       @modalClose="closeModal"
@@ -80,7 +80,7 @@ const isTablet = () => globalState.width >= md && globalState.width < lg;
 const scrollToTop = () => window.scrollTo(0,0);
 
 const disclaimerOpen = ref(false);
-const modalDelay = 7000;
+const aniCancelDelay = 8000;
 
 // Handle opening disclaimer, scroll to top on load, and turn off initial animations
 onMounted(() => {
@@ -88,7 +88,7 @@ onMounted(() => {
   setTimeout(() => {
     disclaimerOpen.value = true;
     checklistStore.hasBeenAnimated();
-  }, modalDelay);
+  }, aniCancelDelay);
 });
 
 // const closeModal = () => {

@@ -69,7 +69,7 @@ import IconStyleguide from './icons/IconStyleguide.vue';
   top: 0;
   bottom: 0;
   left: 0;
-  width: 111px;
+  width: 119px;
   height: 100vh;
   background: $color-text-dk;
   background-image: 
@@ -92,25 +92,39 @@ import IconStyleguide from './icons/IconStyleguide.vue';
         color: $color-text-lt;
         padding: 1rem 0;
         margin: 0.5rem auto;
+        
+        // border: 1px solid red;
         // Double specificity
         &#{&} {
-          outline-offset: -2px;
+          // outline-offset: -1px;
         }
         &:focus,
         &:focus-visible {
           outline: 1px solid $color-text-lt;
         }
         &:hover {
-          box-shadow: 0 0.5px 0 $color-bg-lt-glass-thinner inset, 0 -0.5px 0 $color-bg-dk-glass-thinner inset;
-          // &::before {
+          
+          box-shadow: 0 0.5px 0 $color-bg-lt-glass-thinner inset, 0 -0.5px 0 $color-bg-dk-glass-thin inset;
+          &::before {
+            // @include spotlights;
+            // width: calc(100% + 0.5rem) !important;
+            // margin-left: -0.25rem;
+            margin-top: 5px;
+            // min-height: calc(100% + 5px);
             // width: 100% !important;
             // margin-left: 0;
             // background-image: 
             //   conic-gradient(at 0% 0%, transparent 0deg, transparent 90deg, $color-bg-lt-glass-thinner, transparent 180deg), 
             //   conic-gradient(at 100% 0%, transparent 0deg, transparent 180deg, $color-bg-lt-glass-thinner, transparent 270deg),
             //   linear-gradient(to top, $color-bg-dk-glass-thin, transparent);
-            // opacity: 1 !important;
-          // }
+            background-image: 
+              linear-gradient(to top, #000, transparent),
+              conic-gradient(at 5% 5%, transparent 0deg, transparent 90deg, currentColor, transparent 180deg), 
+              conic-gradient(at 95% 5%, transparent 0deg, transparent 180deg, currentColor, transparent 270deg),
+              linear-gradient(to top, transparent, $color-bg-lt-glass);
+          //     border-radius: 0.5rem;
+          //   opacity: 1 !important;
+          }
         }
         &__icon {
           width: 42px;

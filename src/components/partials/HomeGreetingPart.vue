@@ -5,11 +5,11 @@
       <img src="@/assets/img/logos/rpm-logos/vectors/rpm-logo-fill-sunset.svg" width="130px" alt="My Logo">
     </div>
 
-    <div class="header-box">
+    <div :style="hasBeenAnimated && noAniStyles" class="header-box">
       <h4>Portfolio - 2024</h4>
     </div>
 
-    <div class="home-copy-wrapper">
+    <div :style="hasBeenAnimated && noAniStyles" class="home-copy-wrapper">
       <p>Greetings! And welcome.<span class="emoji" role="img" aria-label="Vulcan salute emoji">🖖</span></p>
     </div>
 
@@ -47,9 +47,20 @@
 </template>
 
 <script setup>
-// import { ref, computed } from 'vue';
+import { computed } from 'vue';
 // import useWindowResize from '@/composables/useWindowResize.js';
 // import { BREAKPOINTS } from '@/util/constants.js';
+
+defineProps({
+  hasBeenAnimated: Boolean
+});
+
+const noAniStyles = computed(() => {
+  return {
+    animation: 'none',
+    translate: '0 0'
+  };
+});
 
 // Screen width
 // const { globalState } = useWindowResize();

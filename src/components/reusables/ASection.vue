@@ -102,24 +102,24 @@ const pole = props.light ? 'lt' : 'dk';
 @mixin section-hero {
   @include md {
     align-self: center;
-    width: 30%;
+    width: 20%;
   }
 }
 @mixin section-heading {
   @include md {
-    width: 140%;
+    width: 120%;
   }
 }
 @mixin section-body {
   margin: 2rem auto;
   @include md {
-    width: 70%;
+    width: 80%;
     margin: 0 auto 1rem;
   }
 }
 @mixin section-footer {
   @include md {
-    width: 140%;
+    width: 120%;
   }
 }
 @mixin section-supplemental {
