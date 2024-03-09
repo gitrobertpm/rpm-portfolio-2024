@@ -1,4 +1,4 @@
-@import "mixins";
+@use "../abstracts" as *;
 
 // Relative units to respects user/device/app font-size selections
 // Assuming root font-size = 16px:

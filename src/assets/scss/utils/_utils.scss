@@ -1,0 +1,190 @@
+@use "../abstracts" as *;
+
+// UTILITY CLASSES 
+// FLEX
+$flexDir: (
+  "row": "row",
+  "row-rev": "row-reverse",
+  "col": "column",
+  "col-rev": "column-reverse"
+);
+$flexJustify: (
+  "start": "start",
+  "end": "end",
+  "fs": "flex-start",
+  "fe": "flex-end",
+  "cent": "center",
+  "left": "left",
+  "right": "right",
+  "norm": "normal",
+  "sb": "space-between",
+  "sa": "space-around",
+  "se": "space-evenly"
+);
+$flexAlign: (
+  "fs": "flex-start",
+  "fe": "flex-end",
+  "center": "center",
+  "stretch": "stretch",
+);
+
+// The maps above and loops in the section below create flexbox utility classes that do a lot with a little
+// Map keys = class name modifiers
+// Map values = real world flex values
+// Class syntax: `flex--{dir}--{justify-}-{align*}--{wrap*}
+// - The `{}` in the class syntax example directly above only indicate class name modifiers.
+// - Modifiers must be added in the order demonstrated above and separated by the --
+// **NOTE:** 
+// - The `*` indicates optional modifiers. If both are used, 'align' must come first.
+
+@each $dirKey, $dir in $flexDir {
+  @each $jusKey, $justify in $flexJustify {
+    .flex--#{$dirKey}--#{$jusKey} {
+      display: flex;
+      flex-direction: #{$dir};
+      justify-content: #{$justify};
+    }
+    .flex--#{$dirKey}--#{$jusKey}--wrap {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: #{$dir};
+      justify-content: #{$justify};
+    }
+    @each $aliKey, $align in flexAlign {
+      .flex--#{$dirKey}--#{$jusKey}--#{$aliKey} {
+        display: flex;
+        flex-direction: #{$dir};
+        justify-content: #{$justify};
+        align-items: #{$align};
+      }
+      .flex--#{$dirKey}--#{$jusKey}--#{$aliKey}--wrap {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: #{$dir};
+        justify-content: #{$justify};
+        align-items: #{$align};
+      }
+    }
+  }
+}
+
+// GRID - modifiers for number of columns
+@for $g from 1 through 12 {
+	.grid--#{$g} {
+    display: grid;
+    grid-template-columns: repeat(#{$g}, 1fr);
+  }
+}
+
+// SPACERS modifiers for 1/10 rem values - e.g. 5 = 0.5rem, 10 = 1rem, 21 = 2.1rem, up to 50 = 5rem; 
+@for $i from 1 through 50 {
+  $x: $i * 0.1rem;
+  .gap--#{$i} {
+    gap: $x;
+  }
+  .row-gap--#{$i} {
+    row-gap: $x;
+  }
+  .col-gap--#{$i} {
+    column-gap: $x;
+  }
+  .pad-x--#{$i} {
+    padding-right: $x;
+    padding-left: $x;
+  }
+  .pad-y--#{$i} {
+    padding-top: $x;
+    padding-bottom: $x;
+  }
+  .pad-xy--#{$i} {
+    padding: $x;
+  }
+  .mar-x--#{$i} {
+    margin-right: $x;
+    margin-left: $x;
+  }
+  .mar-y--#{$i} {
+    margin-top: $x;
+    margin-bottom: $x;
+  }
+  .mar-xy--#{$i} {
+    margin: $x;
+  }
+}
+
+// Blocks
+.cutout {
+  &--dk {
+    @include cutout-dk;
+  }
+  &--dk--img {
+    @include cutout-dk-img
+  }
+  &--dk--chubby {
+    @include cutout-dk-chubby;
+  }
+  &--dk--fat {
+    @include cutout-dk-fat;
+  }
+
+  &--lt {
+    @include cutout-lt;
+  }
+  &--lt--img {
+    @include cutout-lt-img
+  }
+  &--lt--chubby {
+    @include cutout-lt-chubby;
+  }
+  &--lt--fat {
+    @include cutout-lt-fat;
+  }
+}
+.card-box {
+  @include card-box;
+}
+// Link & button base and state-specific styles are defined in mixins and applied to tags in typography files.
+// BEM classes below are mostly for dev and testing purposes and display on the style guide view.
+// But these can double as utility classes if needed. 
+.link {
+  &--hover {
+    @include link-hover;
+  }
+  &--active {
+    @include link-active;
+  }
+  &--focus {
+    @include link-focus;
+  }
+  &--focus-visible {
+    @include link-focus-visible;
+  }
+  &--visited {
+    @include link-visited;
+  }
+  &--disabled {
+    @include link-disabled;
+  }
+}
+
+.btn {
+  @include btn;
+  &--hover {
+    @include btn-hover;
+  }
+  &--primary {
+    @include btn-primary;
+  }
+  &--secondary {
+    @include btn-secondary;
+  }
+  &--focus {
+    @include btn-focus;
+  }
+  &--focus-visible {
+    @include btn-focus-visible;
+  }
+  &--active {
+    @include btn-active;
+  }
+}

@@ -95,9 +95,9 @@ import IconStyleguide from './icons/IconStyleguide.vue';
         
         // border: 1px solid red;
         // Double specificity
-        &#{&} {
+        // &#{&} {
           // outline-offset: -1px;
-        }
+        // }
         &:focus,
         &:focus-visible {
           outline: 1px solid $color-text-lt;
