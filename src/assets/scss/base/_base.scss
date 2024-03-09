@@ -1,142 +1,39 @@
-/* color palette */
-:root {
-  /* Colors Isolated R,G,B values for common colors -- use example: `rgba(var(--blk-r-g-b), 0.5)` */
-  --blk-r-g-b: 0,0,0;
-  --wht-r-g-b: 255, 255, 255;
-  --dodger-r-g-b: 30, 144, 255;
-  --deep-sky-r-g-b: 0, 191, 255;
-  --blue-r-g-b: 7, 7, 219;
-  --midnight-r-g-b: 2, 2, 36;
-  --marigold-r-g-b: 255, 215, 0;
-  --or-red-r-g-b: 255, 69, 18;
-  --red-r-g-b: 199, 19, 19;
-  --violet-r-g-b: 255, 155, 255;
-  --purple-r-g-b: 50, 0, 50;
-  --lime-r-g-b: 0, 212, 0;
-  --forest-r-g-b: 0, 77, 0;
+@use "../abstracts" as *;
 
-  /* Preferred colors */
-  --deep-sky: #00bfff;
-  --dodger: #1e90ff;
-  --blue: #0707db;
-  --midnight: #020224;
-  --marigold: #ffd000;
-  --or-red: #ff4512;
-  --red: #c71313;
-  --violet: #ff9bff;
-  --purple: #370037;
-  --line: #00d400;
-  --forest: #004d00;  
+html {
+  background: #000;
 }
-
-// UTILITY CLASSES 
-// FLEX
-$flexDir: (
-  "row": "row",
-  "row-rev": "row-reverse",
-  "col": "column",
-  "col-rev": "column-reverse"
-);
-$flexJustify: (
-  "start": "start",
-  "end": "end",
-  "fs": "flex-start",
-  "fe": "flex-end",
-  "cent": "center",
-  "left": "left",
-  "right": "right",
-  "norm": "normal",
-  "sb": "space-between",
-  "sa": "space-around",
-  "se": "space-evenly"
-);
-$flexAlign: (
-  "fs": "flex-start",
-  "fe": "flex-end",
-  "center": "center",
-  "stretch": "stretch",
-);
-
-// The maps above and loops in the section below create flexbox utility classes that do a lot with a little
-// Map keys = class name modifiers
-// Map values = real world flex values
-// Class syntax: `flex--{dir}--{justify-}-{align*}--{wrap*}
-// - The `{}` in the class syntax example directly above only indicate class name modifiers.
-// - Modifiers must be added in the order demonstrated above and separated by the --
-// **NOTE:** 
-// - The `*` indicates optional modifiers. If both are used, 'align' must come first.
-
-@each $dirKey, $dir in $flexDir {
-  @each $jusKey, $justify in $flexJustify {
-    .flex--#{$dirKey}--#{$jusKey} {
-      display: flex;
-      flex-direction: #{$dir};
-      justify-content: #{$justify};
-    }
-    .flex--#{$dirKey}--#{$jusKey}--wrap {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: #{$dir};
-      justify-content: #{$justify};
-    }
-    @each $aliKey, $align in flexAlign {
-      .flex--#{$dirKey}--#{$jusKey}--#{$aliKey} {
-        display: flex;
-        flex-direction: #{$dir};
-        justify-content: #{$justify};
-        align-items: #{$align};
-      }
-      .flex--#{$dirKey}--#{$jusKey}--#{$aliKey}--wrap {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: #{$dir};
-        justify-content: #{$justify};
-        align-items: #{$align};
-      }
-    }
+body {
+  color: $color-text-dk;
+  background-image: url('@/assets/img/bgs/yy.svg'), linear-gradient(to right, #fff 49.8%, #000 49.9%);
+  background-size: 101% auto, auto;
+  background-position: center top, center;
+  background-repeat: no-repeat, repeat-y;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  @include md {
+    background-image: url('@/assets/img/bgs/yy-lg.svg'), linear-gradient(to right, #fff 49.8%, #000 49.9%);
   }
 }
-
-// GRID - modifiers for number of columns
-@for $g from 1 through 12 {
-	.grid--#{$g} {
-    display: grid;
-    grid-template-columns: repeat(#{$g}, 1fr);
+#app {
+  position: relative;
+  min-height: 100vh;
+  @include lg {
+    // Offsetting center to account for desktop view sidebar
+    padding-left: 119px;
   }
 }
-
-// SPACERS modifiers for 1/10 rem values - e.g. 5 = 0.5rem, 10 = 1rem, 21 = 2.1rem, up to 50 = 5rem; 
-@for $i from 1 through 50 {
-  $x: $i * 0.1rem;
-  .gap--#{$i} {
-    gap: $x;
+main {
+  text-align: center;
+  max-width: $max-width-primary;
+  margin: auto;
+  // Extra bottom padding to accommodate absolute positioned footer
+  padding: 1.5rem 0 56px;
+  @include md {
+    padding: 1.5rem 2rem 56px;
   }
-  .row-gap--#{$i} {
-    row-gap: $x;
-  }
-  .col-gap--#{$i} {
-    column-gap: $x;
-  }
-  .pad-x--#{$i} {
-    padding-right: $x;
-    padding-left: $x;
-  }
-  .pad-y--#{$i} {
-    padding-top: $x;
-    padding-bottom: $x;
-  }
-  .pad-xy--#{$i} {
-    padding: $x;
-  }
-  .mar-x--#{$i} {
-    margin-right: $x;
-    margin-left: $x;
-  }
-  .mar-y--#{$i} {
-    margin-top: $x;
-    margin-bottom: $x;
-  }
-  .mar-xy--#{$i} {
-    margin: $x;
+  @include lg {
+    padding: 1.5rem 4rem 56px;
   }
 }

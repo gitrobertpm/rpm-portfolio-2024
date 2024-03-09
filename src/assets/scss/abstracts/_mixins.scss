@@ -1,4 +1,6 @@
-@import "variables";
+@use "variables" as *;
+@use "extends" as *;
+
 // Typography --------------------------------------------------------------------------------------------------------
 @mixin heading {
   position: relative;
