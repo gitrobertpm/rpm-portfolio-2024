@@ -1,0 +1,33 @@
+@use "../variables" as *;
+@use "../extends" as *;
+
+@mixin sm {
+  @media (min-width: #{$mobile-brk}) {
+    @content;
+  }
+}
+@mixin sm-md-mid {
+  @media (min-width: #{$mob-tab-mid-brk}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: #{$tablet-brk}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: #{$desktop-brk}) {
+    @content;
+  }
+}
+@mixin lg-down {
+  @media (max-width: #{$desktop-brk}) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: #{$xl-brk}) {
+    @content;
+  }
+}

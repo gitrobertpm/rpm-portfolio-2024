@@ -1,0 +1,47 @@
+@use "../abstracts" as *;
+
+// Link & button base and state-specific styles are defined in mixins and applied to tags in typography files.
+// BEM classes below are mostly for dev and testing purposes and display on the style guide view.
+// But these can double as utility classes if needed. 
+.link {
+  &--hover {
+    @include link-hover;
+  }
+  &--active {
+    @include link-active;
+  }
+  &--focus {
+    @include link-focus;
+  }
+  &--focus-visible {
+    @include link-focus-visible;
+  }
+  &--visited {
+    @include link-visited;
+  }
+  &--disabled {
+    @include link-disabled;
+  }
+}
+
+.btn {
+  @include btn;
+  &--hover {
+    @include btn-hover;
+  }
+  &--primary {
+    @include btn-primary;
+  }
+  &--secondary {
+    @include btn-secondary;
+  }
+  &--focus {
+    @include btn-focus;
+  }
+  &--focus-visible {
+    @include btn-focus-visible;
+  }
+  &--active {
+    @include btn-active;
+  }
+}

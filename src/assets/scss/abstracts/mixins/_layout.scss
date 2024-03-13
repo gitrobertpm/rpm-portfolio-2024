@@ -1,0 +1,128 @@
+@use "../variables" as *;
+@use "../extends" as *;
+@use "media-queries" as *;
+
+// Cutout ------------------------------------------------------------------------------------------------------------
+@mixin cutout {
+  margin: 1rem auto;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.75rem;
+  @include sm {
+    padding: 0.1rem 1rem;
+    border-radius: 4rem;
+  }
+  @include md {
+    padding: 0.1rem 1.5rem;
+  }
+}
+@mixin cutout-lt {
+  @include cutout;
+  background: $color-wht;
+  @include md {
+    background: $color-wht;
+  }
+  @include lg {
+    text-align: left;
+    padding: 0.1rem 3rem;
+    margin-left: 0;
+  }
+}
+@mixin cutout-lt-img {
+  width: fit-content;
+  @include cutout-lt;
+  padding: 1rem;
+  border-radius: 5rem;
+  @include sm {
+    padding: 1rem;
+    border-radius: 5rem;
+  }
+  @include md {
+    background: $color-wht;
+  }
+  @include lg {
+    margin: auto;
+    padding: 1rem;
+  }
+}
+@mixin cutout-lt-chubby {
+  @include cutout-lt;
+  padding: 1.5rem 1rem;
+  @include sm {
+    padding: 0.25rem 3rem;
+  }
+  @include lg {
+    padding: 0.25rem 3rem;
+  }
+}
+@mixin cutout-lt-fat {
+  @include cutout-lt;
+  padding: 2rem 1rem;
+  @include sm {
+    padding: 1.5rem 3rem;
+  }
+  @include lg {
+    padding: 1.5rem 3rem;
+  }
+}
+@mixin cutout-dk {
+  @include cutout; 
+  color: $color-text-lt;
+  background: $color-blk;
+  @include md {
+    background: $color-blk;
+  }
+  @include lg {
+    text-align: left;
+    margin-left: 0;
+    padding: 0.1rem 3rem;
+  }
+}
+@mixin cutout-dk-img {
+  width: fit-content;
+  @include cutout-dk;
+  padding: 1rem;
+  border-radius: 5rem;
+  @include sm {
+    border-radius: 5rem;
+    padding: 1rem;
+  }
+  @include md {
+    background: $color-blk;
+  }
+  @include lg {
+    margin: auto;
+    padding: 1rem;
+  }
+}
+@mixin cutout-dk-chubby {
+  @include cutout-dk;
+  padding: 1.5rem 1rem;
+  @include sm {
+    padding: 0.25rem 3rem;
+  }
+  @include lg {
+    padding: 0.25rem 3rem;
+  }
+}
+@mixin cutout-dk-fat {
+  @include cutout-dk;
+  padding: 1.5rem 1rem;
+  @include sm {
+    padding: 1.5rem 3rem;
+  }
+  @include lg {
+    padding: 1.5rem 3rem;
+  }
+}
+// Card -------------------------------------------------------------------------------------------------------------------------------------
+@mixin card-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0 0.5rem;
+  @include sm {
+    gap: 1rem;
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
+}
